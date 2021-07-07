@@ -1,0 +1,27 @@
+---
+title: Machine Learning and Molecular Docking for Drug Discovery
+author: Hayley Zorkic, Jacob Stambaugh, Josh Lutgens
+date: '2021-04-28'
+slug: []
+categories: []
+tags: []
+description: ''
+---
+
+# 0. Abstract
+
+With the advancements of sequencing technology, computational power, and open source data, cancer diagnostics are becoming increasingly personalized field. Diagnostic personalization invites the design and discovery of personalized treatments for patients to replace "one drug fits all" treatments or systemically harmful treatments such as chemo or radiation therapy that have been used historically. By using pre-existing databases, pharmacokinetic and pharmacodynamic information, and available protein structures, Computational Scientist have a unique opportunity in the modern world to identify pre-existing drugs that can be used for new applications and/or direct the drug design for personalized medicine.
+
+Recent papers have outlined the utilization of verified genetic signatures and machine learning to find new, personalized gene signatures for patients with cancer (1). Novel gene signatures can be used to identify new treatments for specific cancers. This project will closely imitate, document, and improve upon the methods outlined in Blanco et. al. utilizing identified cancer gene meta-signatures, machine learning, and molecular docking in order to identify novel treatments for Colon Adenocarcinoma (COAD).
+
+We utilized three datasets and three machine learning algorithms to verify and identify gene signatures for the diagnosis of COAD. Gene expression analysis of RNASeq data obtained from The Cancer Genome Atlas (TCGA) was divided into three datasets: 100 random genes, the top 100 differentially expressed genes, and data using the meta-signature outlined in Blanco et. al. We then trained and tested each of these datasets using Random Forest, SVM, and Deep Learning Machine Learning Algorithms. The novel meta-signature we identified did not have easily accessible protein data bank information available, so we were unable to cross-analyze docking possibilities of pre-existing drugs with our proteins of interest in order to propose a drug candidate for COAD.
+
+# 1. Project Links
+
+*Here is a link to the full project website:* <https://sites.google.com/utexas.edu/mbch394mlmd/>
+
+*Here is a link to the project repo: <https://github.com/hzorkic/machine_learning_and_molecular_docking_for_drug_discovery>*
+
+# 2. Project Highlights
+
+[ To be added, reference the website for now ]

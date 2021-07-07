@@ -1,0 +1,662 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Hayley Zorkic">
+    <link rel="shortcut icon" type="image/x-icon" href="https://hzokric.github.ioimg/favicon.ico">
+    <title>Modeling Colon Cancer Therapies | Hayley Zorkic</title>
+    <meta name="description" content="0. BackgroundFrom the original authors of the dataset: “These are data from one ofthe first successful trials of adjuvant chemotherapy for colon cancer.Levamisole is a low-toxicity compound previously used to treat worminfestations in animals; 5-FU is a moderately toxic (as these things go)chemotherapy agent. There are two records per person, one for recurrenceand one for death.”
+This project will explore the following variables AT THE TIME OF DEATHfrom the colon cancer dataset:">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+    <link rel="preload stylesheet" href="/css/main.min.css" as="style">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+  </head>
+  <body>
+    <div id="content">
+  
+  <div class="container mb-3">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://hzokric.github.io">
+        <i class="fa fa-home"></i>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          
+            
+              <li class="nav-item">
+                <li><a class="nav-link" href="/post/">BLOG</a></li>
+              </li>
+            
+              <li class="nav-item">
+                <li><a class="nav-link" href="/about/">ABOUT</a></li>
+              </li>
+            
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container">
+    <h3 class="mt-3"><b><a href="https://hzokric.github.io/2020/11/16/modeling-colon-cancer-therapies/">Modeling Colon Cancer Therapies</a></b></h3>
+    <div class="blog-title my-4">
+      <h6>
+        November 16, 2020
+        &nbsp;&nbsp;
+        
+      </h6>
+    </div>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="blogpost">
+          
+<script src="/rmarkdown-libs/header-attrs/header-attrs.js"></script>
+
+
+<div id="background" class="section level3">
+<h3>0. Background</h3>
+<p>From the original authors of the dataset: <em>“These are data from one of
+the first successful trials of adjuvant chemotherapy for colon cancer.
+Levamisole is a low-toxicity compound previously used to treat worm
+infestations in animals; 5-FU is a moderately toxic (as these things go)
+chemotherapy agent. There are two records per person, one for recurrence
+and one for death.”</em></p>
+<p>This project will explore the following variables AT THE TIME OF DEATH
+from the colon cancer dataset:</p>
+<ul>
+<li>rx Treatment : Obs(ervation), Lev(amisole), Lev(amisole)+5-FU</li>
+<li>differ Differentiation of tumour : 1=well, 2=moderate, 3=poor</li>
+<li>extent Extent of local spread : 1=submucosa, 2=muscle, 3=serosa,
+4=contiguous structures</li>
+<li>sex (binary) : 1=male - obstruct (binary) obstruction of colon by
+tumour : 1=yes Numeric (more than 10 values)</li>
+<li>age (numeric) :min years</li>
+<li>time (numeric) days until death</li>
+<li>nodes (numeric) number of lymph nodes with detectable cancer</li>
+</ul>
+<p><strong>After omitting NA’s, 888 unique patient observations were left.</strong></p>
+<pre class="r"><code># load in out libraries
+library(tidyverse)
+library(survival)
+
+# select just our variables of interest
+data &lt;- colon %&gt;% 
+  select(id,rx,sex,age,obstruct,nodes,differ, extent, time, etype) %&gt;%
+  filter(etype != 1) %&gt;%
+  select(-etype) %&gt;% 
+  drop_na()
+rownames(data) &lt;- NULL
+head(data)</code></pre>
+<pre><code>##   id      rx sex age obstruct nodes differ extent time
+## 1  1 Lev+5FU   1  43        0     5      2      3 1521
+## 2  2 Lev+5FU   1  63        0     1      2      3 3087
+## 3  3     Obs   0  71        0     7      2      2  963
+## 4  4 Lev+5FU   0  66        1     6      2      3  293
+## 5  5     Obs   1  69        0    22      2      3  659
+## 6  6 Lev+5FU   0  57        0     9      2      3 1767</code></pre>
+</div>
+<div id="manova" class="section level3">
+<h3>1. MANOVA</h3>
+<p>A one way MANOVA was conducted to determine the effect of 3 dependent
+variables (age, nodes, and time) on two levels of colon obstruction.</p>
+<pre class="r"><code># select depended variables
+dvs &lt;- c(&quot;age&quot;,&quot;nodes&quot;,&quot;time&quot;)
+
+# run a manova
+man &lt;- manova(cbind(age,nodes,time)~obstruct, data)
+summary(man) #MANOVA </code></pre>
+<pre><code>##            Df   Pillai approx F num Df den Df    Pr(&gt;F)    
+## obstruct    1 0.020396   6.1351      3    884 0.0003949 ***
+## Residuals 886                                              
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Significant differences were found among the two levels of obstruction
+for at least one of the dependent variables, Pillai= 0.020396, pseudo
+F()= 6.1351, p=0.0003949.</p>
+<pre class="r"><code>#get univariate ANOVAs from MANOVA object
+summary.aov(man) </code></pre>
+<pre><code>##  Response age :
+##              Df Sum Sq Mean Sq F value   Pr(&gt;F)   
+## obstruct      1   1128 1128.03  8.0091 0.004759 **
+## Residuals   886 124786  140.84                    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+##  Response nodes :
+##              Df  Sum Sq Mean Sq F value Pr(&gt;F)
+## obstruct      1     9.6   9.608  0.7664 0.3816
+## Residuals   886 11106.7  12.536               
+## 
+##  Response time :
+##              Df    Sum Sq Mean Sq F value  Pr(&gt;F)  
+## obstruct      1   4407593 4407593  5.8107 0.01613 *
+## Residuals   886 672059245  758532                  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>Univariate ANOVAs for each dependent variable were conducted as
+follow-up tests to the MANOVA, using the Bonferroni method for
+controlling for Type 1 error rates for multiple comparisons. The
+univariate ANOVAs for age and time were also significant F()= 8.0091,
+p=0.004759, and F()= 5.8107,p=0.01613.</p>
+<pre class="r"><code>pairwise.t.test(data$time,data$obstruct, p.adj=&quot;none&quot;)</code></pre>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  data$time and data$obstruct 
+## 
+##   0    
+## 1 0.016
+## 
+## P value adjustment method: none</code></pre>
+<pre class="r"><code>pairwise.t.test(data$age,data$obstruct, p.adj=&quot;none&quot;)</code></pre>
+<pre><code>## 
+##  Pairwise comparisons using t tests with pooled SD 
+## 
+## data:  data$age and data$obstruct 
+## 
+##   0     
+## 1 0.0048
+## 
+## P value adjustment method: none</code></pre>
+<p>Post hoc analysis was performed conducting pairwise comparisons to
+determine if obstruction levels differed across time and age. There is a
+significant difference between obstruction levels in age, but not time
+after adjusting for multiple comparisons (bonferroni a = .05/6 =
+0.008333333).</p>
+<p>The MANOVA assumes the following:</p>
+<p>1. Random samples, independent observations</p>
+<p>2. Multivariate normality of DVs (or each group)</p>
+<p>3. Homogeneity of within-group covariance matrices ANOVA assumes equal
+variance for DV within each group MANOVA assumes it for each DV and
+equal covariance between any two DVs,</p>
+<p>4. Linear relationships among DVs</p>
+<p>5. No extreme univariate or multivariate outlines</p>
+<p>6. No multicollinearity (i.e., DVs should not be too correlated).</p>
+<p>If anything, I believe the time data would violate the normality data
+because there may be an exponential increase in days until death.</p>
+</div>
+<div id="randomization-test" class="section level3">
+<h3>2. Randomization test</h3>
+<p>If we scramble our data up, we break any systematic association between
+group and response. On average the groups’ mean responses will be the
+same. If we do this repeatedly and calculate an F statistic each time,
+we get the sampling distribution of F under the Null hypothesis that all
+groups have the same mean. We then compare our actual statistic to the
+null distribution to see if it is a plausible value in the null
+distribution, else all groups do not have the same mean.</p>
+<pre class="r"><code>library(vegan)
+#compute distances/dissimilarities
+dists &lt;- data%&gt;%select(sex,age,nodes,differ,extent,time)%&gt;%dist
+#perform PERMANOVA on distances/dissimilarities
+adonis(dists~obstruct,data)</code></pre>
+<pre><code>## 
+## Call:
+## adonis(formula = dists ~ obstruct, data = data) 
+## 
+## Permutation: free
+## Number of permutations: 999
+## 
+## Terms added sequentially (first to last)
+## 
+##            Df SumsOfSqs MeanSqs F.Model      R2 Pr(&gt;F)  
+## obstruct    1   4408732 4408732   5.811 0.00652  0.022 *
+## Residuals 886 672195793  758686         0.99348         
+## Total     887 676604525                 1.00000         
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>SST&lt;- sum(dists^2)/888
+SSW &lt;- data%&gt;%group_by(obstruct)%&gt;%select(obstruct,sex,age,nodes,differ,extent,time) %&gt;%
+    do(d=dist(.[-1],&quot;euclidean&quot;))%&gt;%ungroup()%&gt;%
+    summarize(sum(d[[1]]^2)/717 + sum(d[[2]]^2)/171)%&gt;%pull
+F_obs&lt;-((SST-SSW)/1)/(SSW/886) #observed F statistic
+F_obs</code></pre>
+<pre><code>## [1] 5.81101</code></pre>
+<pre class="r"><code>Fs&lt;-replicate(1000,{
+  new &lt;- data%&gt;%mutate(obstruct=sample(obstruct)) #randomly permute response variable (rx)
+  SSW &lt;- new%&gt;%group_by(obstruct)%&gt;%select(obstruct,sex,age,nodes,differ,extent,time) %&gt;%
+    do(d=dist(.[-1],&quot;euclidean&quot;))%&gt;%ungroup()%&gt;%
+    summarize(sum(d[[1]]^2)/717 + sum(d[[2]]^2)/171)%&gt;%pull
+  
+  ((SST-SSW)/1)/(SSW/886) #calculate new F on randomized data
+})
+
+hist(Fs,prob = T)</code></pre>
+<p><img src="/post/2021-05-15-colon-cancer-chemotherapy/project2_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>##Let&#39;s look at this distribution! What is the probability of getting a statistic at least as extreme as the one we got in this (null) distribution? That&#39;s your p-value!
+mean(Fs&gt;F_obs)</code></pre>
+<pre><code>## [1] 0.023</code></pre>
+<p>A PERMANOVA Randomization Test was performed on the data- using distance
+matrices for partitioning distance matrices among sources of variation
+and fitting linear models (e.g., factors, polynomial regression) to
+distance matrices; uses a permutation test with pseudo-F ratios. The p
+value generated by the PERMANOVA is p=0.022&lt;0.05 so there is no
+significant difference in F statistics generated under the null
+hypothesis that the obstruction groups differ by
+sex,age,nodes,differ,extent,and/or time, out F statistic being 5.811.</p>
+<p>We performed a by hand PERMANOVA calculation to compare to our actual F
+statistic generated in the PERMANOVA from the vegan package and got a p
+value of p=0.014&lt;0.05 so we reject the null hypothesis and can conclude
+the obstruction groups differ across the variables.</p>
+</div>
+<div id="linear-regression-model" class="section level3">
+<h3>3.Linear Regression Model</h3>
+<p>A linear regression model with interaction was constructed to predict
+obstruction from prescription and number of nodes. All numeric variables
+were centered.</p>
+<pre class="r"><code>data$time_c &lt;- data$time - mean(data$time)
+data$age_c &lt;- data$age - mean(data$age)
+data$nodes_c &lt;- data$nodes - mean(data$nodes)
+fit &lt;- lm(time_c ~ rx*nodes_c, data = data)
+summary(fit)</code></pre>
+<pre><code>## 
+## Call:
+## lm(formula = time_c ~ rx * nodes_c, data = data)
+## 
+## Residuals:
+##     Min      1Q  Median      3Q     Max 
+## -1849.0  -748.9   241.9   658.4  1727.0 
+## 
+## Coefficients:
+##                   Estimate Std. Error t value Pr(&gt;|t|)    
+## (Intercept)         -60.04      47.49  -1.264   0.2065    
+## rxLev                13.67      67.76   0.202   0.8402    
+## rxLev+5FU           175.64      68.14   2.578   0.0101 *  
+## nodes_c             -88.72      12.65  -7.012 4.67e-12 ***
+## rxLev:nodes_c        19.56      18.46   1.060   0.2896    
+## rxLev+5FU:nodes_c    26.44      19.71   1.341   0.1802    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1
+## 
+## Residual standard error: 828.6 on 882 degrees of freedom
+## Multiple R-squared:  0.1048, Adjusted R-squared:  0.09973 
+## F-statistic: 20.65 on 5 and 882 DF,  p-value: &lt; 2.2e-16</code></pre>
+<p>The following interpretations from the linear regression can be made,
+disregarding significance.</p>
+<ul>
+<li><p><code>Intercept</code>: -60.04 is the predicted days from the mean time until
+death when rx=Obs and there is an average number of nodes.</p></li>
+<li><p><code>rxLev</code>: Controlling for nodes, the predicted days from the mean
+time until death increase by 13.67 days for Lev prescription users.</p></li>
+<li><p><code>rxLev+5U</code>: Controlling for nodes, the predicted days from the mean
+time until death increase by 175.64 days for Lev+5U prescription
+users.</p></li>
+<li><p><code>nodes_c</code>: Controlling for rx, for every 1 unit increase in nodes
+from the average,the predicted days from the mean time until death
+decrease by 88.72 days.</p></li>
+<li><p><code>rxLev:nodes_c</code>: The slope for nodes_c on time_c is 19.56 higher for
+rxLev users.</p></li>
+</ul>
+<p>-<code>rxLev+5U:nodes_c</code>: The slope for nodes_ on time_c is 26.44 higher
+for rxLEv+5U users.</p>
+<pre class="r"><code>data %&gt;% ggplot(aes(nodes_c,time_c,color=rx))+geom_point()+geom_smooth(method=&quot;lm&quot;, se=F)</code></pre>
+<p><img src="/post/2021-05-15-colon-cancer-chemotherapy/project2_files/figure-html/unnamed-chunk-8-1.png" width="672" /></p>
+<pre class="r"><code>resids&lt;-fit$residuals
+fitvals&lt;-fit$fitted.values
+plot(fitvals,resids); abline(h=0, col=&#39;red&#39;)</code></pre>
+<p><img src="/post/2021-05-15-colon-cancer-chemotherapy/project2_files/figure-html/unnamed-chunk-9-1.png" width="672" /></p>
+<pre class="r"><code>par(mfrow=c(1,2)); hist(resids); qqnorm(resids); qqline(resids, col=&#39;red&#39;)</code></pre>
+<p><img src="/post/2021-05-15-colon-cancer-chemotherapy/project2_files/figure-html/unnamed-chunk-9-2.png" width="672" /></p>
+<pre class="r"><code>ggplot(data,aes(age_c,time_c,color=rx))+geom_point()</code></pre>
+<p><img src="/post/2021-05-15-colon-cancer-chemotherapy/project2_files/figure-html/unnamed-chunk-9-3.png" width="672" /></p>
+<pre class="r"><code>library(sandwich)
+library(lmtest)
+
+bptest(fit)</code></pre>
+<pre><code>## 
+##  studentized Breusch-Pagan test
+## 
+## data:  fit
+## BP = 11.096, df = 5, p-value = 0.04951</code></pre>
+<pre class="r"><code>shapiro.test(resids) </code></pre>
+<pre><code>## 
+##  Shapiro-Wilk normality test
+## 
+## data:  resids
+## W = 0.9502, p-value &lt; 2.2e-16</code></pre>
+<p>According to the plots, the assumptions of linearity appears to be met.
+Homoskedasticity had to be confirmed with the the Breusch-Pagan test-
+the null hypothesis was rejected (p=0.04951&lt;0.05) which showed that
+homoskedasticity is violated. Normality was formally tested with the
+shapiro-wilk test which showed that normality was violated
+(p&lt;0.0000001).</p>
+<pre class="r"><code>coeftest(fit, vcov = vcovHC(fit)) #regression after adjusting standard errors for violation</code></pre>
+<pre><code>## 
+## t test of coefficients:
+## 
+##                   Estimate Std. Error t value  Pr(&gt;|t|)    
+## (Intercept)        -60.040     45.421 -1.3219  0.186552    
+## rxLev               13.666     67.846  0.2014  0.840411    
+## rxLev+5FU          175.643     67.513  2.6016  0.009434 ** 
+## nodes_c            -88.724     12.770 -6.9476 7.213e-12 ***
+## rxLev:nodes_c       19.565     23.341  0.8382  0.402132    
+## rxLev+5FU:nodes_c   26.436     20.642  1.2807  0.200640    
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<p>After performing a robust SE calculation with the original linear
+regression, the only two significant effects on the time_c are rxLev+5FU
+users and an increase in nodes_c- congruent with the original model.</p>
+<p>The proportion of variation in the response variable explained by the
+model is 10.48%- due to chance, our numbers have some association with
+the outcome.</p>
+</div>
+<div id="bootstrapped-ses-of-linear-regression-model" class="section level3">
+<h3>4. Bootstrapped SEs of Linear Regression Model</h3>
+<p>A Bootstrapped SE was performed on our linear regression model for
+predicting obstruction from prescription and number of nodes. All
+numeric variables were centered.</p>
+<pre class="r"><code>boot_dat&lt;- sample_frac(data, replace=T)
+samp_distn&lt;-replicate(5000, {
+boot_dat &lt;- sample_frac(data, replace=T) #take bootstrap sample of rows
+fit &lt;- lm(time_c~rx*age_c, data=boot_dat) #fit model on bootstrap sample
+coef(fit) #save coifs
+})
+samp_distn %&gt;% t %&gt;% as.data.frame %&gt;% summarize_all(sd)</code></pre>
+<pre><code>##   (Intercept)    rxLev rxLev+5FU    age_c rxLev:age_c rxLev+5FU:age_c
+## 1    49.19298 71.11499  69.97548 4.318927    6.114598        5.877882</code></pre>
+<pre class="r"><code>coeftest(fit)[,1:2]</code></pre>
+<pre><code>##                    Estimate Std. Error
+## (Intercept)       -60.04046   47.49429
+## rxLev              13.66610   67.76024
+## rxLev+5FU         175.64337   68.14139
+## nodes_c           -88.72427   12.65309
+## rxLev:nodes_c      19.56495   18.46231
+## rxLev+5FU:nodes_c  26.43646   19.71237</code></pre>
+<pre class="r"><code>coeftest(fit, vcov=vcovHC(fit))[,1:2]</code></pre>
+<pre><code>##                    Estimate Std. Error
+## (Intercept)       -60.04046   45.42066
+## rxLev              13.66610   67.84649
+## rxLev+5FU         175.64337   67.51271
+## nodes_c           -88.72427   12.77041
+## rxLev:nodes_c      19.56495   23.34097
+## rxLev+5FU:nodes_c  26.43646   20.64238</code></pre>
+<p>The original SEs and the robust SEs differ significantly only at
+rxLev:nodes_c with robust SE having a greater Std. error than original
+SEs. Bootstrapped SEs were greater than Original SEs and robust SEs in
+intercept, rxLev, rxLev+5FU but more than half as large than Robust and
+Original SEs in age_c, rxLev:age_c, rxLev+5FU:age_c.</p>
+</div>
+<div id="logistic-regression" class="section level3">
+<h3>5. Logistic Regression</h3>
+<p>A logistic regression was performed without interaction to predict the
+binary variable obstruction from rx, age_c, and time_c. The numeric
+variables were centered.</p>
+<pre class="r"><code>library(lmtest)
+
+fit2&lt;-glm(obstruct~rx+age_c+time_c, data=data, family=&quot;binomial&quot;)
+coeftest(fit2)</code></pre>
+<pre><code>## 
+## z test of coefficients:
+## 
+##                Estimate  Std. Error z value  Pr(&gt;|z|)    
+## (Intercept) -1.4175e+00  1.4502e-01 -9.7749 &lt; 2.2e-16 ***
+## rxLev       -1.8633e-02  2.0592e-01 -0.0905  0.927899    
+## rxLev+5FU   -1.2481e-01  2.1230e-01 -0.5879  0.556603    
+## age_c       -1.9995e-02  6.9729e-03 -2.8676  0.004136 ** 
+## time_c      -2.3501e-04  9.7769e-05 -2.4037  0.016229 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>#Can tell three predictors significantly increase the probability of obstruction (significant positive coefficients)
+#EXPONENTIATE COEFFICIENTS TO INTERPRET:
+#odds scale coefs (multiplicative): these are the ones you interpret!
+coef(fit2)%&gt;%exp%&gt;%round(5)%&gt;%data.frame</code></pre>
+<pre><code>##                   .
+## (Intercept) 0.24231
+## rxLev       0.98154
+## rxLev+5FU   0.88266
+## age_c       0.98020
+## time_c      0.99977</code></pre>
+<p>The following interpretations from the logistic regression can be made,
+disregarding significance.</p>
+<ul>
+<li><p><code>Intercept</code>: Predicted odds of obstruction when rx=Obs, average age,
+and average days until death is 0.24231.</p></li>
+<li><p><code>rxLev</code>: Controlling for age and time, odds of obstruction for Lev
+prescription users is 0.98154 times that the Obs Prescription users.</p></li>
+<li><p><code>rxLev+5FU</code>: Controlling for age and time, odds of obstruction for
+Lev+5FU prescription users is 0.88266 times that the Obs
+Prescription users.</p></li>
+<li><p><code>age_c</code>: Controlling for prescription and time, every year increase
+in age from the mean multiples the odds of obstruction multiplies
+odds by 0.98020.</p></li>
+<li><p><code>time_c</code>: Controlling for prescription and age, every day increase
+in days until death from the mean multiples the odds of obstruction
+multiplies odds by 0.99977.</p></li>
+</ul>
+<pre class="r"><code>class_diag &lt;- function(probs,truth){
+  #CONFUSION MATRIX: CALCULATE ACCURACY, TPR, TNR, PPV
+  tab&lt;-table(factor(probs&gt;.5,levels=c(&quot;FALSE&quot;,&quot;TRUE&quot;)),truth)
+  acc=sum(diag(tab))/sum(tab)
+  sens=tab[2,2]/colSums(tab)[2]
+  spec=tab[1,1]/colSums(tab)[1]
+  ppv=tab[2,2]/rowSums(tab)[2]
+  f1=2*(sens*ppv)/(sens+ppv)
+
+  if(is.numeric(truth)==FALSE &amp; is.logical(truth)==FALSE) truth&lt;-as.numeric(truth)-1
+  
+  #CALCULATE EXACT AUC
+  ord&lt;-order(probs, decreasing=TRUE)
+  probs &lt;- probs[ord]; truth &lt;- truth[ord]
+  
+  TPR=cumsum(truth)/max(1,sum(truth)) 
+  FPR=cumsum(!truth)/max(1,sum(!truth))
+  
+  dup&lt;-c(probs[-1]&gt;=probs[-length(probs)], FALSE)
+  TPR&lt;-c(0,TPR[!dup],1); FPR&lt;-c(0,FPR[!dup],1)
+  n &lt;- length(TPR)
+  auc&lt;- sum( ((TPR[-1]+TPR[-n])/2) * (FPR[-1]-FPR[-n]) )
+
+  data.frame(acc,sens,spec,ppv,f1,auc)
+}
+
+prob&lt;-predict(fit2,type=&quot;response&quot;) #get predictions for each patient. prob&gt;.5
+class_diag(prob,data$obstruct)</code></pre>
+<pre><code>##         acc sens spec ppv  f1      auc
+## 1 0.8074324    0    1 NaN NaN 0.580754</code></pre>
+<p>From the confusion matrix, we can see the accuracy of the model is
+0.8074324, the sensitivity is 0, the specificity is 1, the precision is
+NaN because the sensitivity is 0, and the auc is 0.580754… not great.</p>
+<p>Below is the density plot of the log odds colored by obstruction binary
+outcome.</p>
+<pre class="r"><code>data$logit&lt;-predict(fit2) #get predicted log-odds (logits)
+
+#plot logit scores for each truth category
+
+data %&gt;% mutate(obstruct=factor(obstruct,levels=c(&quot;1&quot;,&quot;0&quot;))) %&gt;% #changing order so color red=malig
+ggplot(aes(logit, fill=obstruct))+geom_density(alpha=.3)+
+  geom_vline(xintercept=0,lty=2)</code></pre>
+<p><img src="/post/2021-05-15-colon-cancer-chemotherapy/project2_files/figure-html/unnamed-chunk-14-1.png" width="672" /></p>
+<p>Below is the ROC curve and AUC calculations.</p>
+<pre class="r"><code>library(pROC)
+library(plotROC)#Compare with this AUC calculator!
+ROCplot&lt;-ggplot(data)+geom_roc(aes(d=obstruct,m=prob), n.cuts=0) 
+ROCplot</code></pre>
+<p><img src="/post/2021-05-15-colon-cancer-chemotherapy/project2_files/figure-html/unnamed-chunk-15-1.png" width="672" /></p>
+<pre class="r"><code>calc_auc(ROCplot)</code></pre>
+<pre><code>##   PANEL group      AUC
+## 1     1    -1 0.580754</code></pre>
+<p>The AUC of 0.580754 is Bad! It is hard to determined obstruction from
+rx, age_c, and time_c.</p>
+</div>
+<div id="logistic-regression-with-all-variables" class="section level3">
+<h3>6. Logistic Regression with ALL variables</h3>
+<p>A logistic regression was performed without interaction to predict the
+binary variable obstruction from all of the variables. The numeric
+variables were centered.</p>
+<pre class="r"><code>library(lmtest)
+fit3&lt;-glm(obstruct~rx+sex+age_c+differ+extent+time_c+nodes_c, data=data, family=&quot;binomial&quot;)
+coeftest(fit3)</code></pre>
+<pre><code>## 
+## z test of coefficients:
+## 
+##                Estimate  Std. Error z value  Pr(&gt;|z|)    
+## (Intercept) -2.26511508  0.68773683 -3.2936 0.0009892 ***
+## rxLev       -0.01730803  0.20736421 -0.0835 0.9334804    
+## rxLev+5FU   -0.13828409  0.21372337 -0.6470 0.5176166    
+## sex         -0.17135907  0.17341041 -0.9882 0.3230691    
+## age_c       -0.02171535  0.00708102 -3.0667 0.0021644 ** 
+## differ      -0.06512005  0.17143740 -0.3798 0.7040587    
+## extent       0.36516717  0.20025407  1.8235 0.0682248 .  
+## time_c      -0.00027555  0.00010514 -2.6206 0.0087768 ** 
+## nodes_c     -0.05747001  0.02895820 -1.9846 0.0471907 *  
+## ---
+## Signif. codes:  0 &#39;***&#39; 0.001 &#39;**&#39; 0.01 &#39;*&#39; 0.05 &#39;.&#39; 0.1 &#39; &#39; 1</code></pre>
+<pre class="r"><code>#Can tell three predictors significantly increase the probability of obstruction (significant positive coefficients)
+#EXPONENTIATE COEFFICIENTS TO INTERPRET:
+#odds scale coefs (multiplicative): these are the ones you interpret!
+coef(fit3)%&gt;%exp%&gt;%round(5)%&gt;%data.frame</code></pre>
+<pre><code>##                   .
+## (Intercept) 0.10382
+## rxLev       0.98284
+## rxLev+5FU   0.87085
+## sex         0.84252
+## age_c       0.97852
+## differ      0.93695
+## extent      1.44075
+## time_c      0.99972
+## nodes_c     0.94415</code></pre>
+<pre class="r"><code>prob&lt;-predict(fit3,type=&quot;response&quot;) #get predictions for each patient. prob&gt;.5
+class_diag(prob,data$obstruct)</code></pre>
+<pre><code>##         acc sens spec ppv  f1       auc
+## 1 0.8074324    0    1 NaN NaN 0.6179011</code></pre>
+<p>From the confusion matrix, the accuracy of the model is 0.8074324, the
+sensitivity is 0, the specificity is 1, the precision is NaN because the
+sensitivity is 0, and the auc is 0.6179011…Poor.</p>
+<p>A 10-fold CV was run with the model.</p>
+<pre class="r"><code>set.seed(1234)
+k=10 #choose number of folds
+
+data10&lt;-data[sample(nrow(data)),] #randomly order rows
+folds&lt;-cut(seq(1:nrow(data10)),breaks=k,labels=F) #create folds
+
+diags&lt;-NULL
+for(i in 1:k){
+  ## Create training and test sets
+  train&lt;-data10[folds!=i,] 
+  test&lt;-data10[folds==i,]
+  
+  truth&lt;-test$obstruct ## Truth labels for fold i
+  
+  ## Train model on training set (all but fold i)
+  fit&lt;-glm(obstruct~rx+sex+age_c+differ+extent+time_c+nodes_c,data=train,family=&quot;binomial&quot;)
+  
+  ## Test model on test set (fold i) 
+  probs&lt;-predict(fit,newdata = test,type=&quot;response&quot;)
+  
+  ## Get diagnostics for fold i
+  diags&lt;-rbind(diags,class_diag(probs,truth))
+}
+
+summarize_all(diags,mean) #average diagnostics across all k folds</code></pre>
+<pre><code>##         acc sens spec ppv  f1       auc
+## 1 0.8074183    0    1 NaN NaN 0.5654982</code></pre>
+<p>The accuracy of the model is 0.8074183, the sensitivity is 0, the
+specificity is 1, the precision is NaN because the sensitivity is 0, and
+the auc is 0.5654982…Bad.</p>
+<p>Next, a LASSO was run on the logistic regression.</p>
+<pre class="r"><code>library(glmnet)
+y&lt;-as.matrix(data$obstruct) #grab response
+x&lt;-model.matrix(obstruct~rx+sex+age_c+differ+extent+time_c+nodes_c,data=data)[,-1] #grab predictors
+x&lt;-scale(x)
+glm(y~x,family=binomial)</code></pre>
+<pre><code>## 
+## Call:  glm(formula = y ~ x, family = binomial)
+## 
+## Coefficients:
+## (Intercept)       xrxLev   xrxLev+5FU         xsex       xage_c      xdiffer  
+##    -1.48575     -0.00815     -0.06483     -0.08567     -0.25873     -0.03327  
+##     xextent      xtime_c     xnodes_c  
+##     0.17472     -0.24063     -0.20345  
+## 
+## Degrees of Freedom: 887 Total (i.e. Null);  879 Residual
+## Null Deviance:       870.1 
+## Residual Deviance: 847   AIC: 865</code></pre>
+<pre class="r"><code>cv &lt;- cv.glmnet(x,y, family=&quot;binomial&quot;) #picks an optimal value for lambda through 10-fold CV
+
+#make a plot of the coefficients for different values of lambda
+{plot(cv$glmnet.fit, &quot;lambda&quot;, label=TRUE); abline(v = log(cv$lambda.1se)); abline(v = log(cv$lambda.min),lty=2)}</code></pre>
+<p><img src="/post/2021-05-15-colon-cancer-chemotherapy/project2_files/figure-html/unnamed-chunk-18-1.png" width="672" /></p>
+<pre class="r"><code>cv&lt;-cv.glmnet(x,y,family=&quot;binomial&quot;)
+lasso&lt;-glmnet(x,y,family=&quot;binomial&quot;,lambda=cv$lambda.1se)
+coef(lasso)</code></pre>
+<pre><code>## 9 x 1 sparse Matrix of class &quot;dgCMatrix&quot;
+##                        s0
+## (Intercept) -1.433412e+00
+## rxLev        .           
+## rxLev+5FU    .           
+## sex          .           
+## age_c       -1.339574e-16
+## differ       .           
+## extent       .           
+## time_c       .           
+## nodes_c      .</code></pre>
+<p>The only retained variable after LASSO is age_c.</p>
+<p>The logistic regression was rerun using only the LASSO retained variable
+age_c.</p>
+<pre class="r"><code>#cross-validating lasso model
+set.seed(1234)
+k=10
+
+datalasso&lt;-data[sample(nrow(data)),] #randomly order rows
+folds&lt;-cut(seq(1:nrow(datalasso)),breaks=k,labels=F) #create folds
+
+diags&lt;-NULL
+for(i in 1:k){
+  train &lt;- datalasso[folds!=i,] #create training set (all but fold i)
+  test &lt;- datalasso[folds==i,] #create test set (just fold i)
+  truth &lt;- test$obstruct #save truth labels from fold i
+  
+  fit &lt;- glm(obstruct~age_c, 
+             data=train, family=&quot;binomial&quot;)
+  probs &lt;- predict(fit, newdata=test, type=&quot;response&quot;)
+  
+  diags&lt;-rbind(diags,class_diag(probs,truth))
+}
+
+diags%&gt;%summarize_all(mean)</code></pre>
+<pre><code>##         acc sens spec ppv  f1       auc
+## 1 0.8074183    0    1 NaN NaN 0.5528919</code></pre>
+<p>After performing a 10-fold CV using only the variables lasso selected:
+the model’s out-of-sample AUC, 0.5527102, was worse than the regression
+above, 0.5654982.</p>
+</div>
+
+          
+          
+        </div>
+      </div>
+      <div class="disqus">
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+    <footer class="footer">
+  <div class="container">
+    <div class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+    <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+  </body>
+</html>

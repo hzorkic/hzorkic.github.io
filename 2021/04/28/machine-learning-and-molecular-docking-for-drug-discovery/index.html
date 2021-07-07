@@ -1,0 +1,110 @@
+<!DOCTYPE html>
+<html lang="en-US">
+  <head>
+    <meta charset="utf-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <meta name="author" content="Hayley Zorkic">
+    <link rel="shortcut icon" type="image/x-icon" href="https://hzokric.github.ioimg/favicon.ico">
+    <title>Machine Learning and Molecular Docking for Drug Discovery | Hayley Zorkic</title>
+    <meta name="description" content="0. AbstractWith the advancements of sequencing technology, computational power, and open source data, cancer diagnostics are becoming increasingly personalized field. Diagnostic personalization invites the design and discovery of personalized treatments for patients to replace “one drug fits all” treatments or systemically harmful treatments such as chemo or radiation therapy that have been used historically. By using pre-existing databases, pharmacokinetic and pharmacodynamic information, and available protein structures, Computational Scientist have a unique opportunity in the modern world to identify pre-existing drugs that can be used for new applications and/or direct the drug design for personalized medicine.">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-BmbxuPwQa2lc/FVzBcNJ7UAyJxM6wuqIj61tLrc4wSX0szH/Ev+nYRRuWlolflfl" crossorigin="anonymous">
+    
+    <link rel="preload stylesheet" href="/css/main.min.css" as="style">
+    <link rel="stylesheet" type="text/css" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.7.0/css/font-awesome.min.css">
+    <link rel="stylesheet" type="text/css" href="https://fonts.googleapis.com/css?family=Source+Sans+Pro:200,400,200bold,400old">
+    
+    <!--[if lt IE 9]>
+			<script src="https://oss.maxcdn.com/libs/html5shiv/3.7.0/html5shiv.js"></script>
+			<script src="https://oss.maxcdn.com/libs/respond.js/1.4.2/respond.min.js"></script>
+		<![endif]-->
+  </head>
+  <body>
+    <div id="content">
+  
+  <div class="container mb-3">
+  <nav class="navbar navbar-expand-lg">
+    <div class="container-fluid">
+      <a class="navbar-brand" href="https://hzokric.github.io">
+        <i class="fa fa-home"></i>
+      </a>
+      <button class="navbar-toggler" type="button" data-bs-toggle="collapse" data-bs-target="#navbar" aria-controls="navbar">
+        <i class="fa fa-bars"></i>
+      </button>
+
+      <div id="navbar" class="collapse navbar-collapse">
+        <ul class="navbar-nav ms-auto mb-2 mb-lg-0">
+          
+            
+              <li class="nav-item">
+                <li><a class="nav-link" href="/post/">BLOG</a></li>
+              </li>
+            
+              <li class="nav-item">
+                <li><a class="nav-link" href="/about/">ABOUT</a></li>
+              </li>
+            
+          
+        </ul>
+      </div>
+    </div>
+  </div>
+</nav>
+
+
+  <div class="container">
+    <h3 class="mt-3"><b><a href="https://hzokric.github.io/2021/04/28/machine-learning-and-molecular-docking-for-drug-discovery/">Machine Learning and Molecular Docking for Drug Discovery</a></b></h3>
+    <div class="blog-title my-4">
+      <h6>
+        April 28, 2021
+        &nbsp;&nbsp;
+        
+      </h6>
+    </div>
+    <div class="panel">
+      <div class="panel-body">
+        <div class="blogpost">
+          
+<script src="https://hzokric.github.io/2021/04/28/machine-learning-and-molecular-docking-for-drug-discovery/index_files/header-attrs/header-attrs.js"></script>
+
+
+<div id="abstract" class="section level1">
+<h1>0. Abstract</h1>
+<p>With the advancements of sequencing technology, computational power, and open source data, cancer diagnostics are becoming increasingly personalized field. Diagnostic personalization invites the design and discovery of personalized treatments for patients to replace “one drug fits all” treatments or systemically harmful treatments such as chemo or radiation therapy that have been used historically. By using pre-existing databases, pharmacokinetic and pharmacodynamic information, and available protein structures, Computational Scientist have a unique opportunity in the modern world to identify pre-existing drugs that can be used for new applications and/or direct the drug design for personalized medicine.</p>
+<p>Recent papers have outlined the utilization of verified genetic signatures and machine learning to find new, personalized gene signatures for patients with cancer (1). Novel gene signatures can be used to identify new treatments for specific cancers. This project will closely imitate, document, and improve upon the methods outlined in Blanco et. al. utilizing identified cancer gene meta-signatures, machine learning, and molecular docking in order to identify novel treatments for Colon Adenocarcinoma (COAD).</p>
+<p>We utilized three datasets and three machine learning algorithms to verify and identify gene signatures for the diagnosis of COAD. Gene expression analysis of RNASeq data obtained from The Cancer Genome Atlas (TCGA) was divided into three datasets: 100 random genes, the top 100 differentially expressed genes, and data using the meta-signature outlined in Blanco et. al. We then trained and tested each of these datasets using Random Forest, SVM, and Deep Learning Machine Learning Algorithms. The novel meta-signature we identified did not have easily accessible protein data bank information available, so we were unable to cross-analyze docking possibilities of pre-existing drugs with our proteins of interest in order to propose a drug candidate for COAD.</p>
+</div>
+<div id="project-links" class="section level1">
+<h1>1. Project Links</h1>
+<p><em>Here is a link to the full project website:</em> <a href="https://sites.google.com/utexas.edu/mbch394mlmd/" class="uri">https://sites.google.com/utexas.edu/mbch394mlmd/</a></p>
+<p><em>Here is a link to the project repo: <a href="https://github.com/hzorkic/machine_learning_and_molecular_docking_for_drug_discovery" class="uri">https://github.com/hzorkic/machine_learning_and_molecular_docking_for_drug_discovery</a></em></p>
+</div>
+<div id="project-highlights" class="section level1">
+<h1>2. Project Highlights</h1>
+<p>[ To be added, reference the website for now ]</p>
+</div>
+
+          
+          
+        </div>
+      </div>
+      <div class="disqus">
+        
+      </div>
+    </div>
+  </div>
+
+    </div>
+    
+    <footer class="footer">
+  <div class="container">
+    <div class="text-muted">&copy; All rights reserved. Powered by <a href="https://gohugo.io/">Hugo</a> and
+    <a href="http://www.github.com/nurlansu/hugo-sustain/">sustain</a> with ♥</div>
+  </div>
+</footer>
+
+
+<script src="https://cdn.jsdelivr.net/npm/bootstrap@5.0.0-beta2/dist/js/bootstrap.min.js" integrity="sha384-nsg8ua9HAw1y0W1btsyWgBklPnCUAFLuTMS2G72MMONqmOymq585AcH49TLBQObG" crossorigin="anonymous"></script>
+
+  </body>
+</html>

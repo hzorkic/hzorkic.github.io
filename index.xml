@@ -1,0 +1,80 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Hayley Zorkic</title>
+    <link>https://hzokric.github.io/</link>
+    <description>Recent content on Hayley Zorkic</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-US</language>
+    <lastBuildDate>Wed, 28 Apr 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hzokric.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Machine Learning and Molecular Docking for Drug Discovery</title>
+      <link>https://hzokric.github.io/2021/04/28/machine-learning-and-molecular-docking-for-drug-discovery/</link>
+      <pubDate>Wed, 28 Apr 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzokric.github.io/2021/04/28/machine-learning-and-molecular-docking-for-drug-discovery/</guid>
+      <description>0. AbstractWith the advancements of sequencing technology, computational power, and open source data, cancer diagnostics are becoming increasingly personalized field. Diagnostic personalization invites the design and discovery of personalized treatments for patients to replace “one drug fits all” treatments or systemically harmful treatments such as chemo or radiation therapy that have been used historically. By using pre-existing databases, pharmacokinetic and pharmacodynamic information, and available protein structures, Computational Scientist have a unique opportunity in the modern world to identify pre-existing drugs that can be used for new applications and/or direct the drug design for personalized medicine.</description>
+    </item>
+    
+    <item>
+      <title>Data Vizualization of Everest Climbers</title>
+      <link>https://hzokric.github.io/2021/03/08/data-vizualization-of-everest-climbers/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzokric.github.io/2021/03/08/data-vizualization-of-everest-climbers/</guid>
+      <description>This is the dataset we will be working with:
+members &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/members.csv&amp;#39;)members_everest &amp;lt;- members %&amp;gt;%filter(peak_name == &amp;quot;Everest&amp;quot;) %&amp;gt;% # only keep expeditions to Everestfilter(!is.na(age)) %&amp;gt;% # only keep expedition members with known agefilter(year &amp;gt;= 1960) # only keep expeditions since 1960 # Relabel out TRUE and FALSE values for successmembers_everest$success2 &amp;lt;- factor(members_everest$success,labels = (c(`TRUE` = &amp;quot;Summited Mt. Everest&amp;quot;, `FALSE` = &amp;quot;Did not summit Mt.</description>
+    </item>
+    
+    <item>
+      <title>Hello R Markdown</title>
+      <link>https://hzokric.github.io/2020/12/01/hello-r-markdown/</link>
+      <pubDate>Tue, 01 Dec 2020 21:13:14 -0500</pubDate>
+      
+      <guid>https://hzokric.github.io/2020/12/01/hello-r-markdown/</guid>
+      <description>R MarkdownThis is an R Markdown document. Markdown is a simple formatting syntax for authoring HTML, PDF, and MS Word documents. For more details on using R Markdown see http://rmarkdown.rstudio.com.
+You can embed an R code chunk like this:
+summary(cars)## speed dist ## Min. : 4.0 Min. : 2.00 ## 1st Qu.:12.0 1st Qu.: 26.00 ## Median :15.0 Median : 36.00 ## Mean :15.4 Mean : 42.</description>
+    </item>
+    
+    <item>
+      <title>RNASeq Analysis</title>
+      <link>https://hzokric.github.io/2020/11/24/rnaseq-analysis/</link>
+      <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzokric.github.io/2020/11/24/rnaseq-analysis/</guid>
+      <description>Analysis of RNASeq Data from Wild Type and Mutated Arabidopsis thaliana0. BackgroundIn this report, we are primarily interested in understanding how the differences in gene expression between the light and dark conditions vary by gene in the primary gene ontology id GO:0006090.To this end, we will use DESeq to look for genes with significant interaction terms between genotype and timepoint.
+In interpreting the RNA-seq data set, you should note the following descriptions of the different sample genotypes:</description>
+    </item>
+    
+    <item>
+      <title>Modeling Colon Cancer Therapies</title>
+      <link>https://hzokric.github.io/2020/11/16/modeling-colon-cancer-therapies/</link>
+      <pubDate>Mon, 16 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzokric.github.io/2020/11/16/modeling-colon-cancer-therapies/</guid>
+      <description>0. BackgroundFrom the original authors of the dataset: “These are data from one ofthe first successful trials of adjuvant chemotherapy for colon cancer.Levamisole is a low-toxicity compound previously used to treat worminfestations in animals; 5-FU is a moderately toxic (as these things go)chemotherapy agent. There are two records per person, one for recurrenceand one for death.”
+This project will explore the following variables AT THE TIME OF DEATHfrom the colon cancer dataset:</description>
+    </item>
+    
+    <item>
+      <title>Exploratory Data Analysis of SARS-CoV-2 Mutations</title>
+      <link>https://hzokric.github.io/2020/10/16/exploratory-data-analysis-of-sars-cov-2-mutations/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzokric.github.io/2020/10/16/exploratory-data-analysis-of-sars-cov-2-mutations/</guid>
+      <description>0. IntroductionCOVID-19 is an infectionus disease caused by Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). First identified in December of 2019, SARS-CoV-2 resulted in an ongoing pandemic effecting over 39 million people in 189 countries, but the WHO predicts that with asymptomatic cases, the number of infections may be closer to 800 million.
+Therapeutics for those suffering from COVID-19 include collecting and transplanting neautralizing antibodies from patients who have recoved from COVID-19.</description>
+    </item>
+    
+    <item>
+      <title></title>
+      <link>https://hzokric.github.io/about/about/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzokric.github.io/about/about/</guid>
+      <description>hi</description>
+    </item>
+    
+  </channel>
+</rss>

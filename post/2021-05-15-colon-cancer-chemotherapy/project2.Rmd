@@ -1,0 +1,477 @@
+---
+title: "Modeling Colon Cancer Therapies"
+author: "Hayley Zorkic"
+date: "2020-11-16"
+
+editor_options: 
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
+### 0. Background
+
+From the original authors of the dataset: *"These are data from one of
+the first successful trials of adjuvant chemotherapy for colon cancer.
+Levamisole is a low-toxicity compound previously used to treat worm
+infestations in animals; 5-FU is a moderately toxic (as these things go)
+chemotherapy agent. There are two records per person, one for recurrence
+and one for death."*
+
+This project will explore the following variables AT THE TIME OF DEATH
+from the colon cancer dataset:
+
+-   rx Treatment : Obs(ervation), Lev(amisole), Lev(amisole)+5-FU
+-   differ Differentiation of tumour : 1=well, 2=moderate, 3=poor
+-   extent Extent of local spread : 1=submucosa, 2=muscle, 3=serosa,
+    4=contiguous structures
+-   sex (binary) : 1=male - obstruct (binary) obstruction of colon by
+    tumour : 1=yes Numeric (more than 10 values)
+-   age (numeric) :min years
+-   time (numeric) days until death
+-   nodes (numeric) number of lymph nodes with detectable cancer
+
+**After omitting NA's, 888 unique patient observations were left.**
+
+```{r}
+# load in out libraries
+library(tidyverse)
+library(survival)
+
+# select just our variables of interest
+data <- colon %>% 
+  select(id,rx,sex,age,obstruct,nodes,differ, extent, time, etype) %>%
+  filter(etype != 1) %>%
+  select(-etype) %>% 
+  drop_na()
+rownames(data) <- NULL
+head(data)
+```
+
+### 1. MANOVA
+
+A one way MANOVA was conducted to determine the effect of 3 dependent
+variables (age, nodes, and time) on two levels of colon obstruction.
+
+```{r}
+# select depended variables
+dvs <- c("age","nodes","time")
+
+# run a manova
+man <- manova(cbind(age,nodes,time)~obstruct, data)
+summary(man) #MANOVA 
+```
+
+Significant differences were found among the two levels of obstruction
+for at least one of the dependent variables, Pillai= 0.020396, pseudo
+F()= 6.1351, p=0.0003949.
+
+```{r}
+#get univariate ANOVAs from MANOVA object
+summary.aov(man) 
+```
+
+Univariate ANOVAs for each dependent variable were conducted as
+follow-up tests to the MANOVA, using the Bonferroni method for
+controlling for Type 1 error rates for multiple comparisons. The
+univariate ANOVAs for age and time were also significant F()= 8.0091,
+p=0.004759, and F()= 5.8107,p=0.01613.
+
+```{r}
+# run our pairwise comparisons
+pairwise.t.test(data$time,data$obstruct, p.adj="none")
+pairwise.t.test(data$age,data$obstruct, p.adj="none")
+```
+
+Post hoc analysis was performed conducting pairwise comparisons to
+determine if obstruction levels differed across time and age. There is a
+significant difference between obstruction levels in age, but not time
+after adjusting for multiple comparisons (bonferroni a = .05/6 =
+0.008333333).
+
+The MANOVA assumes the following:
+
+1. Random samples, independent observations
+2. Multivariate normality of DVs (or each group)
+3. Homogeneity of within-group covariance matrices ANOVA assumes equal
+variance for DV within each group MANOVA assumes it for each DV and
+equal covariance between any two DVs,
+4. Linear relationships among DVs
+5. No extreme univariate or multivariate outlines
+6. No multicollinearity (i.e., DVs should not be too correlated).
+
+If anything, I believe the time data would violate the normality data because there may be an exponential increase in days until death.
+
+### 2. Randomization test
+
+If we scramble our data up, we break any systematic association between
+group and response. On average the groups' mean responses will be the
+same. If we do this repeatedly and calculate an F statistic each time,
+we get the sampling distribution of F under the Null hypothesis that all
+groups have the same mean. We then compare our actual statistic to the
+null distribution to see if it is a plausible value in the null
+distribution, else all groups do not have the same mean.
+
+```{r}
+library(vegan)
+
+#compute distances/dissimilarities
+dists <- data%>%select(sex,age,nodes,differ,extent,time)%>%dist
+
+#perform PERMANOVA on distances/dissimilarities
+adonis(dists~obstruct,data)
+```
+
+```{r}
+SST<- sum(dists^2)/888
+SSW <- data%>%group_by(obstruct)%>%
+  select(obstruct,sex,age,nodes,differ,extent,time) %>%
+    do(d=dist(.[-1],"euclidean"))%>%ungroup()%>%
+    summarize(sum(d[[1]]^2)/717 + sum(d[[2]]^2)/171)%>%pull
+
+#observed F statistic
+F_obs<-((SST-SSW)/1)/(SSW/886) 
+F_obs
+
+Fs<-replicate(1000,{
+  new <- data%>%mutate(obstruct=sample(obstruct)) #randomly permute response variable (rx)
+  SSW <- new%>%
+    group_by(obstruct)%>%
+    select(obstruct,sex,age,nodes,differ,extent,time) %>%
+    do(d=dist(.[-1],"euclidean"))%>%
+    ungroup()%>%
+    summarize(sum(d[[1]]^2)/717 + sum(d[[2]]^2)/171)%>%
+    #calculate new F on randomized data
+    pull((SST-SSW)/1)/(SSW/886) 
+})
+
+hist(Fs,prob = T)
+#Let's look at this distribution! What is the probability of getting a statistic at least as extreme as the one we got in this (null) distribution? That's your p-value!
+mean(Fs>F_obs)
+```
+
+A PERMANOVA Randomization Test was performed on the data- using distance
+matrices for partitioning distance matrices among sources of variation
+and fitting linear models (e.g., factors, polynomial regression) to
+distance matrices; uses a permutation test with pseudo-F ratios. The p
+value generated by the PERMANOVA is p=0.022\<0.05 so there is no
+significant difference in F statistics generated under the null
+hypothesis that the obstruction groups differ by
+sex,age,nodes,differ,extent,and/or time, out F statistic being 5.811.
+
+We performed a by hand PERMANOVA calculation to compare to our actual F
+statistic generated in the PERMANOVA from the vegan package and got a p
+value of p=0.014\<0.05 so we reject the null hypothesis and can conclude
+the obstruction groups differ across the variables.
+
+### 3.Linear Regression Model
+
+A linear regression model with interaction was constructed to predict
+obstruction from prescription and number of nodes. All numeric variables
+were centered.
+
+```{r}
+data$time_c <- data$time - mean(data$time)
+data$age_c <- data$age - mean(data$age)
+data$nodes_c <- data$nodes - mean(data$nodes)
+fit <- lm(time_c ~ rx*nodes_c, data = data)
+summary(fit)
+```
+
+The following interpretations from the linear regression can be made,
+disregarding significance.
+
+-   `Intercept`: -60.04 is the predicted days from the mean time until
+    death when rx=Obs and there is an average number of nodes.
+
+-   `rxLev`: Controlling for nodes, the predicted days from the mean
+    time until death increase by 13.67 days for Lev prescription users.
+
+-   `rxLev+5U`: Controlling for nodes, the predicted days from the mean
+    time until death increase by 175.64 days for Lev+5U prescription
+    users.
+
+-   `nodes_c`: Controlling for rx, for every 1 unit increase in nodes
+    from the average,the predicted days from the mean time until death
+    decrease by 88.72 days.
+
+-   `rxLev:nodes_c`: The slope for nodes_c on time_c is 19.56 higher for
+    rxLev users.
+
+-`rxLev+5U:nodes_c`: The slope for nodes\_ on time_c is 26.44 higher
+for rxLEv+5U users.
+
+```{r}
+data %>% ggplot(aes(nodes_c,time_c,color=rx))+geom_point()+geom_smooth(method="lm", se=F)
+```
+
+```{r}
+resids<-fit$residuals
+fitvals<-fit$fitted.values
+plot(fitvals,resids); abline(h=0, col='red')
+
+par(mfrow=c(1,2)); hist(resids); qqnorm(resids); qqline(resids, col='red')
+
+ggplot(data,aes(age_c,time_c,color=rx))+geom_point()
+
+library(sandwich)
+library(lmtest)
+
+bptest(fit)
+shapiro.test(resids) 
+```
+
+According to the plots, the assumptions of linearity appears to be met.
+Homoskedasticity had to be confirmed with the the Breusch-Pagan test-
+the null hypothesis was rejected (p=0.04951\<0.05) which showed that
+homoskedasticity is violated. Normality was formally tested with the
+shapiro-wilk test which showed that normality was violated
+(p\<0.0000001).
+
+```{r}
+coeftest(fit, vcov = vcovHC(fit)) #regression after adjusting standard errors for violation
+```
+
+After performing a robust SE calculation with the original linear
+regression, the only two significant effects on the time_c are rxLev+5FU
+users and an increase in nodes_c- congruent with the original model.
+
+The proportion of variation in the response variable explained by the
+model is 10.48%- due to chance, our numbers have some association with
+the outcome.
+
+### 4. Bootstrapped SEs of Linear Regression Model
+
+A Bootstrapped SE was performed on our linear regression model for
+predicting obstruction from prescription and number of nodes. All
+numeric variables were centered.
+
+```{R}
+boot_dat<- sample_frac(data, replace=T)
+samp_distn<-replicate(5000, {
+boot_dat <- sample_frac(data, replace=T) #take bootstrap sample of rows
+fit <- lm(time_c~rx*age_c, data=boot_dat) #fit model on bootstrap sample
+coef(fit) #save coifs
+})
+samp_distn %>% t %>% as.data.frame %>% summarize_all(sd)
+coeftest(fit)[,1:2]
+coeftest(fit, vcov=vcovHC(fit))[,1:2]
+
+```
+
+The original SEs and the robust SEs differ significantly only at
+rxLev:nodes_c with robust SE having a greater Std. error than original
+SEs. Bootstrapped SEs were greater than Original SEs and robust SEs in
+intercept, rxLev, rxLev+5FU but more than half as large than Robust and
+Original SEs in age_c, rxLev:age_c, rxLev+5FU:age_c.
+
+### 5. Logistic Regression
+
+A logistic regression was performed without interaction to predict the
+binary variable obstruction from rx, age_c, and time_c. The numeric
+variables were centered.
+
+```{r}
+library(lmtest)
+
+fit2<-glm(obstruct~rx+age_c+time_c, data=data, family="binomial")
+coeftest(fit2)
+#Can tell three predictors significantly increase the probability of obstruction (significant positive coefficients)
+#EXPONENTIATE COEFFICIENTS TO INTERPRET:
+#odds scale coefs (multiplicative): these are the ones you interpret!
+coef(fit2)%>%exp%>%round(5)%>%data.frame
+```
+
+The following interpretations from the logistic regression can be made,
+disregarding significance.
+
+-   `Intercept`: Predicted odds of obstruction when rx=Obs, average age,
+    and average days until death is 0.24231.
+
+-   `rxLev`: Controlling for age and time, odds of obstruction for Lev
+    prescription users is 0.98154 times that the Obs Prescription users.
+
+-   `rxLev+5FU`: Controlling for age and time, odds of obstruction for
+    Lev+5FU prescription users is 0.88266 times that the Obs
+    Prescription users.
+
+-   `age_c`: Controlling for prescription and time, every year increase
+    in age from the mean multiples the odds of obstruction multiplies
+    odds by 0.98020.
+
+-   `time_c`: Controlling for prescription and age, every day increase
+    in days until death from the mean multiples the odds of obstruction
+    multiplies odds by 0.99977.
+
+```{R}
+class_diag <- function(probs,truth){
+  #CONFUSION MATRIX: CALCULATE ACCURACY, TPR, TNR, PPV
+  tab<-table(factor(probs>.5,levels=c("FALSE","TRUE")),truth)
+  acc=sum(diag(tab))/sum(tab)
+  sens=tab[2,2]/colSums(tab)[2]
+  spec=tab[1,1]/colSums(tab)[1]
+  ppv=tab[2,2]/rowSums(tab)[2]
+  f1=2*(sens*ppv)/(sens+ppv)
+
+  if(is.numeric(truth)==FALSE & is.logical(truth)==FALSE) truth<-as.numeric(truth)-1
+  
+  #CALCULATE EXACT AUC
+  ord<-order(probs, decreasing=TRUE)
+  probs <- probs[ord]; truth <- truth[ord]
+  
+  TPR=cumsum(truth)/max(1,sum(truth)) 
+  FPR=cumsum(!truth)/max(1,sum(!truth))
+  
+  dup<-c(probs[-1]>=probs[-length(probs)], FALSE)
+  TPR<-c(0,TPR[!dup],1); FPR<-c(0,FPR[!dup],1)
+  n <- length(TPR)
+  auc<- sum( ((TPR[-1]+TPR[-n])/2) * (FPR[-1]-FPR[-n]) )
+
+  data.frame(acc,sens,spec,ppv,f1,auc)
+}
+
+prob<-predict(fit2,type="response") #get predictions for each patient. prob>.5
+class_diag(prob,data$obstruct)
+
+
+```
+
+From the confusion matrix, we can see the accuracy of the model is
+0.8074324, the sensitivity is 0, the specificity is 1, the precision is
+NaN because the sensitivity is 0, and the auc is 0.580754... not great.
+
+Below is the density plot of the log odds colored by obstruction binary
+outcome.
+
+```{r}
+data$logit<-predict(fit2) #get predicted log-odds (logits)
+
+#plot logit scores for each truth category
+
+data %>% mutate(obstruct=factor(obstruct,levels=c("1","0"))) %>% #changing order so color red=malig
+ggplot(aes(logit, fill=obstruct))+geom_density(alpha=.3)+
+  geom_vline(xintercept=0,lty=2)
+```
+
+Below is the ROC curve and AUC calculations.
+
+```{r}
+library(pROC)
+library(plotROC)#Compare with this AUC calculator!
+ROCplot<-ggplot(data)+geom_roc(aes(d=obstruct,m=prob), n.cuts=0) 
+ROCplot
+calc_auc(ROCplot)
+```
+
+The AUC of 0.580754 is Bad! It is hard to determined obstruction from
+rx, age_c, and time_c.
+
+### 6. Logistic Regression with ALL variables
+
+A logistic regression was performed without interaction to predict the
+binary variable obstruction from all of the variables. The numeric
+variables were centered.
+
+```{r}
+library(lmtest)
+fit3<-glm(obstruct~rx+sex+age_c+differ+extent+time_c+nodes_c, data=data, family="binomial")
+coeftest(fit3)
+#Can tell three predictors significantly increase the probability of obstruction (significant positive coefficients)
+#EXPONENTIATE COEFFICIENTS TO INTERPRET:
+#odds scale coefs (multiplicative): these are the ones you interpret!
+coef(fit3)%>%exp%>%round(5)%>%data.frame
+prob<-predict(fit3,type="response") #get predictions for each patient. prob>.5
+class_diag(prob,data$obstruct)
+```
+
+From the confusion matrix, the accuracy of the model is 0.8074324, the
+sensitivity is 0, the specificity is 1, the precision is NaN because the
+sensitivity is 0, and the auc is 0.6179011...Poor.
+
+A 10-fold CV was run with the model.
+
+```{R}
+set.seed(1234)
+k=10 #choose number of folds
+
+data10<-data[sample(nrow(data)),] #randomly order rows
+folds<-cut(seq(1:nrow(data10)),breaks=k,labels=F) #create folds
+
+diags<-NULL
+for(i in 1:k){
+  ## Create training and test sets
+  train<-data10[folds!=i,] 
+  test<-data10[folds==i,]
+  
+  truth<-test$obstruct ## Truth labels for fold i
+  
+  ## Train model on training set (all but fold i)
+  fit<-glm(obstruct~rx+sex+age_c+differ+extent+time_c+nodes_c,data=train,family="binomial")
+  
+  ## Test model on test set (fold i) 
+  probs<-predict(fit,newdata = test,type="response")
+  
+  ## Get diagnostics for fold i
+  diags<-rbind(diags,class_diag(probs,truth))
+}
+
+summarize_all(diags,mean) #average diagnostics across all k folds
+```
+
+The accuracy of the model is 0.8074183, the sensitivity is 0, the
+specificity is 1, the precision is NaN because the sensitivity is 0, and
+the auc is 0.5654982...Bad.
+
+Next, a LASSO was run on the logistic regression.
+
+```{r}
+library(glmnet)
+y<-as.matrix(data$obstruct) #grab response
+x<-model.matrix(obstruct~rx+sex+age_c+differ+extent+time_c+nodes_c,data=data)[,-1] #grab predictors
+x<-scale(x)
+glm(y~x,family=binomial)
+cv <- cv.glmnet(x,y, family="binomial") #picks an optimal value for lambda through 10-fold CV
+
+#make a plot of the coefficients for different values of lambda
+{plot(cv$glmnet.fit, "lambda", label=TRUE); abline(v = log(cv$lambda.1se)); abline(v = log(cv$lambda.min),lty=2)}
+
+cv<-cv.glmnet(x,y,family="binomial")
+lasso<-glmnet(x,y,family="binomial",lambda=cv$lambda.1se)
+coef(lasso)
+```
+
+The only retained variable after LASSO is age_c.
+
+The logistic regression was rerun using only the LASSO retained variable
+age_c.
+
+```{r}
+#cross-validating lasso model
+set.seed(1234)
+k=10
+
+datalasso<-data[sample(nrow(data)),] #randomly order rows
+folds<-cut(seq(1:nrow(datalasso)),breaks=k,labels=F) #create folds
+
+diags<-NULL
+for(i in 1:k){
+  train <- datalasso[folds!=i,] #create training set (all but fold i)
+  test <- datalasso[folds==i,] #create test set (just fold i)
+  truth <- test$obstruct #save truth labels from fold i
+  
+  fit <- glm(obstruct~age_c, 
+             data=train, family="binomial")
+  probs <- predict(fit, newdata=test, type="response")
+  
+  diags<-rbind(diags,class_diag(probs,truth))
+}
+
+diags%>%summarize_all(mean)
+```
+
+After performing a 10-fold CV using only the variables lasso selected:
+the model's out-of-sample AUC, 0.5527102, was worse than the regression
+above, 0.5654982.
