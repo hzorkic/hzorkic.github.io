@@ -68,6 +68,26 @@ Discrete - variables with specific values. The outcome of the data is fixed.</de
     </item>
     
     <item>
+      <title>Data Vizualization of Everest Climbers</title>
+      <link>https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/</guid>
+      <description>library(tidyverse) ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ── ## ✓ ggplot2 3.3.5 ✓ purrr 0.3.4 ## ✓ tibble 3.1.5 ✓ dplyr 1.0.7 ## ✓ tidyr 1.1.4 ✓ stringr 1.4.0 ## ✓ readr 2.0.2 ✓ forcats 0.5.1 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ── ## x dplyr::filter() masks stats::filter() ## x dplyr::lag() masks stats::lag() library(ggridges) This is the dataset we will be working with:
+members &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/members.csv&amp;#39;) members_everest &amp;lt;- members %&amp;gt;% filter(peak_name == &amp;quot;Everest&amp;quot;) %&amp;gt;% # only keep expeditions to Everest filter(!</description>
+    </item>
+    
+    <item>
+      <title>RNASeq Analysis of Arabadopsis thaliana</title>
+      <link>https://hzorkic.github.io/portfolio/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</link>
+      <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</guid>
+      <description>Analysis of RNASeq Data from Wild Type and Mutated Arabidopsis thaliana 0. Background In this report, we are primarily interested in understanding how the differences in gene expression between the light and dark conditions vary by gene in the primary gene ontology id GO:0006090. To this end, we will use DESeq to look for genes with significant interaction terms between genotype and timepoint.
+In interpreting the RNA-seq data set, you should note the following descriptions of the different sample genotypes:</description>
+    </item>
+    
+    <item>
       <title>Exploratory Data Analysis of SARS-CoV-2 Mutations</title>
       <link>https://hzorkic.github.io/portfolio/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>

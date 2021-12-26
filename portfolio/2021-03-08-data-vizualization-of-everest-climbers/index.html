@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="en-us">
+<head><meta charset="utf-8">
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<title>HAYLEY ZORKIC</title>
+<meta name="description" content="The Personal Website of Hayley Zorkic">
+<meta name="viewport" content="width=device-width, initial-scale=1">
+<link rel="stylesheet" href="https://hzorkic.github.io/css/bootstrap.min.css">
+<link rel="stylesheet" href="//fonts.googleapis.com/css?family=Roboto:400,300,700,400italic">
+<link rel="stylesheet" href="https://hzorkic.github.io/css/font-awesome.min.css">
+<link rel="stylesheet" href="https://hzorkic.github.io/css/owl.carousel.css">
+<link rel="stylesheet" href="https://hzorkic.github.io/css/owl.theme.css">
+
+
+  <link href="https://hzorkic.github.io/css/style.default.css" rel="stylesheet" id="theme-stylesheet">
+
+ 
+
+  
+    <!--[if lt IE 9]>
+        <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
+        <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
+    <![endif]-->
+  
+
+
+<link href="https://hzorkic.github.io/css/custom.css" rel="stylesheet">
+<link rel="shortcut icon" href="https://hzorkic.github.io/img/aobut.png">
+
+
+<script type="application/javascript">
+var doNotTrack = false;
+if (!doNotTrack) {
+	window.ga=window.ga||function(){(ga.q=ga.q||[]).push(arguments)};ga.l=+new Date;
+	ga('create', 'G-EGR7PE3Y44', 'auto');
+	
+	ga('send', 'pageview');
+}
+</script>
+<script async src='https://www.google-analytics.com/analytics.js'></script>
+
+</head>
+<body>
+  <div id="all">
+      <div class="container-fluid">
+          <div class="row row-offcanvas row-offcanvas-left">
+              <div id="sidebar" class="col-xs-6 col-sm-4 col-md-3 sidebar-offcanvas">
+  <div class="sidebar-content">
+    
+    <img style="border: solid 2px black; border-radius: 50%; max-width: 90%; height: auto;" src="/img/1_about.jpg" alt="">
+    <h1></h1>
+    
+    <h1 class="sidebar-heading"><a href="https://hzorkic.github.io/">HAYLEY ZORKIC</a></h1>
+    
+      <p class="sidebar-p">Data Scientist.</p>
+    
+    
+    <ul class="sidebar-menu">
+      
+        <li><a href="https://hzorkic.github.io/about/">About</a></li>
+      
+        <li><a href="https://hzorkic.github.io/portfolio/">Posts</a></li>
+      
+        <li><a href="https://hzorkic.github.io/img/RESUME.pdf">CV</a></li>
+      
+    </ul>
+    
+    <p class="social">
+  
+  
+  
+  
+  
+  <a href="mailto:hayley.zorkic@gmail.com" data-animate-hover="pulse" class="email">
+    <i class="fa fa-envelope"></i>
+  </a>
+  
+  
+  <a href="www.linkedin.com/in/hayley-zorkic" data-animate-hover="pulse" class="external">
+    <i class="fa fa-linkedin"></i>
+  </a>
+  
+  
+  
+  <a href="https://github.com/hzorkic" data-animate-hover="pulse" class="external">
+    <i class="fa fa-github"></i>
+  </a>
+  
+  
+  
+  
+</p>
+
+  </div>
+</div>
+
+              
+<div class="col-xs-12 col-sm-8 col-md-9 content-column white-background">
+  <div class="small-navbar visible-xs ">
+  
+  <button type="button" data-toggle="offcanvas" class="btn btn-ghost pull-left">
+    <i class="fa fa-bars"></i>
+  </button>
+
+  <h1 class="small-navbar-heading"><a href="https://hzorkic.github.io/">HAYLEY ZORKIC</a></h1>
+  
+</div>
+
+
+  <div class="row">
+    <div class="col-lg-8">
+      <div class="content-column-content">
+         <h1>Data Vizualization of Everest Climbers</h1>
+         
+<script src="https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/index_files/header-attrs/header-attrs.js"></script>
+
+
+<pre class="r"><code>library(tidyverse)</code></pre>
+<pre><code>## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ──</code></pre>
+<pre><code>## ✓ ggplot2 3.3.5     ✓ purrr   0.3.4
+## ✓ tibble  3.1.5     ✓ dplyr   1.0.7
+## ✓ tidyr   1.1.4     ✓ stringr 1.4.0
+## ✓ readr   2.0.2     ✓ forcats 0.5.1</code></pre>
+<pre><code>## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ──
+## x dplyr::filter() masks stats::filter()
+## x dplyr::lag()    masks stats::lag()</code></pre>
+<pre class="r"><code>library(ggridges)</code></pre>
+<p>This is the dataset we will be working with:</p>
+<pre class="r"><code>members &lt;- readr::read_csv(&#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/members.csv&#39;)
+
+members_everest &lt;- members %&gt;%
+  filter(peak_name == &quot;Everest&quot;) %&gt;% # only keep expeditions to Everest
+  filter(!is.na(age)) %&gt;%     # only keep expedition members with known age
+  filter(year &gt;= 1960)        # only keep expeditions since 1960 
+
+# Relabel out TRUE and FALSE values for success
+members_everest$success2 &lt;- factor(members_everest$success,labels = (c(`TRUE` = &quot;Summited Mt. Everest&quot;, `FALSE` = &quot;Did not summit Mt. Everest&quot;)))
+
+# Relabel out TRUE and FALSE values for oxygen_used
+members_everest$oxygen_used2 &lt;- factor(members_everest$oxygen_used, labels = (c(`TRUE` = &quot;Oxygen Used&quot;, `FALSE` = &quot;Oxygen Not Used&quot;)))</code></pre>
+<p>More information about the dataset can be found at <a href="https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-22/readme.md" class="uri">https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-22/readme.md</a> and <a href="https://www.himalayandatabase.com/" class="uri">https://www.himalayandatabase.com/</a>.</p>
+<div id="part-1" class="section level3">
+<h3><strong>Part 1</strong></h3>
+<p><strong>Question:</strong> Are there age differences for expedition members who were successful or not in climbing Mt. Everest with or without oxygen, and how has the age distribution changed over the years?</p>
+<p>To answer this question we will plot the distribution of age by summit success and the use of oxygen. We will then group this data by year to the average age for each year from 1960 to 2016.</p>
+<p><strong>Introduction:</strong> For this project, we will be using a dataset about Himalayan expeditions, taken from the Himalayan Database, a compilation of records for all expeditions that have climbed in the Nepal Himalaya. The subset of this dataset that we will be using in Part 1 is called <code>members_everest</code> which contains records specifically for expeditions to Mount Everest since 1960 to spring 2019 and expedition members of known age.</p>
+<p>To answer the first questin in Part 1 we will be working with four variables wether or not the climber successfully summited (<code>success2</code>), the climbers age (<code>age</code>), the year the climber climbed (<code>year</code>), and wether or not the climber used oxygen (<code>oxygen_use2</code>). Success and oxygen_use are TRUE or FALSE values recoded to “Summited Mt. Everest” and “Did not summit Mt. Everest”, “Oxygen Used” and “Oxygen Not Used” respectively. The climbers age and year of climb are provided as numeric variables in years.</p>
+<p><strong>Approach:</strong> Our approach is to show the distribution of ages versus the success of the summit using a violin plot (<code>geom_violin()</code>). We also separate out those who used oxygen and those who didn’t because those who didn’t use oxygen are more likely to fail to summitt and furthermore should be considered separately. Violin plots make it easy to compare distributions side by side.</p>
+<p>A limitation of the violin plots in this scenario is that we cannot see the change in age distributions over the years. Therefore, we will visualize the age distribution based on everest summit successes and oxygen usage in a series faceted of per-year boxplots (<code>geom_boxplot()</code>).</p>
+<p><strong>Analysis:</strong> First we plot the age distributions as violin plots.</p>
+<pre class="r"><code># violin plot age differences in those sucessfull or not inclimbing Mt. Everest with/without oxygen
+ggplot(members_everest, aes(x=success2, y= age, fill=oxygen_used2)) + 
+  geom_violin(
+    alpha=0.5
+  ) +
+  # change theme
+  theme_bw() + 
+  # label axis, title, and legend
+  labs(
+    title = &quot;Age Distribution of Mt. Everest Summits Depending on Oxygen Usage&quot;,
+    x = &quot;Summitt Success&quot;,  
+    y = &quot;Age (years)&quot;, 
+    fill = &quot;Oxygen Used&quot;)</code></pre>
+<p><img src="https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/index_files/figure-html/unnamed-chunk-2-1.png" width="672" /></p>
+<p>Then we plot the distributions for each year as boxplots. We faceted by oxygen usage and success to clearly divide the distributions to see if there are any noticable trends in each subset of data.</p>
+<pre class="r"><code># Age distribution per success per oxygen usage over years
+ggplot(members_everest, aes(y=age, x=year, fill = oxygen_used2, group=year)) +
+  geom_boxplot(
+    alpha = 0.5
+  ) + 
+  # facet by oxygen and success
+  facet_grid(
+    oxygen_used2 ~ success2
+  ) +
+  # change theme
+  theme_bw() +
+  # label axis and title
+  labs(
+    title = &quot;Yearly Age Distribution of Mt. Everest Summits&quot;,
+    x = &quot;Year (years)&quot;,  
+    y = &quot;Age (years)&quot;, 
+    fill = &quot;Oxygen Used&quot;)</code></pre>
+<p><img src="https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/index_files/figure-html/unnamed-chunk-3-1.png" width="672" /></p>
+<p><strong>Discussion:</strong> For those that successfully summited Everest, it appears that there is a slightly wider age distribution for those that used oxygen than for those who didn’t. We can see this by comparing the violin plots labeled “Summited Mt. Everest”, where we see that the tips of the violin for those that used oxygen is slightly longer than those who didn’t.</p>
+<p>For those that unsuccessfully summited Everest, there is a much bigger difference in age distribution between those that used oxygen and those that didn’t- it appears that a larger variety of ages were unable to summit Everest when oxygen was not used compared to when oxygen was used. We can see this by comparing the violin plots labeled “Did Not Summit Mt. Everest”, where we see that the tips of the violin for those that did not use oxygen is significantly shorter than those who did. Those who failed to summit and used oxygen have a tendency to be slightly older as we can see by the larger bulge in the violin plot around 35-45 whereas the other violins meet max width around 25.</p>
+<p>When we look at the breakdown of age distributions by oxygen usage, success, and year, we see that age distributions for all of the categories have increased in distribution over the years except for those that used oxygen and did not summit everest. By comparing the first and last boxplots in each facet of the second plot, we can observe the change in median age. For somebody that summited Everest with oxygen, the median age has gone from ~30 in 1960 to ~50 in 2016. For somebody that summited Everest without oxygen, the median age has gone from ~25 in 1960 to ~40 in 2016. For somebody that did not summit Everest without oxygen, the median age has gone from ~25 in 1960 to ~30 in 2016. Finally, for somebody that did not summit Everest with oxygen (which is less often as there are gaps in the data), the median age has remained about the same since 1960 at ~35.</p>
+<p>Furthermore, the answer to our question is that there are age differences for expedition members who were successful or not in climbing Mt. Everest with or without oxygen and the age distribution for all of these categories has increased from 1960 to 2016 except for those that didn’t summit and used oxygen. Perhaps this group of individuals had health concerns that necessitated the use of more than just oxygen tanks. It would be a good idea to use oxygen if you plan to successfully summit Everst… especially if you are over 30.</p>
+</div>
+<div id="part-2" class="section level3">
+<h3><strong>Part 2</strong></h3>
+<p><strong>Question:</strong> What heights of the himalayas are the deadliest and do sex and/or injury affect the height at which death occurs? Are deadly heights conserved across peaks?</p>
+<p><strong>Introduction:</strong> The data we will be using for Part 2 is the raw <code>members2</code> which contains records specifically for expeditions to Mount Everest since 1960 to spring 2019 and expedition members of known age and sex.</p>
+<p>To answer Part 2 we will be working with four variables: wether or not the climber died (<code>died</code>), the climbers sex (<code>sex</code>), the height at which the climber died (<code>death_height_metres</code>), and wether or not the climber was injured (<code>injured</code>). Died and Injured are recorded as TRUE and FALSE values . The climbers age and year of climb are provided as numeric variables in years. Sex is recorded as a nominal categorical variable “F” for female and “M” for male. Death_hight_metres is a continuous numeric variable measured in meters.</p>
+<p><strong>Approach:</strong> Our approach is to show the distribution of heights climbers died at as a density plot (<code>geom_density()</code>). We will facet and stack the density plot out by sex to see if there are peaks at different locations depending on sex (i.g. women make it further up the mountains without dying). Finally, we will separate each sex’s density plot out by injury so we can see if people who were injured during their climb die lower on the mountains than those who were not injured.</p>
+<p>One limitation of the faceted density plot is that we cannot see if a particularly deadly height is consistent across all peaks. To solve this, we will create a second density plot (<code>geom_density()</code>) that simply plots death heights on the top 5 deadliest mountains so we can see which mountain peaks can be attributed to spikes in deaths across the entire members dataset.</p>
+<p><strong>Analysis:</strong> Here we plot the density plot of death heights, faceted by sex, separated by injury.</p>
+<pre class="r"><code>members2 &lt;- members %&gt;% filter(sex != &quot;NA&quot;)
+# plot 
+ggplot(members2, aes(x= death_height_metres, fill= injured)) +
+  geom_density(
+    alpha = 0.5
+  )+
+  # facet by sex
+  facet_wrap(
+    vars(sex),
+    ncol = 1,
+    labeller = as_labeller(c(`F`=&quot;Female Climbers&quot;, `M` = &quot;Male Climbers&quot;))
+  ) +
+  # reestablish breaks in x axis to every 1000 meters
+  scale_x_continuous(
+    breaks = seq(0, 9500, 1000)
+  ) +
+  # change theme
+  theme_bw() +
+  # label axis and title
+  labs( 
+    title = &quot;Distribution of Death Heights on Himialayas by Sex and Injury Status&quot;,
+    x = &quot;Height of Death (meters)&quot;,  
+    y = &quot;Density&quot;, 
+    fill = &quot;Injury on Mountain&quot;)</code></pre>
+<pre><code>## Warning: Removed 75449 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/index_files/figure-html/unnamed-chunk-4-1.png" width="672" /></p>
+<p>Then we find the top 5 deadliest peaks in the Himalayas dataset and subset our original members2 data to only include those peaks.</p>
+<pre class="r"><code># find top 5 deadliest peaks
+members2 %&gt;% 
+  group_by(peak_name) %&gt;% 
+  count(died == &quot;TRUE&quot;, sort = TRUE) %&gt;% 
+  arrange(desc(n)) %&gt;% 
+  head()</code></pre>
+<pre><code>## # A tibble: 6 × 3
+## # Groups:   peak_name [6]
+##   peak_name    `died == &quot;TRUE&quot;`     n
+##   &lt;chr&gt;        &lt;lgl&gt;            &lt;int&gt;
+## 1 Everest      FALSE            21507
+## 2 Cho Oyu      FALSE             8838
+## 3 Ama Dablam   FALSE             8374
+## 4 Manaslu      FALSE             4508
+## 5 Dhaulagiri I FALSE             2507
+## 6 Lhotse       FALSE             2358</code></pre>
+<pre class="r"><code># save data from only these 3 peaks 
+members3 &lt;- members2 %&gt;% 
+  filter(peak_name == c(&quot;Everest&quot;, &quot;Cho Oyu&quot;, &quot;Ama Dablam&quot;, &quot;Manaslu&quot;, &quot;Dhaulagiri I&quot;))</code></pre>
+<p>We plot the distribution of death heights filling by peak_name to see if some peaks have deadlier regions.</p>
+<pre class="r"><code>ggplot(members3, aes(x= death_height_metres, fill = peak_name)) +
+  geom_density(
+    alpha = 0.3, 
+    drop = FALSE
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 9500, 1000)
+  ) +
+  # change theme
+  theme_bw() +
+  # label axis and title
+  labs( 
+    title = &quot;Distribution of Death Heights on Himialayas&quot;,
+    x = &quot;Height of Death (meters)&quot;,  
+    y = &quot;Density&quot;, 
+    fill = &quot;Peak Name&quot;)</code></pre>
+<pre><code>## Warning: Ignoring unknown parameters: drop</code></pre>
+<pre><code>## Warning: Removed 9144 rows containing non-finite values (stat_density).</code></pre>
+<p><img src="https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/index_files/figure-html/unnamed-chunk-6-1.png" width="672" /></p>
+<pre class="r"><code>table(members$sex)</code></pre>
+<pre><code>## 
+##     F     M 
+##  7044 69473</code></pre>
+<p><strong>Discussion:</strong> For women, it appears the hight at which death occurs is higher than men. We can see this by comparing the density plots faceted by sex- where women have high density of death hight around 8000 meters (no injury) and men have high density around 7000 meters (no injury).</p>
+<p>While no injuries are reported for women, it is clear that for men, if an injury occurred somewhere on the mountain, the average height at which death occured is generally lower. We can see this by looking at the “Male Climber” facet. While the range of deaths for non injured males is wider (3000 meters - 9000 meters) than those that are injured ( 4000 meters - 7000 meters), there is a conserved peak in deaths for both injured and non-injured Males around 6000-7000 meters. Another plot is needed to determine if this conserved region of deadliness is mountain-wide or attributed to specific peaks.</p>
+<p>When we look at a density plot breakdown of death heights for the top 5 dealiest peaks, it is clear that for some of the top 5 peaks, there are large peaks in death around the 6000-75000 meter range, which follows a similar pattern to our density plot grouped by injury and faceted by sex. Interestingly, Mt. Everest (the deadliest of all of the peaks) actually has a dip in deaths at this height.</p>
+<p>Furthermore, the answer to our question si that there are indeed differences in death heights based on sex and injury and these deadly heights are for the most part conserved across different peaks. The deadliest altitude is around 7000 meters, especially for injured men. It is important to note that the number of men that climb everest is 10-fold that of women so this is a potential confounding variable. Further analysis of this data should include exploring the reason why women make it further than men, what the leading causes of death are at certain points in the mountains, and finding the deadliest heights for each peak.</p>
+</div>
+
+         
+      </div>
+    </div>
+  </div>
+</div>
+
+          </div>
+      </div>
+  </div>
+  <script src="https://hzorkic.github.io/js/jquery.min.js"></script>
+<script src="https://hzorkic.github.io/js/bootstrap.min.js"></script>
+<script src="https://hzorkic.github.io/js/jquery.cookie.js"> </script>
+<script src="https://hzorkic.github.io/js/ekko-lightbox.js"></script>
+<script src="https://hzorkic.github.io/js/jquery.scrollTo.min.js"></script>
+<script src="https://hzorkic.github.io/js/masonry.pkgd.min.js"></script>
+<script src="https://hzorkic.github.io/js/imagesloaded.pkgd.min.js"></script>
+<script src="https://hzorkic.github.io/js/owl.carousel.min.js"></script>
+<script src="https://hzorkic.github.io/js/front.js"></script>
+
+
+
+</body>
+</html>
