@@ -1,0 +1,103 @@
+---
+title: Crash Course GitHub
+author: R package build
+date: '2021-12-25'
+slug: []
+categories: []
+tags: []
+draft: no
+image: ''
+showonlyimage: no
+description: 'My earnest attempt to avoid all future frustrations with version control.'
+---
+
+I love git and github. Throughout my projects, internships, classes, and research, I've used github to keep track of projects. 
+
+## Why Git?
+**Version Control**! Simply put, version control allows you to *keep track of changes* in code instead of saving dozens of copies of a project as you progress through it. Version control also allows you to seamlessly *merge changes* made by people working on a similar project as you. 
+
+## Why Github?
+Github is like a library for projects- you can see and checkout the works of others. Perhaps that is not a very good analogy as github allows for much much more than simply reading projects. Github is also like a social media network- you can make comments and suggest changes on other peoples projects!
+
+![A Screenshot of my github profile in 2021.](/img/portfolio/github_screenshot.png)
+
+## How to get started with Github.
+- Get a github account
+- Download and install git
+- Set up git with your username and email
+- [Set up ssh](https://docs.github.com/en/authentication/connecting-to-github-with-ssh)
+
+## The basics
+### Add and commit
+Use git add to tell git "hey these changes are ready!"
+The git add command adds entire new files:
+```{} 
+$ git add .
+```
+ ...as well as adds changes to specific/old files:  
+```{} 
+$ git add R/modified.R man/modified.Rd 
+```
+
+Use git commit to add the changes to the git repository. add a message (`-m` "message"):
+```{} 
+$ git commit -m "A message for your commit"
+```
+
+### Push your changes to github!!!
+To push your committed changes to github:
+```{} 
+$ git push
+```
+
+## Start a new git repository
+### Create a completely new, empty repo
+- Create a directory to contain the project.
+- Go into the new directory.
+- Type `git init`.
+- Write some code.
+- Type `git add` to add the files (see the typical use page).
+- Type `git commit`.
+
+### Create a new repo from an old project
+In other words, how to start tracking an old project. 
+
+- Go into the directory containing the project.
+- Type `git init`.
+- Type `git add .` to add all of the relevant files.
+- Type `git commit`.
+
+### Connect your repo (old or new) to github
+- Go to github.
+- Log in to your account.
+- Click the new repository button in the top-right. 
+- Click the “Create repository” button.
+
+
+
+## Tips and Notes for personal use!
+### How to properly use SSH
+When you reference a repo in git commands, use `git@github.com:username/new_repo` NOT `https://github.com/username/new_repo`. The former uses SSH, the latter forces you to login with your username, password, and now tokens key. 
+
+### How to check the git repo attached in a directory
+```{}
+$ git config -l
+```
+
+### How to "blow away all git-related information" in a directory
+```{}
+$ rm -rf .git
+```
+
+
+
+
+
+
+
+
+
+
+
+
+

@@ -6,7 +6,7 @@
     <description>Recent content in Portfolios on HAYLEY ZORKIC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sat, 25 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Texas Inventionworks Portal Website</title>
       <link>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</link>
@@ -14,6 +14,16 @@
       
       <guid>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</guid>
       <description>The Problem During the summer of 2020, my team and I build a website to automate and digitize the operational workflow of Texas Inventionworks (The University of Texas at Austin&amp;rsquo;s Engineering Scool&amp;rsquo;s Makerspace). As UT Austin shut down all non-essential campus operations during the &amp;ldquo;lockdown,&amp;rdquo; we were tasked with creating an application that allowed us to keep track of all of the students that came into the space and all of the transactions they made.</description>
+    </item>
+    
+    <item>
+      <title>Crash Course GitHub</title>
+      <link>https://hzorkic.github.io/portfolio/2021-12-25-crash-course-github/</link>
+      <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-12-25-crash-course-github/</guid>
+      <description>I love git and github. Throughout my projects, internships, classes, and research, I’ve used github to keep track of projects.
+Why Git? Version Control! Simply put, version control allows you to keep track of changes in code instead of saving dozens of copies of a project as you progress through it. Version control also allows you to seamlessly merge changes made by people working on a similar project as you.</description>
     </item>
     
     <item>
