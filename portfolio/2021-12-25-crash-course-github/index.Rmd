@@ -1,14 +1,10 @@
 ---
 title: Crash Course GitHub
-author: R package build
+author: Hayley Zorkic
 date: '2021-12-25'
-slug: []
-categories: []
-tags: []
 draft: no
-image: ''
 showonlyimage: no
-description: 'My earnest attempt to avoid all future frustrations with version control.'
+description: My earnest attempt to avoid all future frustrations with version control.
 ---
 
 I love git and github. Throughout my projects, internships, classes, and research, I've used github to keep track of projects. 

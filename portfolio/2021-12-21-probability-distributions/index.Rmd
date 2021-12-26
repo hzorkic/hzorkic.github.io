@@ -1,6 +1,6 @@
 ---
 title: Probability Distributions
-author: R package build
+author: Hayley Zorkic
 date: '2021-12-21'
 slug: []
 categories: []
