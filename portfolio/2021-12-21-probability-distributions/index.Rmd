@@ -1,0 +1,34 @@
+---
+title: Probability Distributions
+author: R package build
+date: '2021-12-21'
+slug: []
+categories: []
+tags: []
+draft: no
+image: ''
+showonlyimage: no
+description: 'What are probabillity distributions and why do they matter?'
+---
+
+When we are given a new dataset, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to "tailor" our models for each case study. There are two main kinds of data, Numeric and Categorical. Numerical data can be further divided into Discrete or Continuous. 
+
+1. **Discrete** - variables with specific values. The outcome of the data is fixed. Ex. there are 4 apples, I wear a size 8.5 shoe, I have 17 housemates. 
+2. **Continuous** - variables can take on any value. Ex. I weigh 125.3 pounds, my height. 
+
+In short, probability distributions are functions that describe and associate all possiable outcomes of a random variable with probabilities.
+
+Using Discrete random variables, we can calculate Probability Mass Functions (PMF).PMFs give us the probability that a variable can be equal to a specific value. Using Continuous random variables, we can calculate Probability Density Functions (PDF). PDFs are slightly more complicated- we have to integrate over a given range in order to get the probability that a variable can be equal to a certain value. 
+
+There are a variety of probability distributions (pictured below):
+
+![](/img/portfolio/dist.png)
+
+
+
+
+
+
+
+
+

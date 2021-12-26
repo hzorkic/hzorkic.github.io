@@ -1,0 +1,71 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portfolios on HAYLEY ZORKIC</title>
+    <link>https://hzorkic.github.io/portfolio/</link>
+    <description>Recent content in Portfolios on HAYLEY ZORKIC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 23 Dec 2021 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Texas Inventionworks Portal Website</title>
+      <link>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</link>
+      <pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</guid>
+      <description>The Problem During the summer of 2020, my team and I build a website to automate and digitize the operational workflow of Texas Inventionworks (The University of Texas at Austin&amp;rsquo;s Engineering Scool&amp;rsquo;s Makerspace). As UT Austin shut down all non-essential campus operations during the &amp;ldquo;lockdown,&amp;rdquo; we were tasked with creating an application that allowed us to keep track of all of the students that came into the space and all of the transactions they made.</description>
+    </item>
+    
+    <item>
+      <title>Books for Statistics and Data Science </title>
+      <link>https://hzorkic.github.io/portfolio/2021-12-23-books-for-statistics-and-data-science/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-12-23-books-for-statistics-and-data-science/</guid>
+      <description>A lot of books are thrown your way throughout your formal and informal education. Rather than have these textbooks exist as bookmarks in my browser, I’ve decided to create this blogpost to house them for others the reference. The images are links to the online textbooks (all open source) for ease of access. Enjoy!
+The Elements of Statistical Learning: Data Mining, Inference, and Prediction 
+ An Introduction to Statistical Learning with Applications in R</description>
+    </item>
+    
+    <item>
+      <title>Probability Distributions</title>
+      <link>https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/</link>
+      <pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/</guid>
+      <description>When we are given a new dataset, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to “tailor” our models for each case study. There are two main kinds of data, Numeric and Categorical. Numerical data can be further divided into Discrete or Continuous.
+Discrete - variables with specific values. The outcome of the data is fixed.</description>
+    </item>
+    
+    <item>
+      <title>Naive Bayes Classification</title>
+      <link>https://hzorkic.github.io/portfolio/cs329e_hw7/</link>
+      <pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/cs329e_hw7/</guid>
+      <description>For this week&amp;rsquo;s homework we are going explore one new classification technique:
+ Naive Bayes  In this post we are going to use a dataset of Melboburne housing to predict the housing type as one of three possible categories:
+ &amp;lsquo;h&amp;rsquo; house &amp;lsquo;u&amp;rsquo; duplex &amp;rsquo;t&#39; townhouse  In addition to building our own Naive Bayes classifier, we are going to compare the performace of our classifier to the Gaussian Naive Bayes Classifier available in the scikit-learn library.</description>
+    </item>
+    
+    <item>
+      <title>How It&#39;s Made: Linear Regression</title>
+      <link>https://hzorkic.github.io/portfolio/2021-10-28-how-it-s-made-linear-regression/linear_regression/</link>
+      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-10-28-how-it-s-made-linear-regression/linear_regression/</guid>
+      <description></description>
+    </item>
+    
+    <item>
+      <title>Exploratory Data Analysis of SARS-CoV-2 Mutations</title>
+      <link>https://hzorkic.github.io/portfolio/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</guid>
+      <description>0. Introduction COVID-19 is an infectionus disease caused by Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). First identified in December of 2019, SARS-CoV-2 resulted in an ongoing pandemic effecting over 39 million people in 189 countries, but the WHO predicts that with asymptomatic cases, the number of infections may be closer to 800 million.
+Therapeutics for those suffering from COVID-19 include collecting and transplanting neautralizing antibodies from patients who have recoved from COVID-19.</description>
+    </item>
+    
+  </channel>
+</rss>
