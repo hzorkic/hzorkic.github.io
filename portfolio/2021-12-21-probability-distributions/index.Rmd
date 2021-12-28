@@ -11,23 +11,43 @@ showonlyimage: no
 description: 'What are probabillity distributions and why do they matter?'
 ---
 
-When we are given a new dataset, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to "tailor" our models for each case study. There are two main kinds of data, Numeric and Categorical. Numerical data can be further divided into Discrete or Continuous. 
+Data Science and Machine Leanring methods are heavily based on probability- the likelyhood of an event occurring on a scale of 0-1. 
+
+When we are given a new data set, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to "tailor" our models for each case study. There are two main kinds of data, Numeric and Categorical. Numerical data can be further divided into Discrete or Continuous. 
 
 1. **Discrete** - variables with specific values. The outcome of the data is fixed. Ex. there are 4 apples, I wear a size 8.5 shoe, I have 17 housemates. 
 2. **Continuous** - variables can take on any value. Ex. I weigh 125.3 pounds, my height. 
 
-In short, probability distributions are functions that describe and associate all possiable outcomes of a random variable with probabilities.
+In short, probability distributions are functions that describe and associate all possible outcomes of a random variable with probabilities.
 
 Using Discrete random variables, we can calculate Probability Mass Functions (PMF).PMFs give us the probability that a variable can be equal to a specific value. Using Continuous random variables, we can calculate Probability Density Functions (PDF). PDFs are slightly more complicated- we have to integrate over a given range in order to get the probability that a variable can be equal to a certain value. 
 
 There are a variety of probability distributions (pictured below):
 
 ![](/img/portfolio/dist.png)
+Below I will discuss a few common distributions. 
+
+## Binomial Distribution
+> The **binomial distribution** is a discrete probability distribution that models the outcomes of a given number of random trails of some experiment or event. The binomial is defined by two parameters: the probability of success in any given trial and the number of trials. The binomial distribution tells you how likely it is to achieve a given number of successes in n trials of the experiment. For example, we could model flipping a fair coin 10 times with a binomial distribution where the number of trials is set to 10 and the probability of success is set to 0.5. In this case the distribution would tell us how likely it is to get zero heads, 1 head, 2 heads and so on.. 
+
+## Uniform Distribution
+> The uniform distribution is a probability distribution where each value within a certain range is equally likely to occur and values outside of the range never occur. If we make a density plot of a uniform distribution, it appears flat because no value is any more likely (and hence has any more density) than another.
+
+## Gaussian Distribution (a.k.a Normal Distribution)
+> The normal or Gaussian distribution is a continuous probability distribution characterized by a symmetric bell-shaped curve. A normal distribution is defined by its center (mean) and spread (standard deviation.). The bulk of the observations generated from a normal distribution lie near the mean, which lies at the exact center of the distribution: as a rule of thumb, about 68% of the data lies within 1 standard deviation of the mean, 95% lies within 2 standard deviations and 99.7% lies within 3 standard deviations.
+>
+> The normal distribution is perhaps the most important distribution in all of statistics. It turns out that many real world phenomena, like IQ test scores and human heights, roughly follow a normal distribution, so it is often used to model random variables. Many common statistical tests assume distributions are normal.
+## Poisson Distribution
+
+## Geometric and Exponential Distributions
+> The geometric and exponential distributions model the time it takes for an event to occur. The geometric distribution is discrete and models the number of trials it takes to achieve a success in repeated experiments with a given probability of success. The exponential distribution is a continuous analog of the geometric distribution and models the amount of time you have to wait before an event occurs given a certain occurrence rate.
+
+## Poisson Distribution 
+> The Poisson distribution models the probability of seeing a certain number of successes within a time interval, where the time it takes for the next success is modeled by an exponential distribution. The Poisson distribution can be used to model traffic, such as the number of arrivals a hospital can expect in a hour's time or the number of emails you'd expect to receive in a week.
 
 
-
-
-
+## More Resources 
+- [Probability and Statistics Interview Questions and Answers](https://www.stratascratch.com/blog/probability-and-statistics-interview-questions-and-answers/)
 
 
 

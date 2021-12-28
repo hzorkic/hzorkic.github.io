@@ -133,8 +133,8 @@ The Elements of Statistical Learning: Data Mining, Inference, and Prediction
       <pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/</guid>
-      <description>When we are given a new dataset, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to “tailor” our models for each case study. There are two main kinds of data, Numeric and Categorical. Numerical data can be further divided into Discrete or Continuous.
-Discrete - variables with specific values. The outcome of the data is fixed.</description>
+      <description>Data Science and Machine Leanring methods are heavily based on probability- the likelyhood of an event occurring on a scale of 0-1.
+When we are given a new data set, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to “tailor” our models for each case study. There are two main kinds of data, Numeric and Categorical.</description>
     </item>
     
     <item>
@@ -146,15 +146,6 @@ Discrete - variables with specific values. The outcome of the data is fixed.</de
       <description>For this week&amp;rsquo;s homework we are going explore one new classification technique:
  Naive Bayes  In this post we are going to use a dataset of Melboburne housing to predict the housing type as one of three possible categories:
  &amp;lsquo;h&amp;rsquo; house &amp;lsquo;u&amp;rsquo; duplex &amp;rsquo;t&#39; townhouse  In addition to building our own Naive Bayes classifier, we are going to compare the performace of our classifier to the Gaussian Naive Bayes Classifier available in the scikit-learn library.</description>
-    </item>
-    
-    <item>
-      <title>How It&#39;s Made: Linear Regression</title>
-      <link>https://hzorkic.github.io/portfolio/2021-10-28-how-it-s-made-linear-regression/linear_regression/</link>
-      <pubDate>Thu, 28 Oct 2021 00:00:00 +0000</pubDate>
-      
-      <guid>https://hzorkic.github.io/portfolio/2021-10-28-how-it-s-made-linear-regression/linear_regression/</guid>
-      <description></description>
     </item>
     
     <item>

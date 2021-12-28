@@ -111,20 +111,60 @@ if (!doNotTrack) {
     <div class="col-lg-8">
       <div class="content-column-content">
          <h1>Probability Distributions</h1>
-         <h5>Hayley Zorkic / 21 Dec 2021 / 1 min read </h5>
+         <h5>Hayley Zorkic / 21 Dec 2021 / 4 min read </h5>
          
 <script src="https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/index_files/header-attrs/header-attrs.js"></script>
 
 
-<p>When we are given a new dataset, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to “tailor” our models for each case study. There are two main kinds of data, Numeric and Categorical. Numerical data can be further divided into Discrete or Continuous.</p>
+<p>Data Science and Machine Leanring methods are heavily based on probability- the likelyhood of an event occurring on a scale of 0-1.</p>
+<p>When we are given a new data set, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to “tailor” our models for each case study. There are two main kinds of data, Numeric and Categorical. Numerical data can be further divided into Discrete or Continuous.</p>
 <ol style="list-style-type: decimal">
 <li><strong>Discrete</strong> - variables with specific values. The outcome of the data is fixed. Ex. there are 4 apples, I wear a size 8.5 shoe, I have 17 housemates.</li>
 <li><strong>Continuous</strong> - variables can take on any value. Ex. I weigh 125.3 pounds, my height.</li>
 </ol>
-<p>In short, probability distributions are functions that describe and associate all possiable outcomes of a random variable with probabilities.</p>
+<p>In short, probability distributions are functions that describe and associate all possible outcomes of a random variable with probabilities.</p>
 <p>Using Discrete random variables, we can calculate Probability Mass Functions (PMF).PMFs give us the probability that a variable can be equal to a specific value. Using Continuous random variables, we can calculate Probability Density Functions (PDF). PDFs are slightly more complicated- we have to integrate over a given range in order to get the probability that a variable can be equal to a certain value.</p>
 <p>There are a variety of probability distributions (pictured below):</p>
-<p><img src="/img/portfolio/dist.png" /></p>
+<p><img src="/img/portfolio/dist.png" />
+Below I will discuss a few common distributions.</p>
+<div id="binomial-distribution" class="section level2">
+<h2>Binomial Distribution</h2>
+<blockquote>
+<p>The <strong>binomial distribution</strong> is a discrete probability distribution that models the outcomes of a given number of random trails of some experiment or event. The binomial is defined by two parameters: the probability of success in any given trial and the number of trials. The binomial distribution tells you how likely it is to achieve a given number of successes in n trials of the experiment. For example, we could model flipping a fair coin 10 times with a binomial distribution where the number of trials is set to 10 and the probability of success is set to 0.5. In this case the distribution would tell us how likely it is to get zero heads, 1 head, 2 heads and so on..</p>
+</blockquote>
+</div>
+<div id="uniform-distribution" class="section level2">
+<h2>Uniform Distribution</h2>
+<blockquote>
+<p>The uniform distribution is a probability distribution where each value within a certain range is equally likely to occur and values outside of the range never occur. If we make a density plot of a uniform distribution, it appears flat because no value is any more likely (and hence has any more density) than another.</p>
+</blockquote>
+</div>
+<div id="gaussian-distribution-a.k.a-normal-distribution" class="section level2">
+<h2>Gaussian Distribution (a.k.a Normal Distribution)</h2>
+<blockquote>
+<p>The normal or Gaussian distribution is a continuous probability distribution characterized by a symmetric bell-shaped curve. A normal distribution is defined by its center (mean) and spread (standard deviation.). The bulk of the observations generated from a normal distribution lie near the mean, which lies at the exact center of the distribution: as a rule of thumb, about 68% of the data lies within 1 standard deviation of the mean, 95% lies within 2 standard deviations and 99.7% lies within 3 standard deviations.</p>
+<p>The normal distribution is perhaps the most important distribution in all of statistics. It turns out that many real world phenomena, like IQ test scores and human heights, roughly follow a normal distribution, so it is often used to model random variables. Many common statistical tests assume distributions are normal.
+## Poisson Distribution</p>
+</blockquote>
+</div>
+<div id="geometric-and-exponential-distributions" class="section level2">
+<h2>Geometric and Exponential Distributions</h2>
+<blockquote>
+<p>The geometric and exponential distributions model the time it takes for an event to occur. The geometric distribution is discrete and models the number of trials it takes to achieve a success in repeated experiments with a given probability of success. The exponential distribution is a continuous analog of the geometric distribution and models the amount of time you have to wait before an event occurs given a certain occurrence rate.</p>
+</blockquote>
+</div>
+<div id="poisson-distribution" class="section level2">
+<h2>Poisson Distribution</h2>
+<blockquote>
+<p>The Poisson distribution models the probability of seeing a certain number of successes within a time interval, where the time it takes for the next success is modeled by an exponential distribution. The Poisson distribution can be used to model traffic, such as the number of arrivals a hospital can expect in a hour’s time or the number of emails you’d expect to receive in a week.</p>
+</blockquote>
+</div>
+<div id="more-resources" class="section level2">
+<h2>More Resources</h2>
+<ul>
+<li><a href="https://www.stratascratch.com/blog/probability-and-statistics-interview-questions-and-answers/">Probability and Statistics Interview Questions and Answers</a></li>
+</ul>
+</div>
 
          
       </div>
