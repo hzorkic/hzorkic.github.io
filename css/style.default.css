@@ -403,7 +403,7 @@ SIDEBAR + RIGHT COLUMN
   }
 }
 .content-column-content p.lead {
-  color: #555555;
+  color: black;
 }
 .content-column-content p,
 .content-column-content li {
