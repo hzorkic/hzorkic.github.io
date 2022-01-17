@@ -1,11 +1,12 @@
 ---
-title: Crash Course GitHub
+title: Github Reference
 author: Hayley Zorkic
 date: '2021-12-25'
 draft: no
 showonlyimage: no
 description: My earnest attempt to avoid all future frustrations with version control.
 ---
+![](/img/portfolio/git_octopus.jpeg)
 
 I love git and github. Throughout my projects, internships, classes, and research, I've used github to keep track of projects. 
 
@@ -85,8 +86,9 @@ $ git config -l
 $ rm -rf .git
 ```
 
-
-
+## Resources
+- [Crash Course: Git Branches](https://coderefinery.github.io/git-intro/06-branches/)
+- [Crash Course Version Control with Github](https://coderefinery.github.io/git-intro/)
 
 
 

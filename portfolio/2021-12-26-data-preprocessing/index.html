@@ -111,36 +111,48 @@ if (!doNotTrack) {
   <div class="row">
     <div class="col-lg-8">
       <div class="content-column-content">
-         <h1>Assessing Model Performance </h1>
+         <h1>Data Preprocessing</h1>
          <h5>
-            Posted on Jan 14, 2022 - 
+            Posted on Jan 02, 2022 - 
             <i class="fa fa-clock-o"></i> 
-           3 min read 
+           2 min read 
         </h5>
-         <p>We need to ensure our models perform well and have a positive impact when deployed for business use. There are several ways to quantify the performance of Machine Learning models. There are a few performance metrics that are more exclusive to Machine Learning, but there are metrics that overlap with statistics. If you&rsquo;ve taken a statistics class before, you may have heard of a few performance metrics before like:</p>
+         <h2 id="summary">Summary</h2>
+<p>Data Preprocessing refers to the process, strategies and techniques of making data more suitable for analysis. In general, data preprocessing involves selecting objects for analysis or creating/changing attributes for analysis. Data Preproccessing is important to reduce the cost of analysis (time and money). In this post, I will be elaborating on the following techniques:</p>
 <ul>
-<li>True Positive Rate</li>
-<li>False Positive Rate</li>
-<li>Precision</li>
-<li>Accuracy</li>
+<li>Aggregation</li>
+<li>Sampling</li>
+<li>Dimensionality reduction</li>
+<li>Feature subset selection</li>
+<li>Feature creation</li>
+<li>Discretization and binarization</li>
+<li>Variable transformation</li>
 </ul>
-<p>What performance metric you use depends on what mind of model you&rsquo;ve created. Typically, we are performing classification or regression, but we can use other models as well. Below is a picture showing some common metrics used in each kind of model.</p>
-<p><img src="/img/portfolio/metrics.png" alt="Metrics chart"></p>
-<h2 id="classification-metrics">Classification Metrics</h2>
-<p>When evaluating the performance of a classification model, it is essential to understand the distinction between the true outcome and predicted outcome.</p>
-<p><strong>True Positive (TP):</strong> A sample is predicted to be positive (ŷ=1, e.g. the person is predicted to develop the disease) and its label is actually positive (y=1, e.g. the person will actually develop the disease).</p>
-<p><strong>True Negative (TN):</strong> A sample is predicted to be negative (ŷ=0, e.g. the person is predicted to not develop the disease) and its label is actually negative (y=0, e.g. the person will actually not develop the disease).</p>
-<p><strong>False Positive (FP):</strong> A sample is predicted to be positive (ŷ=1, e.g. the person is predicted to develop the disease) and its label is actually negative (y=0, e.g. the person will actually not develop the disease). In this case, the sample is “falsely” predicted as positive.</p>
-<p><strong>False Negative (FN):</strong> A sample is predicted to be negative (ŷ=0, e.g. the person is predicted to not develop the disease) and its label is actually positive (y=1, e.g. the person will actually develop the disease). In this case, the sample is “falsely” predicted as negative.</p>
-<p>This can be a little bit confusing, but the way I think about it is whether or not the classification is &ldquo;truly&rdquo; or &ldquo;falsely&rdquo; positive or negative.</p>
-<p>We can combine all of these outcomes into the Confusion Matrix.</p>
-<p><img src="/img/portfolio/small_confusion_matrix.png" alt="small confusion matrix"></p>
-<p>When we create performance metrics from these outcomes, our confusion matrix gets a lot more confusing&hellip; so let&rsquo;s break it down.</p>
-<p><img src="/img/portfolio/conf_matrix.png" alt="expanded confusion matrix"></p>
-<p><strong>Accuracy (ACC):</strong> The fraction of predictions our model got right out of all the predictions including truly negative negatives and truly positive positives. Accuracy ranges between 0 and 1. If our model is perfect, meaning it has no FP or FN, the accuracy is 1. If our model is perfectly bad, it has no TP or TN.
-<img src="/img/portfolio/accuracy.gif" alt="expanded confusion matrix"></p>
-<p>Accuracy is not the best metric however, as it is susceptible to imbalanced data. For example, if we build a model that predicted YES 100% of the time, and our sample consisted of 95 YES and 5 NO, Technically, our model has 95% accuracy, but the model isn&rsquo;t really predicting anything at all.</p>
-<p><strong>Precision (PPV):</strong> The proportion of positive predictions that were actually correct.</p>
+<h2 id="aggregation">Aggregation</h2>
+<p><strong>Aggregation</strong> = the combining of two or more objects into a single object. For example, grouping rows byb mm-yyyy that were originally separated by mm-dd-yyyy and averaging/totaling the original rows attributes to gain one aggregated row for each mm-yyyy.</p>
+<p><strong>Why do we aggregate?</strong></p>
+<ol>
+<li>Smaller data sets require less memory and processing.</li>
+<li>We can view data from a high-level view instead of a low level view.</li>
+</ol>
+<p><strong>Why wouldn&rsquo;t we aggregate?</strong></p>
+<ol>
+<li>Losing details. In the mm-dd-yyyy example, we would lose data about daily and weekly differences.</li>
+</ol>
+<h2 id="sampling">Sampling</h2>
+<p><strong>Sampling</strong> = selecting a subset of the data objects to be analyzed.</p>
+<p><strong>Why do we sample?</strong></p>
+<ol>
+<li>Running statistical analyses on large datasets is too expensive, time consuming, computationally intensive, or memory intensive.</li>
+<li>Taking a representative sample of the data creates a smaller dataset that we can run better, more computationally expensive algorithms on!</li>
+</ol>
+<p><strong>Why wouldn&rsquo;t we aggregate?</strong>
+1</p>
+<p><strong>How do we sample?</strong></p>
+<ul>
+<li>Always always always select a representative sample of the data. Using a sample of data is valid so long as the sample is representative of the original dataset. Representative samples have approximately the same property (of interest) as the original set of data. If the mean (average) of the data objects is the property of interest, then a sample is representative if it has a mean that is close to that of the original data</li>
+<li>Simple random sampling</li>
+</ul>
 <p><img src="/img/under_construction.png" alt=""></p>
 
          

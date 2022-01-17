@@ -117,7 +117,17 @@
     </item>
     
     <item>
-      <title>Crash Course GitHub</title>
+      <title>Data Preprocessing</title>
+      <link>https://hzorkic.github.io/portfolio/2021-12-26-data-preprocessing/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-12-26-data-preprocessing/</guid>
+      <description>Summary Data Preprocessing refers to the process, strategies and techniques of making data more suitable for analysis. In general, data preprocessing involves selecting objects for analysis or creating/changing attributes for analysis. Data Preproccessing is important to reduce the cost of analysis (time and money). In this post, I will be elaborating on the following techniques:
+ Aggregation Sampling Dimensionality reduction Feature subset selection Feature creation Discretization and binarization Variable transformation  Aggregation Aggregation = the combining of two or more objects into a single object.</description>
+    </item>
+    
+    <item>
+      <title>Github Reference</title>
       <link>https://hzorkic.github.io/portfolio/2021-12-25-crash-course-github/</link>
       <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
       

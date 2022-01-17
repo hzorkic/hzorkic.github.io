@@ -49,6 +49,6 @@ Below I will discuss a few common distributions.
 ## More Resources 
 - [Probability and Statistics Interview Questions and Answers](https://www.stratascratch.com/blog/probability-and-statistics-interview-questions-and-answers/)
 
-
+![](/img/under_construction.png)
 
 
