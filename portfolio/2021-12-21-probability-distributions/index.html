@@ -59,7 +59,9 @@ if (!doNotTrack) {
       
         <li><a href="https://hzorkic.github.io/about/">About</a></li>
       
-        <li><a href="https://hzorkic.github.io/portfolio/">Posts</a></li>
+        <li><a href="https://hzorkic.github.io/portfolio/">Technical</a></li>
+      
+        <li><a href="https://hzorkic.github.io/creative/">Creative</a></li>
       
         <li><a href="https://hzorkic.github.io/img/RESUME.pdf">CV</a></li>
       
@@ -115,13 +117,13 @@ if (!doNotTrack) {
          <h5>
             Posted on Dec 21, 2021 - 
             <i class="fa fa-clock-o"></i> 
-           4 min read 
+           6 min read 
         </h5>
          
 <script src="https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/index_files/header-attrs/header-attrs.js"></script>
 
 
-<p>Data Science and Machine Leanring methods are heavily based on probability- the likelyhood of an event occurring on a scale of 0-1.</p>
+<p>Data Science and Machine Learning methods are heavily based on probability- the likelihood of an event occurring on a scale of 0-1.</p>
 <p>When we are given a new data set, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to “tailor” our models for each case study. There are two main kinds of data, Numeric and Categorical. Numerical data can be further divided into Discrete or Continuous.</p>
 <ol style="list-style-type: decimal">
 <li><strong>Discrete</strong> - variables with specific values. The outcome of the data is fixed. Ex. there are 4 apples, I wear a size 8.5 shoe, I have 17 housemates.</li>
@@ -164,10 +166,65 @@ Below I will discuss a few common distributions.</p>
 <p>The Poisson distribution models the probability of seeing a certain number of successes within a time interval, where the time it takes for the next success is modeled by an exponential distribution. The Poisson distribution can be used to model traffic, such as the number of arrivals a hospital can expect in a hour’s time or the number of emails you’d expect to receive in a week.</p>
 </blockquote>
 </div>
+<div id="a-deeper-look-at-non-normal-distributions" class="section level2">
+<h2>A Deeper Look at Non-Normal Distributions</h2>
+<p>In any introductory statistics class, the overwhelming preference for normally distributed data is hard to ignore. one sample Z tests, T tests, and ANOVAs assume normality.</p>
+<p>While there are situations that usually follow the normal distribution, there are plenty of situations that are naturally non-normal. Car accident data tends to follow Poisson distributions, product lifetimes tend to follow Weibell distributions.</p>
+<p>Before jumping to how to deal with non-normal distributions in statistical analysis, lets first rule out any reasons a distribution is being skewed.</p>
+<ol style="list-style-type: decimal">
+<li>Outliers. Things like the mean of the data is sensitive to outliers. To eliminate this problem, look into ways to remove extremely high or low values in your data.</li>
+<li>You data might be bimodal or multimodal!</li>
+<li>You have insufficient data making it difficult to detect a noraml signal in your data. If the results seem sparse or irratic, try collecting more data to increase your sample size.</li>
+<li>You data is inappropriately graphed.</li>
+</ol>
+<p>Let’s say you checked all of these things and your distribution is still not normal- what now? Take a deep breath.</p>
+<ol style="list-style-type: decimal">
+<li>Several tests that assume normality can still be used if the sample size is large enough.</li>
+<li>Force the data into a normal distribution by applying a function that transforms the data. You should only do this if your sample size is large.</li>
+<li>If your sample is really small, you can run a non-parametric test which does not assume a data distribution. Examples of this kind of test include Wilcoxon signed rank test, Mann-Whitney U Test, and the Kruskal-Wallis test.</li>
+</ol>
+</div>
+<div id="useful-r-snippets" class="section level2">
+<h2>Useful R snippets</h2>
+<p>Density/mass function (pdf/pmf ): dxxx</p>
+<ul>
+<li>Ex. Height of (continuous) distribution at certain point x</li>
+<li>Ex. Probability of certain (discrete) outcome x</li>
+</ul>
+<p><code>dnorm(x), dt(x), dchisq(x), df(x), dbinom(x), dpois(x)...</code></p>
+<p>Cumulative distribution function (cdf ): pxxx</p>
+<ul>
+<li>Ex. Probability of getting a value from a distribution</li>
+</ul>
+<p><code>pnorm(x), pt(x), pchisq(x), pf(x), pbinom(x), ppois(x)...</code></p>
+<p>Quantile function (inverse of pdf ): qxxx</p>
+<ul>
+<li>Ex. The opposite/inverse of a PDF.</li>
+<li>Ex. Value that cuts off proportion of the distribution below it</li>
+</ul>
+<p><code>qnorm(p), qt(p), qchisq(p), qf(p), qbinom(p), qpois(p)...</code></p>
+<p>Random sample function: rxxx</p>
+<ul>
+<li>Get random draws from a distribution</li>
+</ul>
+<p><code>rnorm(n), rt(n), rchisq(n), rf(n), rbinom(n), rpois(n)...</code></p>
+</div>
+<div id="useful-python-snippets" class="section level2">
+<h2>Useful Python Snippets</h2>
+<p>Density/mass function (pdf/pmf ): xxx.pdf()</p>
+<p><code>norm.pdf(x)</code></p>
+<p>Cumulative distribution function (cdf ): xxx.cdf()</p>
+<p><code>norm.cdf(x)</code></p>
+<p>Quantile function (inverse of pdf ): xxx..ppf()</p>
+<p><code>norm.ppf(x)</code></p>
+<p>Random sample function: xxx.rvs()</p>
+<p><code>norm.rvs(x)</code></p>
+</div>
 <div id="more-resources" class="section level2">
 <h2>More Resources</h2>
 <ul>
 <li><a href="https://www.stratascratch.com/blog/probability-and-statistics-interview-questions-and-answers/">Probability and Statistics Interview Questions and Answers</a></li>
+<li><a href="https://www.statisticshowto.com/probability-and-statistics/non-normal-distributions/">Non Normal Distributions</a></li>
 </ul>
 <p><img src="/img/under_construction.png" /></p>
 </div>

@@ -3,6 +3,7 @@ title: Github Reference
 author: Hayley Zorkic
 date: '2021-12-25'
 draft: no
+image: '/img/portfolio/git_octopus.jpeg'
 showonlyimage: no
 description: My earnest attempt to avoid all future frustrations with version control.
 ---

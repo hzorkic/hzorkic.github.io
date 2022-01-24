@@ -330,6 +330,7 @@ SIDEBAR + RIGHT COLUMN
 }
 .sidebar-heading {
   font-size: 23px;
+  text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 .sidebar-heading a {
@@ -381,7 +382,8 @@ SIDEBAR + RIGHT COLUMN
   color: black;
 }
 .content-column {
-  padding-top: 20px;
+  padding-top: 40px;
+  color: #fff;
 }
 .content-column.white-background {
   background: #fff;
@@ -407,7 +409,7 @@ SIDEBAR + RIGHT COLUMN
 }
 .content-column-content p,
 .content-column-content li {
-  color: #999999;
+  color: black;
 }
 .content-column-content ul li {
   list-style-type: none;
@@ -689,7 +691,7 @@ MAIN PORTFOLIO SLIDER
 }
 #main-slider .owl-controls .owl-page.active span,
 #main-slider .owl-controls.clickable .owl-page:hover span {
-  background: "black";
+  background: black;
 }
 /*
 =====================
@@ -837,7 +839,10 @@ a:active {
   border-color: black;
   border-width: 2px;
   border-radius: 15px;
+  
+  box-shadow: black -5px 5px;
 }
+
 .box-masonry h4 {
   font-size: 16px;
   line-height: 1.5;
@@ -1587,7 +1592,7 @@ body {
   font-size: 16px;
   line-height: 1.55;
   color: #000000;
-  background-color: #FFCDC3;
+  background-color: #4034eb;
   /* background-image: url("/img/background.jpeg");
   background-position: center; /* Center the image */
   /*background-repeat: no-repeat; /* Do not repeat the image */
@@ -1668,6 +1673,7 @@ hr {
   font-size: 16px;
   line-height: 1.55;
   border-radius: 100;
+  color: black;
 }
 .btn-primary {
   color: #ffffff;

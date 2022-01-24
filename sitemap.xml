@@ -2,46 +2,28 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hzorkic.github.io/blog/work2/</loc>
-    <lastmod>2016-11-05T19:41:01+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work3/</loc>
-    <lastmod>2016-11-05T19:44:32+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work4/</loc>
-    <lastmod>2016-11-05T19:50:47+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work5/</loc>
-    <lastmod>2016-11-05T19:53:42+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work6/</loc>
-    <lastmod>2016-11-05T19:56:17+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work7/</loc>
-    <lastmod>2016-11-05T19:57:40+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work8/</loc>
-    <lastmod>2016-11-05T19:59:22+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work9/</loc>
-    <lastmod>2016-11-05T20:02:19+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work10/</loc>
-    <lastmod>2016-11-05T20:22:08+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work11/</loc>
-    <lastmod>2016-11-05T20:23:59+05:30</lastmod>
-  </url><url>
     <loc>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</loc>
     <lastmod>2020-08-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/portfolio/2022-01-14-assessing-model-performance/</loc>
-    <lastmod>2022-01-14T00:00:00+00:00</lastmod>
+    <loc>https://hzorkic.github.io/creative/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/</loc>
-    <lastmod>2022-01-14T00:00:00+00:00</lastmod>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/creative/2022-01-24-3d-printed-vases/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/portfolio/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/portfolio/2022-01-24-predicting-protuguese-students-math-success-with-machine-learning/</loc>
+    <lastmod>2022-01-24T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/portfolio/2022-01-20-predicting-hospital-no-shows-with-neural-networks/</loc>
+    <lastmod>2022-01-20T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/portfolio/2022-01-14-assessing-model-performance/</loc>
     <lastmod>2022-01-14T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/portfolio/2021-12-26-data-preprocessing/</loc>
@@ -59,7 +41,7 @@
     <loc>https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/</loc>
     <lastmod>2021-12-21T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/portfolio/cs329e_hw7/</loc>
+    <loc>https://hzorkic.github.io/portfolio/2021-11-10-naive-bayes-classification/</loc>
     <lastmod>2021-11-10T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/</loc>
@@ -70,12 +52,6 @@
   </url><url>
     <loc>https://hzorkic.github.io/portfolio/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/</loc>
-    <lastmod>2016-11-05T20:23:59+05:30</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/blog/work1/</loc>
-    <lastmod>2016-11-05T18:25:22+05:30</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/categories/</loc>
   </url><url>

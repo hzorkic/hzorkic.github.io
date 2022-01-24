@@ -6,7 +6,7 @@
     <description>Recent content in Portfolios on HAYLEY ZORKIC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 14 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Texas Inventionworks Portal Website</title>
       <link>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</link>
@@ -14,6 +14,26 @@
       
       <guid>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</guid>
       <description>The Problem During the summer of 2020, my team and I build a website to automate and digitize the operational workflow of Texas Inventionworks (The University of Texas at Austin&amp;rsquo;s Engineering Scool&amp;rsquo;s Makerspace). As UT Austin shut down all non-essential campus operations during the &amp;ldquo;lockdown,&amp;rdquo; we were tasked with creating an application that allowed us to keep track of all of the students that came into the space and all of the transactions they made.</description>
+    </item>
+    
+    <item>
+      <title>Predicting Portuguese Students Math Success with Machine Learning</title>
+      <link>https://hzorkic.github.io/portfolio/2022-01-24-predicting-protuguese-students-math-success-with-machine-learning/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-01-24-predicting-protuguese-students-math-success-with-machine-learning/</guid>
+      <description>Introduction #Pandas and numpy for data manipulation import numpy as np import pandas as pd # Matplot lib and seaborn for visualizations import matplotlib.pyplot as plt %matplotlib inline plt.rcParams[&amp;#39;figure.dpi&amp;#39;] = 150 import seaborn as sns # Standard machine learning models from sklearn.linear_model import LogisticRegression from sklearn.ensemble import RandomForestClassifier from sklearn import svm # Scikit-learn utilities from sklearn.model_selection import train_test_split from sklearn.preprocessing import StandardScaler from sklearn.metrics import classification_report, confusion_matrix,accuracy_score, roc_curve, auc from sklearn.</description>
+    </item>
+    
+    <item>
+      <title>Predicting Hospital No-Shows with Neural Networks</title>
+      <link>https://hzorkic.github.io/portfolio/2022-01-20-predicting-hospital-no-shows-with-neural-networks/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-01-20-predicting-hospital-no-shows-with-neural-networks/</guid>
+      <description>Let&amp;rsquo;s use machine learning to figure out why 30% of patients miss their scheduled appointments!
+This project will be orgnaized as such:
+ Collect Data Data Preprocessing EDA Model Buidling Conclusions  1. Collect Data Because I do not readily have access to my own data, for this project, we will be using Kaggle&amp;rsquo;s &amp;ldquo;Medical Appointment No Shows.&amp;rdquo; You can download the file here if you want to follow along with this code.</description>
     </item>
     
     <item>
@@ -63,16 +83,16 @@ The Elements of Statistical Learning: Data Mining, Inference, and Prediction
       <pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate>
       
       <guid>https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/</guid>
-      <description>Data Science and Machine Leanring methods are heavily based on probability- the likelyhood of an event occurring on a scale of 0-1.
+      <description>Data Science and Machine Learning methods are heavily based on probability- the likelihood of an event occurring on a scale of 0-1.
 When we are given a new data set, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to “tailor” our models for each case study. There are two main kinds of data, Numeric and Categorical.</description>
     </item>
     
     <item>
       <title>Naive Bayes Classification</title>
-      <link>https://hzorkic.github.io/portfolio/cs329e_hw7/</link>
+      <link>https://hzorkic.github.io/portfolio/2021-11-10-naive-bayes-classification/</link>
       <pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/portfolio/cs329e_hw7/</guid>
+      <guid>https://hzorkic.github.io/portfolio/2021-11-10-naive-bayes-classification/</guid>
       <description>For this week&amp;rsquo;s homework we are going explore one new classification technique:
  Naive Bayes  In this post we are going to use a dataset of Melboburne housing to predict the housing type as one of three possible categories:
  &amp;lsquo;h&amp;rsquo; house &amp;lsquo;u&amp;rsquo; duplex &amp;rsquo;t&#39; townhouse  In addition to building our own Naive Bayes classifier, we are going to compare the performace of our classifier to the Gaussian Naive Bayes Classifier available in the scikit-learn library.</description>
