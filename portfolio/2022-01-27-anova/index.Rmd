@@ -1,11 +1,12 @@
 ---
-title: ANOVA
+title: ANOVA Walkthrough
 author: Hayley Zorkic
 date: '2022-01-27'
 slug: []
 categories: []
 tags: []
 draft: no
+description: 'Step-by-step guide to referenece when running a one-way ANOVA'
 image: '/img/portfolio/anova_main.jpeg'
 showonlyimage: no
 ---
