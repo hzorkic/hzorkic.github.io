@@ -6,7 +6,7 @@
     <description>Recent content in Portfolios on HAYLEY ZORKIC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Mon, 24 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 27 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>Texas Inventionworks Portal Website</title>
       <link>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</link>
@@ -14,6 +14,16 @@
       
       <guid>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</guid>
       <description>The Problem During the summer of 2020, my team and I build a website to automate and digitize the operational workflow of Texas Inventionworks (The University of Texas at Austin&amp;rsquo;s Engineering Scool&amp;rsquo;s Makerspace). As UT Austin shut down all non-essential campus operations during the &amp;ldquo;lockdown,&amp;rdquo; we were tasked with creating an application that allowed us to keep track of all of the students that came into the space and all of the transactions they made.</description>
+    </item>
+    
+    <item>
+      <title>ANOVA</title>
+      <link>https://hzorkic.github.io/portfolio/2022-01-27-anova/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-01-27-anova/</guid>
+      <description>ANOVA (Analysis of Variance) falls under a category of techniques called inferential statistics which allow you to test hypotheses or assess if Analysis of Variance your sample is generalization to a broader population. A one-way ANOVA is a technique that extends the independent two-sample t-test to multiple groups, enabling users to determine if there is a statistically significant difference between group population means.
+Why Anova? Say, for example, we want to find out which pre-workout snack lead to different mean mile times.</description>
     </item>
     
     <item>
@@ -85,6 +95,16 @@ The Elements of Statistical Learning: Data Mining, Inference, and Prediction
       <guid>https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/</guid>
       <description>Data Science and Machine Learning methods are heavily based on probability- the likelihood of an event occurring on a scale of 0-1.
 When we are given a new data set, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to “tailor” our models for each case study. There are two main kinds of data, Numeric and Categorical.</description>
+    </item>
+    
+    <item>
+      <title>My first publication!</title>
+      <link>https://hzorkic.github.io/portfolio/2022-01-24-javanmardi-2021/</link>
+      <pubDate>Thu, 16 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-01-24-javanmardi-2021/</guid>
+      <description>Here&amp;rsquo;s a link to the paper!
+Feel free to email me if you can&amp;rsquo;t access it and I will send you the pdf.</description>
     </item>
     
     <item>
