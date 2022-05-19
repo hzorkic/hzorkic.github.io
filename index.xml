@@ -6,14 +6,14 @@
     <description>Recent content on HAYLEY ZORKIC</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Thu, 27 Jan 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Thu, 19 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Texas Inventionworks Portal Website</title>
-      <link>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</link>
-      <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
+      <title>Sentiment Analysis for Post-Approval Birth Control Review Pharmacovigilance</title>
+      <link>https://hzorkic.github.io/portfolio/2022-05-19-sentiment-analysis-for-pharmacovigilance/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</guid>
-      <description>The Problem During the summer of 2020, my team and I build a website to automate and digitize the operational workflow of Texas Inventionworks (The University of Texas at Austin&amp;rsquo;s Engineering Scool&amp;rsquo;s Makerspace). As UT Austin shut down all non-essential campus operations during the &amp;ldquo;lockdown,&amp;rdquo; we were tasked with creating an application that allowed us to keep track of all of the students that came into the space and all of the transactions they made.</description>
+      <guid>https://hzorkic.github.io/portfolio/2022-05-19-sentiment-analysis-for-pharmacovigilance/</guid>
+      <description>1. Introduction While pharmaceutical birth control continues to be the most popular method of contraceptive in the United States, the proliferation of different formulations of these methods can make decisions regarding which to use difficult for individual persons (Kavanaugh &amp;amp; Jerman, 2018). Additionally, research has shown that there may be a tendency for providers to diminish or avoid disclosing adverse side effects of contraceptives, further hindering a comprehensive understanding of its efficacy (Stevens, 2018).</description>
     </item>
     
     <item>
@@ -41,7 +41,7 @@ Why Anova? Say, for example, we want to find out which pre-workout snack lead to
       <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
       
       <guid>https://hzorkic.github.io/portfolio/2022-01-24-predicting-protuguese-students-math-success-with-machine-learning/</guid>
-      <description>Introduction #Pandas and numpy for data manipulation import numpy as np import pandas as pd # Matplot lib and seaborn for visualizations import matplotlib.pyplot as plt %matplotlib inline plt.rcParams[&amp;#39;figure.dpi&amp;#39;] = 150 import seaborn as sns # Standard machine learning models from sklearn.linear_model import LogisticRegression from sklearn.ensemble import RandomForestClassifier from sklearn import svm # Scikit-learn utilities from sklearn.model_selection import train_test_split from sklearn.preprocessing import StandardScaler from sklearn.metrics import classification_report, confusion_matrix,accuracy_score, roc_curve, auc from sklearn.</description>
+      <description>Introduction #Pandas and numpy for data manipulation  import numpy as np import pandas as pd  # Matplot lib and seaborn for visualizations  import matplotlib.pyplot as plt %matplotlib inline plt.rcParams[&amp;#39;figure.dpi&amp;#39;] = 150  import seaborn as sns  # Standard machine learning models from sklearn.linear_model import LogisticRegression from sklearn.ensemble import RandomForestClassifier from sklearn import svm  # Scikit-learn utilities  from sklearn.model_selection import train_test_split from sklearn.preprocessing import StandardScaler from sklearn.</description>
     </item>
     
     <item>
@@ -124,7 +124,7 @@ Feel free to email me if you can&amp;rsquo;t access it and I will send you the p
       <guid>https://hzorkic.github.io/portfolio/2021-11-10-naive-bayes-classification/</guid>
       <description>For this week&amp;rsquo;s homework we are going explore one new classification technique:
  Naive Bayes  In this post we are going to use a dataset of Melboburne housing to predict the housing type as one of three possible categories:
- &amp;lsquo;h&amp;rsquo; house &amp;lsquo;u&amp;rsquo; duplex &amp;rsquo;t&#39; townhouse  In addition to building our own Naive Bayes classifier, we are going to compare the performace of our classifier to the Gaussian Naive Bayes Classifier available in the scikit-learn library.</description>
+ &amp;lsquo;h&amp;rsquo; house &amp;lsquo;u&amp;rsquo; duplex &amp;rsquo;t&amp;rsquo; townhouse  In addition to building our own Naive Bayes classifier, we are going to compare the performace of our classifier to the Gaussian Naive Bayes Classifier available in the scikit-learn library.</description>
     </item>
     
     <item>
@@ -155,6 +155,15 @@ In interpreting the RNA-seq data set, you should note the following descriptions
       <guid>https://hzorkic.github.io/portfolio/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</guid>
       <description>0. Introduction COVID-19 is an infectionus disease caused by Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). First identified in December of 2019, SARS-CoV-2 resulted in an ongoing pandemic effecting over 39 million people in 189 countries, but the WHO predicts that with asymptomatic cases, the number of infections may be closer to 800 million.
 Therapeutics for those suffering from COVID-19 include collecting and transplanting neautralizing antibodies from patients who have recoved from COVID-19.</description>
+    </item>
+    
+    <item>
+      <title>Texas Inventionworks Portal Website</title>
+      <link>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</link>
+      <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</guid>
+      <description>The Problem During the summer of 2020, my team and I build a website to automate and digitize the operational workflow of Texas Inventionworks (The University of Texas at Austin&amp;rsquo;s Engineering Scool&amp;rsquo;s Makerspace). As UT Austin shut down all non-essential campus operations during the &amp;ldquo;lockdown,&amp;rdquo; we were tasked with creating an application that allowed us to keep track of all of the students that came into the space and all of the transactions they made.</description>
     </item>
     
   </channel>

@@ -13,7 +13,7 @@ showonlyimage: no
 
 ![](/img/portfolio/anova_main.jpeg)
 
-ANOVA (Analysis of Variance) falls under a category of techniques called *inferential statistics* which allow you to test hypotheses or assess if Analysis of Variance your sample is generalization to a broader population. A one-way ANOVA is a technique that extends the independent two-sample t-test to multiple groups, enabling users to determine if there is a statistically significant difference between group population means. 
+ANOVA (Analysis of Variance) falls under a category of techniques called *inferential statistics* which allow you to test hypotheses or assess if Analysis of Variance your sample is generalizablbe to a broader population. A one-way ANOVA is a technique that extends the independent two-sample t-test to multiple groups, enabling users to determine if there is a statistically significant difference between group population means. 
 
 ### Why Anova?
 

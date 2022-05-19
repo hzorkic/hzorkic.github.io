@@ -2,16 +2,16 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</loc>
-    <lastmod>2020-08-23T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/portfolio/2022-01-27-anova/</loc>
-    <lastmod>2022-01-27T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://hzorkic.github.io/</loc>
-    <lastmod>2022-01-27T00:00:00+00:00</lastmod>
+    <lastmod>2022-05-19T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/portfolio/</loc>
+    <lastmod>2022-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/portfolio/2022-05-19-sentiment-analysis-for-pharmacovigilance/</loc>
+    <lastmod>2022-05-19T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/portfolio/2022-01-27-anova/</loc>
     <lastmod>2022-01-27T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/creative/</loc>
@@ -58,6 +58,9 @@
   </url><url>
     <loc>https://hzorkic.github.io/portfolio/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</loc>
+    <lastmod>2020-08-23T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/categories/</loc>
   </url><url>

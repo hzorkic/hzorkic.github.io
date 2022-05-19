@@ -3,3 +3,11 @@
   color: black;
 }
 
+blockquote {
+    padding: 12px 24px;
+    background: whitesmoke;
+    margin: 0 0 24px;
+    font-size: 16px;
+    border-left: 5px solid lightgrey;
+}
+
