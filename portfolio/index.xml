@@ -1,0 +1,161 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Portfolios on HAYLEY ZORKIC</title>
+    <link>https://hzorkic.github.io/portfolio/</link>
+    <description>Recent content in Portfolios on HAYLEY ZORKIC</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Thu, 19 May 2022 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>Sentiment Analysis for Post-Approval Birth Control Review Pharmacovigilance</title>
+      <link>https://hzorkic.github.io/portfolio/2022-05-19-sentiment-analysis-for-pharmacovigilance/</link>
+      <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-05-19-sentiment-analysis-for-pharmacovigilance/</guid>
+      <description>1. Introduction While pharmaceutical birth control continues to be the most popular method of contraceptive in the United States, the proliferation of different formulations of these methods can make decisions regarding which to use difficult for individual persons (Kavanaugh &amp;amp; Jerman, 2018). Additionally, research has shown that there may be a tendency for providers to diminish or avoid disclosing adverse side effects of contraceptives, further hindering a comprehensive understanding of its efficacy (Stevens, 2018).</description>
+    </item>
+    
+    <item>
+      <title>ANOVA Walkthrough</title>
+      <link>https://hzorkic.github.io/portfolio/2022-01-27-anova/</link>
+      <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-01-27-anova/</guid>
+      <description>ANOVA (Analysis of Variance) falls under a category of techniques called inferential statistics which allow you to test hypotheses or assess if Analysis of Variance your sample is generalization to a broader population. A one-way ANOVA is a technique that extends the independent two-sample t-test to multiple groups, enabling users to determine if there is a statistically significant difference between group population means.
+Why Anova? Say, for example, we want to find out which pre-workout snack lead to different mean mile times.</description>
+    </item>
+    
+    <item>
+      <title>Predicting Portuguese Students Math Success with Machine Learning</title>
+      <link>https://hzorkic.github.io/portfolio/2022-01-24-predicting-protuguese-students-math-success-with-machine-learning/</link>
+      <pubDate>Mon, 24 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-01-24-predicting-protuguese-students-math-success-with-machine-learning/</guid>
+      <description>Introduction #Pandas and numpy for data manipulation  import numpy as np import pandas as pd  # Matplot lib and seaborn for visualizations  import matplotlib.pyplot as plt %matplotlib inline plt.rcParams[&amp;#39;figure.dpi&amp;#39;] = 150  import seaborn as sns  # Standard machine learning models from sklearn.linear_model import LogisticRegression from sklearn.ensemble import RandomForestClassifier from sklearn import svm  # Scikit-learn utilities  from sklearn.model_selection import train_test_split from sklearn.preprocessing import StandardScaler from sklearn.</description>
+    </item>
+    
+    <item>
+      <title>Predicting Hospital No-Shows with Neural Networks</title>
+      <link>https://hzorkic.github.io/portfolio/2022-01-20-predicting-hospital-no-shows-with-neural-networks/</link>
+      <pubDate>Thu, 20 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-01-20-predicting-hospital-no-shows-with-neural-networks/</guid>
+      <description>Let&amp;rsquo;s use machine learning to figure out why 30% of patients miss their scheduled appointments!
+This project will be orgnaized as such:
+ Collect Data Data Preprocessing EDA Model Buidling Conclusions  1. Collect Data Because I do not readily have access to my own data, for this project, we will be using Kaggle&amp;rsquo;s &amp;ldquo;Medical Appointment No Shows.&amp;rdquo; You can download the file here if you want to follow along with this code.</description>
+    </item>
+    
+    <item>
+      <title>Assessing Model Performance </title>
+      <link>https://hzorkic.github.io/portfolio/2022-01-14-assessing-model-performance/</link>
+      <pubDate>Fri, 14 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-01-14-assessing-model-performance/</guid>
+      <description>We need to ensure our models perform well and have a positive impact when deployed for business use. There are several ways to quantify the performance of Machine Learning models. There are a few performance metrics that are more exclusive to Machine Learning, but there are metrics that overlap with statistics. If you&amp;rsquo;ve taken a statistics class before, you may have heard of a few performance metrics before like:
+ True Positive Rate False Positive Rate Precision Accuracy  What performance metric you use depends on what mind of model you&amp;rsquo;ve created.</description>
+    </item>
+    
+    <item>
+      <title>Data Preprocessing</title>
+      <link>https://hzorkic.github.io/portfolio/2021-12-26-data-preprocessing/</link>
+      <pubDate>Sun, 02 Jan 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-12-26-data-preprocessing/</guid>
+      <description>Summary Data Preprocessing refers to the process, strategies and techniques of making data more suitable for analysis. In general, data preprocessing involves selecting objects for analysis or creating/changing attributes for analysis. Data Preproccessing is important to reduce the cost of analysis (time and money). In this post, I will be elaborating on the following techniques:
+ Aggregation Sampling Dimensionality reduction Feature subset selection Feature creation Discretization and binarization Variable transformation  Aggregation Aggregation = the combining of two or more objects into a single object.</description>
+    </item>
+    
+    <item>
+      <title>Github Reference</title>
+      <link>https://hzorkic.github.io/portfolio/2021-12-25-crash-course-github/</link>
+      <pubDate>Sat, 25 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-12-25-crash-course-github/</guid>
+      <description>I love git and github. Throughout my projects, internships, classes, and research, I’ve used github to keep track of projects.
+Why Git? Version Control! Simply put, version control allows you to keep track of changes in code instead of saving dozens of copies of a project as you progress through it. Version control also allows you to seamlessly merge changes made by people working on a similar project as you.</description>
+    </item>
+    
+    <item>
+      <title>Books for Statistics and Data Science </title>
+      <link>https://hzorkic.github.io/portfolio/2021-12-23-books-for-statistics-and-data-science/</link>
+      <pubDate>Thu, 23 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-12-23-books-for-statistics-and-data-science/</guid>
+      <description>A lot of books are thrown your way throughout your formal and informal education. Rather than have these textbooks exist as bookmarks in my browser, I’ve decided to create this blogpost to house them for others the reference. The images are links to the online textbooks (all open source) for ease of access. Enjoy!
+The Elements of Statistical Learning: Data Mining, Inference, and Prediction 
+ An Introduction to Statistical Learning with Applications in R</description>
+    </item>
+    
+    <item>
+      <title>Probability Distributions</title>
+      <link>https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/</link>
+      <pubDate>Tue, 21 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-12-21-probability-distributions/</guid>
+      <description>Data Science and Machine Learning methods are heavily based on probability- the likelihood of an event occurring on a scale of 0-1.
+When we are given a new data set, we need to perform Exploratory Data Analysis to gain a better understanding of the features (columns) of the data. Understanding the data distributions allows us to “tailor” our models for each case study. There are two main kinds of data, Numeric and Categorical.</description>
+    </item>
+    
+    <item>
+      <title>My first publication!</title>
+      <link>https://hzorkic.github.io/portfolio/2022-01-24-javanmardi-2021/</link>
+      <pubDate>Thu, 16 Dec 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2022-01-24-javanmardi-2021/</guid>
+      <description>Here&amp;rsquo;s a link to the paper!
+Feel free to email me if you can&amp;rsquo;t access it and I will send you the pdf.</description>
+    </item>
+    
+    <item>
+      <title>Naive Bayes Classification</title>
+      <link>https://hzorkic.github.io/portfolio/2021-11-10-naive-bayes-classification/</link>
+      <pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-11-10-naive-bayes-classification/</guid>
+      <description>For this week&amp;rsquo;s homework we are going explore one new classification technique:
+ Naive Bayes  In this post we are going to use a dataset of Melboburne housing to predict the housing type as one of three possible categories:
+ &amp;lsquo;h&amp;rsquo; house &amp;lsquo;u&amp;rsquo; duplex &amp;rsquo;t&amp;rsquo; townhouse  In addition to building our own Naive Bayes classifier, we are going to compare the performace of our classifier to the Gaussian Naive Bayes Classifier available in the scikit-learn library.</description>
+    </item>
+    
+    <item>
+      <title>Data Vizualization of Everest Climbers</title>
+      <link>https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/</link>
+      <pubDate>Mon, 08 Mar 2021 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-03-08-data-vizualization-of-everest-climbers/</guid>
+      <description>library(tidyverse) ## ── Attaching packages ─────────────────────────────────────── tidyverse 1.3.1 ── ## ✓ ggplot2 3.3.5 ✓ purrr 0.3.4 ## ✓ tibble 3.1.5 ✓ dplyr 1.0.7 ## ✓ tidyr 1.1.4 ✓ stringr 1.4.0 ## ✓ readr 2.0.2 ✓ forcats 0.5.1 ## ── Conflicts ────────────────────────────────────────── tidyverse_conflicts() ── ## x dplyr::filter() masks stats::filter() ## x dplyr::lag() masks stats::lag() library(ggridges) This is the dataset we will be working with:
+members &amp;lt;- readr::read_csv(&amp;#39;https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/members.csv&amp;#39;) members_everest &amp;lt;- members %&amp;gt;% filter(peak_name == &amp;quot;Everest&amp;quot;) %&amp;gt;% # only keep expeditions to Everest filter(!</description>
+    </item>
+    
+    <item>
+      <title>RNASeq Analysis of Arabadopsis thaliana</title>
+      <link>https://hzorkic.github.io/portfolio/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</link>
+      <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</guid>
+      <description>Analysis of RNASeq Data from Wild Type and Mutated Arabidopsis thaliana 0. Background In this report, we are primarily interested in understanding how the differences in gene expression between the light and dark conditions vary by gene in the primary gene ontology id GO:0006090. To this end, we will use DESeq to look for genes with significant interaction terms between genotype and timepoint.
+In interpreting the RNA-seq data set, you should note the following descriptions of the different sample genotypes:</description>
+    </item>
+    
+    <item>
+      <title>Exploratory Data Analysis of SARS-CoV-2 Mutations</title>
+      <link>https://hzorkic.github.io/portfolio/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</link>
+      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</guid>
+      <description>0. Introduction COVID-19 is an infectionus disease caused by Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). First identified in December of 2019, SARS-CoV-2 resulted in an ongoing pandemic effecting over 39 million people in 189 countries, but the WHO predicts that with asymptomatic cases, the number of infections may be closer to 800 million.
+Therapeutics for those suffering from COVID-19 include collecting and transplanting neautralizing antibodies from patients who have recoved from COVID-19.</description>
+    </item>
+    
+    <item>
+      <title>Texas Inventionworks Portal Website</title>
+      <link>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</link>
+      <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/portfolio/2021-11-14-texas-inventionworks-portal-website/</guid>
+      <description>The Problem During the summer of 2020, my team and I build a website to automate and digitize the operational workflow of Texas Inventionworks (The University of Texas at Austin&amp;rsquo;s Engineering Scool&amp;rsquo;s Makerspace). As UT Austin shut down all non-essential campus operations during the &amp;ldquo;lockdown,&amp;rdquo; we were tasked with creating an application that allowed us to keep track of all of the students that came into the space and all of the transactions they made.</description>
+    </item>
+    
+  </channel>
+</rss>

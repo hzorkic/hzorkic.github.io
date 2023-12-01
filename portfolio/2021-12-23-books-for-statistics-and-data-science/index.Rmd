@@ -1,0 +1,40 @@
+---
+title: 'Books for Statistics and Data Science '
+author: Hayley Zorkic
+date: '2021-12-23'
+slug: []
+categories: []
+tags: []
+draft: no
+image: '/img/portfolio/ELS.jpg'
+showonlyimage: no
+description: 'A live document where I post links to useful Statistics and Data Science books!'
+---
+
+A lot of books are thrown your way throughout your formal and informal education. Rather than have these textbooks exist as bookmarks in my browser, I've decided to create this blogpost to house them for others the reference. The images are links to the online textbooks (all open source) for ease of access. Enjoy!
+
+### The Elements of Statistical Learning: Data Mining, Inference, and Prediction
+[![](/img/portfolio/ELS.jpg){width=250px}](https://hastie.su.domains/ElemStatLearn/printings/ESLII_print12_toc.pdf)
+
+
+### An Introduction to Statistical Learning with Applications in R
+[![](/img/portfolio/ISL.jpeg){width=250px}](https://www.statlearning.com/)
+
+
+### R for Data Science 
+[![](/img/portfolio/R4DS.png){width=250px}](https://r4ds.had.co.nz/)
+
+
+### Python for Data Science 
+[![](/img/portfolio/P4DS.png){width=250px}](https://jakevdp.github.io/PythonDataScienceHandbook/)
+
+
+### Introduction to Data Science: Data Analysis and Prediction Algorithms with R
+[![](/img/portfolio/IDS.jpg){width=250px}](https://rafalab.github.io/dsbook/)
+
+
+### Data Science: A Gentle Introduction To DS and Its Algorithms
+[![](/img/portfolio/DSGI.jpeg){width=250px}](https://jgscott.github.io/STA371H_Spring2018/files/DataScience.pdf)
+
+
+

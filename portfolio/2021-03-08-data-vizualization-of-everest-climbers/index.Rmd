@@ -1,0 +1,182 @@
+---
+title: Data Vizualization of Everest Climbers
+description: "Exploratory Data Analysis and Data Visualization on Mt. Everest Climbers"
+author: Hayley Zorkic
+date: '2021-03-08'
+slug: []
+categories: []
+tags: []
+draft: no
+image: 'img/portfolio/everest.jpg'
+showonlyimage: no
+---
+
+```{r setup}
+library(tidyverse)
+library(ggridges)
+```
+
+
+This is the dataset we will be working with:
+```{r message = FALSE}
+members <- readr::read_csv('https://raw.githubusercontent.com/rfordatascience/tidytuesday/master/data/2020/2020-09-22/members.csv')
+
+members_everest <- members %>%
+  filter(peak_name == "Everest") %>% # only keep expeditions to Everest
+  filter(!is.na(age)) %>%     # only keep expedition members with known age
+  filter(year >= 1960)        # only keep expeditions since 1960 
+
+# Relabel out TRUE and FALSE values for success
+members_everest$success2 <- factor(members_everest$success,labels = (c(`TRUE` = "Summited Mt. Everest", `FALSE` = "Did not summit Mt. Everest")))
+
+# Relabel out TRUE and FALSE values for oxygen_used
+members_everest$oxygen_used2 <- factor(members_everest$oxygen_used, labels = (c(`TRUE` = "Oxygen Used", `FALSE` = "Oxygen Not Used")))
+```
+
+More information about the dataset can be found at https://github.com/rfordatascience/tidytuesday/blob/master/data/2020/2020-09-22/readme.md and https://www.himalayandatabase.com/.
+
+### **Part 1**
+
+**Question:** Are there age differences for expedition members who were successful or not in climbing Mt. Everest with or without oxygen, and how has the age distribution changed over the years?
+
+To answer this question we will plot the distribution of age by summit success and the use of oxygen. We will then group this data by year to the average age for each year from 1960 to 2016.
+
+**Introduction:** For this project, we will be using a dataset about Himalayan expeditions, taken from the Himalayan Database, a compilation of records for all expeditions that have climbed in the Nepal Himalaya. The subset of this dataset that we will be using in Part 1 is called ```members_everest``` which contains records specifically for expeditions to Mount Everest since 1960 to spring 2019 and expedition members of known age.
+
+To answer the first questin in Part 1 we will be working with four variables wether or not the climber successfully summited (```success2```), the climbers age (```age```), the year the climber climbed (```year```), and wether or not the climber used oxygen (```oxygen_use2```). Success and oxygen_use are TRUE or FALSE values recoded to “Summited Mt. Everest” and “Did not summit Mt. Everest”, “Oxygen Used” and “Oxygen Not Used” respectively. The climbers age and year of climb are provided as numeric variables in years.
+
+**Approach:** Our approach is to show the distribution of ages versus the success of the summit using a violin plot (```geom_violin()```). We also separate out those who used oxygen and those who didn’t because those who didn’t use oxygen are more likely to fail to summitt and furthermore should be considered separately. Violin plots make it easy to compare distributions side by side.
+
+A limitation of the violin plots in this scenario is that we cannot see the change in age distributions over the years. Therefore, we will visualize the age distribution based on everest summit successes and oxygen usage in a series faceted of per-year boxplots (```geom_boxplot()```).
+
+**Analysis:** First we plot the age distributions as violin plots.
+```{r }
+# violin plot age differences in those sucessfull or not inclimbing Mt. Everest with/without oxygen
+ggplot(members_everest, aes(x=success2, y= age, fill=oxygen_used2)) + 
+  geom_violin(
+    alpha=0.5
+  ) +
+  # change theme
+  theme_bw() + 
+  # label axis, title, and legend
+  labs(
+    title = "Age Distribution of Mt. Everest Summits Depending on Oxygen Usage",
+    x = "Summitt Success",  
+    y = "Age (years)", 
+    fill = "Oxygen Used")
+```
+
+Then we plot the distributions for each year as boxplots. We faceted by oxygen usage and success to clearly divide the distributions to see if there are any noticable trends in each subset of data. 
+```{R}
+# Age distribution per success per oxygen usage over years
+ggplot(members_everest, aes(y=age, x=year, fill = oxygen_used2, group=year)) +
+  geom_boxplot(
+    alpha = 0.5
+  ) + 
+  # facet by oxygen and success
+  facet_grid(
+    oxygen_used2 ~ success2
+  ) +
+  # change theme
+  theme_bw() +
+  # label axis and title
+  labs(
+    title = "Yearly Age Distribution of Mt. Everest Summits",
+    x = "Year (years)",  
+    y = "Age (years)", 
+    fill = "Oxygen Used")
+```
+
+**Discussion:** For those that successfully summited Everest, it appears that there is a slightly wider age distribution for those that used oxygen than for those who didn't. We can see this by comparing the violin plots labeled "Summited Mt. Everest", where we see that the tips of the violin for those that used oxygen is slightly longer than those who didn't. 
+
+For those that unsuccessfully summited Everest, there is a much bigger difference in age distribution between those that used oxygen and those that didn't- it appears that a larger variety of ages were unable to summit Everest when oxygen was not used compared to when oxygen was used. We can see this by comparing the violin plots labeled "Did Not Summit Mt. Everest", where we see that the tips of the violin for those that did not use oxygen is significantly shorter than those who did. Those who failed to summit and used oxygen have a tendency to be slightly older as we can see by the larger bulge in the violin plot around 35-45 whereas the other violins meet max width around 25. 
+
+When we look at the breakdown of age distributions by oxygen usage, success, and year, we see that age distributions for all of the categories have increased in distribution over the years except for those that used oxygen and did not summit everest. By comparing the first and last boxplots in each facet of the second plot, we can observe the change in median age. For somebody that summited Everest with oxygen, the median age has gone from ~30 in 1960 to ~50 in 2016. For somebody that summited Everest without oxygen, the median age has gone from ~25 in 1960 to ~40 in 2016. For somebody that did not summit Everest without oxygen, the median age has gone from ~25 in 1960 to ~30 in 2016. Finally, for somebody that did not summit Everest with oxygen (which is less often as there are gaps in the data), the median age has remained about the same since 1960 at ~35.  
+
+Furthermore, the answer to our question is that there are age differences for expedition members who were successful or not in climbing Mt. Everest with or without oxygen and the age distribution for all of these categories has increased from 1960 to 2016 except for those that didn't summit and used oxygen. Perhaps this group of individuals had health concerns that necessitated the use of more than just oxygen tanks. It would be a good idea to use oxygen if you plan to successfully summit Everst... especially if you are over 30. 
+
+### **Part 2**
+
+**Question:** What heights of the himalayas are the deadliest and do sex and/or injury affect the height at which death occurs? Are deadly heights conserved across peaks?
+
+**Introduction:** The data we will be using for Part 2 is the raw ```members2``` which contains records specifically for expeditions to Mount Everest since 1960 to spring 2019 and expedition members of known age and sex. 
+
+To answer Part 2 we will be working with four variables: wether or not the climber died (```died```), the climbers sex (```sex```), the height at which the climber died (```death_height_metres```), and wether or not the climber was injured (```injured```). Died and Injured are recorded as TRUE and FALSE values . The climbers age and year of climb are provided as numeric variables in years. Sex is recorded as a nominal categorical variable "F" for female and "M" for male. Death_hight_metres is a continuous numeric variable measured in meters. 
+
+**Approach:** Our approach is to show the distribution of heights climbers died at as a density plot (```geom_density()```). We will facet and stack the density plot out by sex to see if there are peaks at different locations depending on sex (i.g. women make it further up the mountains without dying). Finally, we will separate each sex's density plot out by injury so we can see if people who were injured during their climb die lower on the mountains than those who were not injured. 
+
+One limitation of the faceted density plot is that we cannot see if a particularly deadly height is consistent across all peaks. To solve this, we will create a second density plot (```geom_density()```) that simply plots death heights on the top 5 deadliest mountains so we can see which mountain peaks can be attributed to spikes in deaths across the entire members dataset. 
+
+**Analysis:** Here we plot the density plot of death heights, faceted by sex, separated by injury. 
+```{r}
+members2 <- members %>% filter(sex != "NA")
+# plot 
+ggplot(members2, aes(x= death_height_metres, fill= injured)) +
+  geom_density(
+    alpha = 0.5
+  )+
+  # facet by sex
+  facet_wrap(
+    vars(sex),
+    ncol = 1,
+    labeller = as_labeller(c(`F`="Female Climbers", `M` = "Male Climbers"))
+  ) +
+  # reestablish breaks in x axis to every 1000 meters
+  scale_x_continuous(
+    breaks = seq(0, 9500, 1000)
+  ) +
+  # change theme
+  theme_bw() +
+  # label axis and title
+  labs( 
+    title = "Distribution of Death Heights on Himialayas by Sex and Injury Status",
+    x = "Height of Death (meters)",  
+    y = "Density", 
+    fill = "Injury on Mountain")
+
+
+```
+
+Then we find the top 5 deadliest peaks in the Himalayas dataset and subset our original members2 data to only include those peaks.
+```{r, warning = FALSE}
+# find top 5 deadliest peaks
+members2 %>% 
+  group_by(peak_name) %>% 
+  count(died == "TRUE", sort = TRUE) %>% 
+  arrange(desc(n)) %>% 
+  head()
+
+# save data from only these 3 peaks 
+members3 <- members2 %>% 
+  filter(peak_name == c("Everest", "Cho Oyu", "Ama Dablam", "Manaslu", "Dhaulagiri I"))
+```
+
+We plot the distribution of death heights filling by peak_name to see if some peaks have deadlier regions. 
+```{r}
+ggplot(members3, aes(x= death_height_metres, fill = peak_name)) +
+  geom_density(
+    alpha = 0.3, 
+    drop = FALSE
+  ) +
+  scale_x_continuous(
+    breaks = seq(0, 9500, 1000)
+  ) +
+  # change theme
+  theme_bw() +
+  # label axis and title
+  labs( 
+    title = "Distribution of Death Heights on Himialayas",
+    x = "Height of Death (meters)",  
+    y = "Density", 
+    fill = "Peak Name")
+
+table(members$sex)
+```
+
+**Discussion:** For women, it appears the hight at which death occurs is higher than men. We can see this by comparing the density plots faceted by sex- where women have high density of death hight around 8000 meters (no injury) and men have high density around 7000 meters (no injury). 
+
+While no injuries are reported for women, it is clear that for men, if an injury occurred somewhere on the mountain, the average height at which death occured is generally lower. We can see this by looking at the "Male Climber" facet. While the range of deaths for non injured males is wider (3000 meters - 9000 meters) than those that are injured ( 4000 meters - 7000 meters), there is a conserved peak in deaths for both injured and non-injured Males around 6000-7000 meters. Another plot is needed to determine if this conserved region of deadliness is mountain-wide or attributed to specific peaks. 
+
+When we look at a density plot breakdown of death heights for the top 5 dealiest peaks, it is clear that for some of the top 5 peaks, there are large peaks in death around the 6000-75000 meter range, which follows a similar pattern to our density plot grouped by injury and faceted by sex. Interestingly, Mt. Everest (the deadliest of all of the peaks) actually has a dip in deaths at this height. 
+
+Furthermore, the answer to our question si that there are indeed differences in death heights based on sex and injury and these deadly heights are for the most part conserved across different peaks. The deadliest altitude is around 7000 meters, especially for injured men. It is important to note that the number of men that climb everest is 10-fold that of women so this is a potential confounding variable. Further analysis of this data should include exploring the reason why women make it further than men, what the leading causes of death are at certain points in the mountains, and finding the deadliest heights for each peak. 
