@@ -2,22 +2,20 @@
 =========================================
 =========================================
 Startup Template By Bootstrapious.com
-=========================================
+==========================================
 ========================================= */
-/* Link to Font: https://www.downloadfonts.io/radnick-font/ */
-
-@font-face {
-  font-family: "GroovyTitle";
-  src: url('../fonts/Radnick.otf') format('opentype');
-  font-weight: normal;
-  font-style: normal;
-}
-
+/* variant 6  - pink */
 /*
 =====================
 GENERAL
 =====================
 */
+
+:root {
+  --bg-color: white;
+  --link-color: blue;
+}
+
 html,
 body {
   overflow-x: hidden;
@@ -60,7 +58,7 @@ section.background-secondary {
 }
 .italic {
   font-style: italic;
-  font-family: "Georgia", "Times New Roman", Times, serif;
+  font-family: "Lucida Console", "Courier New", monospace;
 }
 .img-responsive {
   margin: 0 auto;
@@ -103,7 +101,7 @@ section.background-secondary {
   font-weight: 700 !important;
 }
 .text-gray {
-  color: #555555;
+  color: black;
 }
 .text-gray-light {
   color: #999999;
@@ -124,7 +122,7 @@ button {
 }
 a i.fa,
 button i.fa {
-  margin: 0 1px;
+  margin: 0 5px;
 }
 .clickable {
   cursor: pointer !important;
@@ -143,19 +141,23 @@ button i.fa {
   list-style: none;
 }
 .btn-ghost {
+  color: black;
   background-color: transparent;
+  border-color: black;
 }
 .btn-ghost:hover,
 .btn-ghost:focus,
 .btn-ghost:active,
 .btn-ghost.active,
 .open .dropdown-toggle.btn-ghost {
+  color: rgba(0, 0, 0, 0);
+  background-color: rgba(0, 0, 0, 0);
+  border-color: rgba(0, 0, 0, 0);
 }
-
 .btn-ghost:active,
 .btn-ghost.active,
 .open .dropdown-toggle.btn-ghost {
-
+  background-image: none;
 }
 .btn-ghost.disabled,
 .btn-ghost[disabled],
@@ -184,7 +186,9 @@ fieldset[disabled] .btn-ghost.active {
 .btn-ghost:active,
 .btn-ghost.active,
 .open .dropdown-toggle.btn-ghost {
-
+  color: #fff;
+  background-color: black;
+  border-color: black;
 }
 .btn-ghost-black {
   color: #000000;
@@ -196,7 +200,9 @@ fieldset[disabled] .btn-ghost.active {
 .btn-ghost-black:active,
 .btn-ghost-black.active,
 .open .dropdown-toggle.btn-ghost-black {
-
+  color: #000000;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #000000;
 }
 .btn-ghost-black:active,
 .btn-ghost-black.active,
@@ -230,7 +236,9 @@ fieldset[disabled] .btn-ghost-black.active {
 .btn-ghost-black:active,
 .btn-ghost-black.active,
 .open .dropdown-toggle.btn-ghost-black {
-
+  color: #fff;
+  background-color: #000;
+  border-color: #000;
 }
 .btn-white {
   color: #ffffff;
@@ -242,7 +250,9 @@ fieldset[disabled] .btn-ghost-black.active {
 .btn-white:active,
 .btn-white.active,
 .open .dropdown-toggle.btn-white {
-
+  color: #ffffff;
+  background-color: rgba(0, 0, 0, 0);
+  border-color: #e0e0e0;
 }
 .btn-white:active,
 .btn-white.active,
@@ -295,7 +305,6 @@ fieldset[disabled] .btn-white.active {
   margin: 0 auto 30px;
   text-align: center;
 }
-
 .icon.brand-secondary {
   border-color: #60c5ba;
   color: #60c5ba;
@@ -308,34 +317,34 @@ fieldset[disabled] .btn-white.active {
   border-color: #feee7d;
   color: #feee7d;
 }
-
 /*
 =====================
 SIDEBAR + RIGHT COLUMN
 =====================
 */
 #sidebar {
-  padding-top: 40px;
+  padding-top: 30px;
+  padding-left: 4%;
+  
 }
 .sidebar-content {
     z-index: 0;
-    align-items: center;
-    padding: 0 1.7em 0 0em;
+    padding-left: 4%;
 }
 @media screen and (min-width: 992px) {
   .sidebar-content {
+    padding-right: 18px;
     padding-left: 0px;
-    padding-right: 21px;
+    
   }
 }
 .sidebar-heading {
-  font-size: 23px;
+  font-size: 30px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
 }
 .sidebar-heading a {
-  color: black;
-  text-align: center;
+  color: #000;
   text-decoration: none;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -348,45 +357,43 @@ SIDEBAR + RIGHT COLUMN
 }
 .sidebar-p {
   color: black;
-  font-size: 14px;
 }
 .sidebar-menu {
   list-style-type: none;
   padding-left: 20px;
-  margin-bottom: 40px;
+  margin-bottom: 20px;
 }
 .sidebar-menu li {
   margin-bottom: 5px;
 }
 .sidebar-menu li a {
-  color: #555555;
+  color: black;
 }
 .sidebar-menu li:before {
   font-family: 'FontAwesome';
   content: '\f105';
   margin: 0 5px 0 -15px;
-  color: #999999;
+  color: black;
 }
 .sidebar-menu li.active a {
-  color: black;
   font-weight: bold;
+  color: black;
 }
 .sidebar-menu li.active:before {
   color: black;
 }
 .sidebar-menu li:hover a {
-  text-decoration: none;
-  color: black;
+  color: blue;
+  font-weight: bold;
+
 }
 .sidebar-menu li:hover:before {
   color: black;
 }
 .content-column {
   padding-top: 40px;
-  color: #fff;
 }
 .content-column.white-background {
-  background: #fff;
   min-height: 100vh;
 }
 .grid {
@@ -394,7 +401,7 @@ SIDEBAR + RIGHT COLUMN
   overflow-y: hidden;
 }
 .content-column-content {
-  padding-left: 20px;
+  padding-left: 00px;
   padding-right: 20px;
   padding-bottom: 20px;
 }
@@ -417,11 +424,12 @@ SIDEBAR + RIGHT COLUMN
 .content-column-content ul li:before {
   font-family: 'FontAwesome';
   content: '\f105';
-  margin: 0 5px 0 -15px;
+  margin: 0 5px 0 15px;
   color: black;
 }
-.small-navbar {
+.small-navbar { 
   margin-bottom: 20px;
+  position:relative;
 }
 .small-navbar:before,
 .small-navbar:after {
@@ -434,11 +442,12 @@ SIDEBAR + RIGHT COLUMN
 .small-navbar-heading {
   float: right;
   font-size: 18px;
+  text-transform: uppercase;
   letter-spacing: 0.1em;
   margin-top: 10px;
 }
 .small-navbar-heading a {
-  color: black;
+  color: #000;
   text-decoration: none;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
@@ -461,12 +470,15 @@ OFF-CANVAS SIDEBAR BEHAVIOUR
     -o-transition: all 0.25s ease-out;
     transition: all 0.25s ease-out;
     opacity: 1;
+    padding-right: 20px;
+    padding-left: 0px;
   }
   .row-offcanvas-right {
     right: 0;
   }
   .row-offcanvas-left {
     left: 0;
+    padding-left: 20px;
   }
   .row-offcanvas-right .sidebar-offcanvas {
     right: -50%;
@@ -575,11 +587,12 @@ SOCIAL LINKS
 }
 p.social {
   margin-top: 20px;
+  color: black;
 }
 p.social a {
   margin: 0 10px 10px 0;
-  color: #fff;
-  display: inline-block;
+  color: black;
+  display: inline-block ;
   width: 40px;
   height: 40px;
   border-radius: 20px;
@@ -588,7 +601,6 @@ p.social a {
   text-align: center;
   vertical-align: bottom;
   border: solid 2px black;
-  color: black;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
@@ -602,8 +614,8 @@ p.social a {
              */
 }
 p.social a:hover {
-  color: black;
-  border-color: black;
+  color: blue;
+  border-color: blue;
 }
 p.social a i {
   vertical-align: bottom;
@@ -827,22 +839,16 @@ a:active {
   margin-left: -15px;
 }
 .box-masonry {
-  background: white;
+  background: #fff;
   margin-bottom: 30px;
   position: relative;
+  box-shadow: 0 0 5px #ccc;
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
   overflow: hidden;
   text-overflow: ellipsis;
-  border-style: solid;
-  border-color: black;
-  border-width: 2px;
-  border-radius: 15px;
-  
-  box-shadow: black -5px 5px;
 }
-
 .box-masonry h4 {
   font-size: 16px;
   line-height: 1.5;
@@ -876,13 +882,13 @@ a:active {
   -webkit-transition: all 0.2s ease-out;
   -moz-transition: all 0.2s ease-out;
   transition: all 0.2s ease-out;
-  color: #555555;
+  color: black;
 }
 .box-masonry .box-masonry-hover-text-header p {
   font-size: 14px;
 }
 .box-masonry .box-masonry-hover-text-header h4 a {
-  color: #555555;
+  color: black;
 }
 .box-masonry .box-masonry-hover-center {
   position: absolute;
@@ -896,7 +902,7 @@ a:active {
   text-align: center;
 }
 .box-masonry .box-masonry-hover-center .see-more-icon {
-  color: #555555;
+  color: black;
   font-size: 50px;
 }
 .box-masonry:hover {
@@ -922,7 +928,7 @@ a:active {
   display: block;
   position: relative;
   min-height: 100px;
-  background: white;
+  background: #ccc;
 }
 .box-masonry .box-masonry-image.with-hover-overlay:before {
   display: block;
@@ -955,7 +961,7 @@ a:active {
   content: '\f105';
   text-align: center;
   font-size: 50px;
-  color: #555555;
+  color: black;
 }
 .box-masonry .box-masonry-image:hover {
   text-decoration: none;
@@ -968,11 +974,11 @@ a:active {
   font-weight: normal;
   font-size: 24px;
   line-height: 1.5;
-  color: #555555;
+  color: black;
   font-weight: 400;
 }
 .box-simple h3 a {
-  color: #555555;
+  color: black;
 }
 .box-simple p {
   color: #999999;
@@ -992,14 +998,14 @@ a:active {
   border: dotted 1px #999999;
 }
 .box-simple.box-white .icon {
-  color: #555555;
+  color: black;
   border-color: transparent;
   font-size: 70px;
 }
 .box-simple.box-dark {
   padding: 20px;
   border: dotted 1px #999999;
-  background: #555555;
+  background: black;
   color: #fff;
 }
 .box-simple.box-dark .icon {
@@ -1171,7 +1177,7 @@ a:active {
 .box-image-text .content h4 {
   text-transform: uppercase;
   line-height: 1.5;
-  color: #555555;
+  color: black;
   font-weight: 800;
   letter-spacing: 0.08em;
 }
@@ -1224,7 +1230,7 @@ STYLE SWITCHER FOR DEMO
   z-index: 2000;
 }
 #style-switch h4 {
-  color: #555555;
+  color: black;
 }
 /* ========================================= */
 /* THEMING OF BOOTSTRAP COMPONENTS           */
@@ -1240,13 +1246,14 @@ STYLE SWITCHER FOR DEMO
 }
 .nav > li > a:hover,
 .nav > li > a:focus {
+  background-color: #cdcdcd;
 }
 .nav > li.disabled > a {
   color: #999999;
 }
 .nav > li.disabled > a:hover,
 .nav > li.disabled > a:focus {
-  color: black;
+  color: #999999;
 }
 .nav .open > a,
 .nav .open > a:hover,
@@ -1267,7 +1274,7 @@ STYLE SWITCHER FOR DEMO
 .nav-tabs > li.active > a,
 .nav-tabs > li.active > a:hover,
 .nav-tabs > li.active > a:focus {
-  color: #555555;
+  color: black;
   background-color: #f4f4f4;
   border: 1px solid #dddddd;
 }
@@ -1566,7 +1573,7 @@ STYLE SWITCHER FOR DEMO
 }
 .dropdown-menu > li > a {
   line-height: 1.55;
-  color: #555555;
+  color: black;
 }
 .dropdown-menu > li > a:hover,
 .dropdown-menu > li > a:focus {
@@ -1592,19 +1599,15 @@ body {
   font-size: 16px;
   line-height: 1.55;
   color: #000000;
-  background-color: #ffe8a8;
-  /* background-image: url("/img/background.jpeg");
-  background-position: center; /* Center the image */
-  /*background-repeat: no-repeat; /* Do not repeat the image */
-  /*background-size: cover; /* Resize the background image to cover the entire */ */
+  background-color: #f4f4f4;
 }
 a {
-  color: black;
-  text-decoration: none;
+  color: white;
+  text-decoration: bold;
 }
 a:hover,
 a:focus {
-  color: #e01557;
+  color: white;
   text-decoration: underline;
 }
 a:focus {
@@ -1670,10 +1673,10 @@ hr {
 .btn {
   font-weight: 400;
   font-family: "Roboto", Helvetica, Arial, sans-serif;
+  padding: 6px 12px;
   font-size: 16px;
   line-height: 1.55;
-  border-radius: 100;
-  color: black;
+  border-radius: 0;
 }
 .btn-primary {
   color: #ffffff;
@@ -1685,7 +1688,9 @@ hr {
 .btn-primary:active,
 .btn-primary.active,
 .open .dropdown-toggle.btn-primary {
-
+  color: #ffffff;
+  background-color: #ec2d6b;
+  border-color: #ea1a5d;
 }
 .btn-primary:active,
 .btn-primary.active,
@@ -1715,16 +1720,16 @@ fieldset[disabled] .btn-primary.active {
   background-color: #ffffff;
 }
 .btn-transparent {
-  color: #555555;
+  color: black;
   background-color: transparent;
-  border-color: #555555;
+  border-color: black;
 }
 .btn-transparent:hover,
 .btn-transparent:focus,
 .btn-transparent:active,
 .btn-transparent.active,
 .open .dropdown-toggle.btn-transparent {
-  color: #555555;
+  color: black;
   background-color: rgba(0, 0, 0, 0);
   border-color: #373737;
 }
@@ -1749,11 +1754,11 @@ fieldset[disabled] .btn-transparent:active,
 .btn-transparent[disabled].active,
 fieldset[disabled] .btn-transparent.active {
   background-color: transparent;
-  border-color: #555555;
+  border-color: black;
 }
 .btn-transparent .badge {
   color: transparent;
-  background-color: #555555;
+  background-color: black;
 }
 .btn-transparent:hover,
 .btn-transparent:focus,
@@ -1793,7 +1798,7 @@ fieldset[disabled] .btn-transparent.active {
 /* forms.less */
 label {
   font-weight: normal;
-  color: #555555;
+  color: black;
   font-size: 14px;
   text-transform: uppercase;
   letter-spacing: 0.1em;
@@ -1805,7 +1810,7 @@ label {
   padding: 6px 12px;
   font-size: 16px;
   line-height: 1.55;
-  color: #555555;
+  color: black;
   background-color: #ffffff;
   background-image: none;
   border: 1px solid #cccccc;
