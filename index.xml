@@ -8,6 +8,15 @@
     <language>en-us</language>
     <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>Are you just pixels?</title>
+      <link>https://hzorkic.github.io/creative/2022-12-17-are-you-just-pixels/</link>
+      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/creative/2022-12-17-are-you-just-pixels/</guid>
+      <description>A concept that&amp;rsquo;s over-extended it&amp;rsquo;s stay in my mind for the past year is wether our digital identities are becoming a more valuable than our physcial identities. My personal research on the subject has manifested as many hours of reading articles, writing some poetry, and in the creation of my very first Instagram filter! I coded the filter in javascript, implemented in Spark AR, then finally published to the Instagram filter store.</description>
+    </item>
+    
+    <item>
       <title>End-to-end Development of Texas Inventionworks&#39; Kiosk Website</title>
       <link>https://hzorkic.github.io/portfolio/2023-11-22-texas-inventionworks-digital-infrastructure/</link>
       <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
