@@ -1,0 +1,92 @@
+---
+title: My Tiny Record Player
+author: R package build
+date: '2023-09-11'
+slug: []
+categories: []
+tags: []
+draft: no
+image: '/img/rec.png'
+showonlyimage: no
+description: 'Why buy the real deal when you can make it 1/10th the size for the same price?'
+---
+ 
+
+<img src="/img/re.png" alt="drawing" style="width:70%;"/>
+
+
+
+## Background  
+
+---
+
+All my friends have record players- their homes are full of warm analog music and dusty wooden crates full of vinyl records. I love the ritual of sifting through the fraying sleeves, gently sliding the record out of its casing, placing it onto the record player, the hum of the motor beginning to turn, and hearing the warp as the needle hits drops.  Dinner parties and hangouts have a certain jenosaiqua when envoloped in the warm static of physical music. 
+
+So why, after several years of wanting one of my own, have I not purchased one? For one, records take up a lot of space. If I had to estimate, my friend's record collections each took up about 3 cubic feet on average. In my tiny college rooms, I wasn't willing to give up valuable space for an entire record collection. Additionally, I identify as a staunch essentialist and having a large collection of anything fundamentally went against the guiding philosophy of my life. In time my, I reached a level desire I couldn't ignore anymore, so I set out to make a record player that wouldn't take up too much space... a tiny record player. 
+
+I love a good DIY project *especially* when they involves spending absorbent amounts of time and maybe a bit too much money. When I stumbled upon [this](https://talaexe.com/moderndayrecordplayer) tutorial for an RFID music player, I couldn't resist the opportunity to blend my love for design and creative technology with building things to make the record player of my dreams. 
+
+Get ready to groove to some miniature tunes. 
+
+## The Build
+
+---
+
+1. Following the original tutorial I mentioned above, I set up a raspberry pi with an RFID sensor that interfaced with the Spotify API. 
+2. I designed and laser cut a record player body to house the raspberry pi and the RFID sensor. \
+3. I designed and laser cut tiny records, ridges and all, to place the RFID stickers onto. 
+4. I designed and laser cut a tiny record storage box. 
+
+<div style="width: 100%; 
+  display: flex;
+  padding: 20px 15px 0px 15px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  background-color: #d6e6c2 ;
+  height: auto;
+  margin:0px 0px 10px 00px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 15px;
+  box-shadow: black 5px 5px;">
+  
+I'm actively working on filling in the build details for this project and making the laser cutting files available for you to download... check back soon for more updates! 
+
+</div>
+
+## In Conclusion
+
+---
+
+Crafting this tiny record player was a fun adventure that allowed me to combine my love for designing, laser cutting, building, coding, and creative technology. It's a project accessible to anyone with a sprinkle of technical know-how and a pinch of curiosity. 
+
+If you're up for a fun and rewarding project, I wholeheartedly recommend checking out the tutorial at [talaexe.com/moderndayrecordplayer](https://talaexe.com/moderndayrecordplayer). Whether you're a fellow DIY enthusiast, a tech enthusiast, or just someone looking for a joyful project, give it a spin 😉! 
+
+<div style="width: 100%; 
+  display: flex;
+  padding: 20px 15px 0px 15px;
+  justify-content: center;
+  align-content: center;
+  flex-direction: column;
+  background-color: #d6e6c2 ;
+  height: auto;
+  margin:0px 0px 10px 00px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 15px;
+  border-style: solid;
+  border-color: black;
+  border-width: 2px;
+  border-radius: 15px;
+  box-shadow: black 5px 5px;">
+  
+I am also in the process of adding some more pictures and videos of the record player in action!
+
+</div>

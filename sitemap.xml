@@ -2,71 +2,57 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://hzorkic.github.io/creative/2022-12-17-are-you-just-pixels/</loc>
-    <lastmod>2022-12-17T00:00:00+00:00</lastmod>
-  </url><url>
     <loc>https://hzorkic.github.io/portfolio/2023-11-22-texas-inventionworks-digital-infrastructure/</loc>
     <lastmod>2020-08-23T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/creative/2022-12-17-the-sun/</loc>
+    <loc>https://hzorkic.github.io/blog/2022-12-17-neural-style-transfer-for-r-f-alvarez/</loc>
     <lastmod>2022-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/technical/2022-12-17-neural-style-transfer-for-r-f-alvarez/</loc>
-    <lastmod>2022-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/creative/2023-11-29-blurred-lines/</loc>
-    <lastmod>2023-11-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/creative/</loc>
-    <lastmod>2023-11-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/creative/2023-11-29-see-through/</loc>
-    <lastmod>2023-11-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/</loc>
-    <lastmod>2023-11-29T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/portfolio/2023-11-24-follow-up-research-study-on-employee-satisfaction-survey-results/</loc>
-    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/portfolio/</loc>
-    <lastmod>2023-11-24T00:00:00+00:00</lastmod>
+    <lastmod>2024-02-04T00:00:00+00:00</lastmod>
+    <priority>0</priority>
   </url><url>
-    <loc>https://hzorkic.github.io/creative/2023-09-11-my-tiny-record-player/</loc>
+    <loc>https://hzorkic.github.io/portfolio/2024-02-04-employee-experience-research-for-a-rapidly-scaling-organization/</loc>
+    <lastmod>2024-02-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/</loc>
+    <lastmod>2024-02-04T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/blog/</loc>
     <lastmod>2023-09-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/portfolio/untitled/</loc>
+    <loc>https://hzorkic.github.io/blog/2023-09-11-my-tiny-record-player/</loc>
+    <lastmod>2023-09-11T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/blog/2022-12-17-are-you-just-pixels/</loc>
     <lastmod>2022-12-17T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/creative/2022-12-17-soda-pop-lover/</loc>
-    <lastmod>2022-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/technical/</loc>
-    <lastmod>2022-12-17T00:00:00+00:00</lastmod>
-  </url><url>
-    <loc>https://hzorkic.github.io/technical/2022-05-19-sentiment-analysis-for-pharmacovigilance/</loc>
+    <loc>https://hzorkic.github.io/blog/2022-05-19-sentiment-analysis-for-pharmacovigilance/</loc>
     <lastmod>2022-05-19T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/technical/2022-05-13-copmuter-aided-yoga/</loc>
+    <loc>https://hzorkic.github.io/blog/2022-05-13-copmuter-aided-yoga/</loc>
     <lastmod>2022-05-13T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/img/SDS.pdf</loc>
     <lastmod>2022-05-11T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/technical/2022-01-27-anova/</loc>
+    <loc>https://hzorkic.github.io/blog/2022-01-27-anova/</loc>
     <lastmod>2022-01-27T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/technical/2022-01-24-javanmardi-2021/</loc>
+    <loc>https://hzorkic.github.io/blog/2022-01-24-javanmardi-2021/</loc>
     <lastmod>2021-12-16T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/technical/2021-11-10-naive-bayes-classification/</loc>
+    <loc>https://hzorkic.github.io/blog/2021-11-10-naive-bayes-classification/</loc>
     <lastmod>2021-11-10T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/technical/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</loc>
+    <loc>https://hzorkic.github.io/blog/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</loc>
     <lastmod>2020-11-24T00:00:00+00:00</lastmod>
   </url><url>
-    <loc>https://hzorkic.github.io/technical/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</loc>
+    <loc>https://hzorkic.github.io/blog/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</loc>
     <lastmod>2020-10-16T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://hzorkic.github.io/blog/2020-02-04-machine-learning-for-colon-cancer-gene-sequence-signature-discovery/</loc>
+    <lastmod>2020-02-04T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/contact/</loc>
     <lastmod>2016-11-06T13:00:25+05:30</lastmod>
@@ -75,7 +61,7 @@
     <lastmod>2016-11-05T21:05:33+05:30</lastmod>
   </url><url>
     <loc>https://hzorkic.github.io/home/</loc>
-    <lastmod>2016-11-05T21:05:33+05:30</lastmod>
+    <priority>0</priority>
   </url><url>
     <loc>https://hzorkic.github.io/categories/</loc>
   </url><url>

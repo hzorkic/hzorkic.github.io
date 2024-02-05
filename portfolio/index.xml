@@ -1,41 +1,29 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?>
 <rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
   <channel>
-    <title>Portfolios on Zora Zorkić</title>
+    <title>Zora Zorkić</title>
     <link>https://hzorkic.github.io/portfolio/</link>
-    <description>Recent content in Portfolios on Zora Zorkić</description>
+    <description>Recent content on Zora Zorkić</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/portfolio/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>End-to-end Development of Texas Inventionworks&#39; Kiosk Website</title>
+      <title>End-to-end Development of Texas Inventionworks&#39; Service Application</title>
       <link>https://hzorkic.github.io/portfolio/2023-11-22-texas-inventionworks-digital-infrastructure/</link>
       <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hzorkic.github.io/portfolio/2023-11-22-texas-inventionworks-digital-infrastructure/</guid>
       <description>Please Note: Some details of this project have been censored to honor confidentiality!
- 📌 Project Scope   Client: Texas Inventionworks Timeline: Full-time, 3 months My Role: Lead-UX Researcher, Lead-UX Designer, Lead-UX Engineer Team: 2-3 student student staff members Methods: User Personas, User Flows, Wireframes, Rapid Prototyping Tools: Figma, Agile Scrum, AWS, React  🧠 Background  During the summer of 2020, I co-led the development of a website to automate and digitize the operational workflow of Texas Inventionworks (TIW) (The University of Texas at Austin&amp;rsquo;s engineering school&amp;rsquo;s Makerspace).</description>
+  📌 Project Scope  Client: Texas Inventionworks Timeline: Full-time, 3 months My Role: Lead-UX Researcher, Lead-UX Designer, Lead-UX Engineer Team: 2-3 student student staff members Methods: User Personas, User Flows, Wireframes, Rapid Prototyping Tools: Figma, Agile Scrum, AWS, React   🧠 Background During the summer of 2020, I co-led the development of a website to automate and digitize the operational workflow of Texas Inventionworks (TIW) (The University of Texas at Austin&amp;rsquo;s engineering school&amp;rsquo;s Makerspace).</description>
     </item>
     
     <item>
-      <title>A Comprehensive Follow-Up Investigation of Employee Satisfaction Survey Results</title>
-      <link>https://hzorkic.github.io/portfolio/2023-11-24-follow-up-research-study-on-employee-satisfaction-survey-results/</link>
-      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      <title>Employee Experience Research for a Rapidly Scaling Organization</title>
+      <link>https://hzorkic.github.io/portfolio/2024-02-04-employee-experience-research-for-a-rapidly-scaling-organization/</link>
+      <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/portfolio/2023-11-24-follow-up-research-study-on-employee-satisfaction-survey-results/</guid>
-      <description>Please Note: Many details of this project have been censored to honor confidentiality!
- 📌 Project Scope   Client: Company A Timeline: Part-time, 3 months My Role: UX Researcher Team: Senior Staff Member (assisted with group interview sessions) Methods: User Personas, Surveys, Focus Groups, Interviews Tools: Zoom, Google Docs  🧠 Background  Employee engagement and satisfaction is a critical factor influencing productivity and organizational success. It is not without suprise that many companies conduct annual employee engagement surverys to gather longitudinal data about the workplace they are cultivating.</description>
-    </item>
-    
-    <item>
-      <title>How I Used Machine Learning to Meet My Favorite Artist</title>
-      <link>https://hzorkic.github.io/portfolio/untitled/</link>
-      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://hzorkic.github.io/portfolio/untitled/</guid>
-      <description>Using Neural Style Transfer for R.F. Alvarez Paintings.
-Project Summary:  Have you heard of DALLE? Not the artist&amp;hellip; well&amp;hellip; not exactly not an artist, but the AI model from OpenAI?
-For those of you unfamiliar with the artist reference, Salvador Dalí was a mustached man who painted melting clocks and had a knack for turning everyday objects into surreal works of art. For those of you who don&amp;rsquo;t know about the AI model, DALL·E is an AI model that can create any image you may dream based only on the words you give it- sorta like an artist on demand.</description>
+      <guid>https://hzorkic.github.io/portfolio/2024-02-04-employee-experience-research-for-a-rapidly-scaling-organization/</guid>
+      <description>Background In the ever-evolving landscape of innovation, Texas Inventionworks (TIW) stands as the epitome of a pioneering force in engineering and education at The University of Texas at Austin. As a dynamic &amp;ldquo;skunk works&amp;rdquo; initiative, TIW redefines the conventional engineering education paradigm. From its modest roots in a 1,700-square-foot lab, TIW has burgeoned into a multifaceted program. The expansion into the EER marked a pivotal moment, propelling TIW into exponential growth across technology, community outreach, and an expanding workforce.</description>
     </item>
     
   </channel>

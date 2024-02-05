@@ -1,5 +1,6 @@
+
 :root {
-  --bg-color: white;
+  --bg-color: linen;
   --text-color: black;
   --link-color: blue;
 }
@@ -7,27 +8,21 @@
 /* body */
 body {  
   background-color: var(--bg-color);
-  color: white;
-  font-family: 'Inconsolatas', monospace;
+  color: white; 
+  font-family: 'Courier New', monospace ;
 }
 
 
 a {
-  text-decoration: underline;
+  text-decoration:underline dotted black 2px;
   color: black;
-  
 }
 a:hover,
 a:focus {
-  color: var(--link-color) ;
-  text-decoration: bold underline;
+  color: var(--link-color);
+  text-decoration:underline dotted 2px;
 }
-a:focus {
-  color: var(--link-color) ;
-  outline: thin dotted;
-  outline: 5px auto -webkit-focus-ring-color;
-  outline-offset: -2px;
-}
+
 
 /* type */
 h1,
@@ -42,10 +37,60 @@ h6,
 .h4,
 .h5,
 .h6 {
-  font-family: 'Inconsolata', monospace;
-  font-weight: 700;
-  line-height: 1.2;
+  font-family: 'Courier New', monospace ;
+  font-weight: 200;
+  line-height: 1;
   color: var(--text-color);
+}
+
+h1,
+.h1 {
+  font-size: 28px;
+}
+h2,
+.h2 {
+  font-size: 26px;
+}
+h3,
+.h3 {
+  font-size: 24px; 
+}
+
+h4,
+.h4 {
+  font-size: 22px;
+  font-weight: 700;
+}
+
+h5,
+.h5 {
+  font-size: 10px;
+  font-weight: 700;
+}
+
+h6,
+.h6 {
+  font-size: 14px;
+  font-weight: 700;
+}
+
+h1,
+.h1,
+h2,
+.h2,
+h3,
+.h3 {
+  margin-top: 0;
+  margin-bottom: 24px;
+}
+
+p {
+  margin: 0 0 24px;
+}
+
+.lead {
+  margin-bottom: 24px;
+  font-size: 18px;
 }
 
 hr {
@@ -53,6 +98,7 @@ hr {
     margin-bottom: 24px;
     border: 0;
     border-top: 1px solid black;
+    
 }
 
 .text-gray-light {
@@ -199,7 +245,7 @@ fieldset[disabled] .btn-ghost-black.active {
 /* box masonry */
 
 .box-masonry {
-  background: white;
+  background: linen;
   margin-bottom: 30px;
   position: relative;
   -webkit-transition: all 0.2s ease-out;
@@ -210,8 +256,7 @@ fieldset[disabled] .btn-ghost-black.active {
   border-style: solid;
   border-color: black;
   border-width: 2px;
-  border-radius: 15px;
-  
+  border-radius: 5px;
   box-shadow: black -5px 5px;
 }
 
@@ -300,6 +345,9 @@ fieldset[disabled] .btn-ghost-black.active {
   position: relative;
   min-height: 100px;
   background: white;
+  margin: 10px; 
+  border: solid black 2px; 
+  border-radius: 5px;
 }
 .box-masonry .box-masonry-image.with-hover-overlay:before {
   display: block;
@@ -417,4 +465,33 @@ p.social.social--outline a {
   border-color: black;
   border-width: 2px;
   box-shadow: black 2px 2px;
+}
+
+@media screen and (max-width: 767px)
+.row-offcanvas-left {
+    left: 0;
+    padding-left: 0px;
+}
+
+@media screen and (max-width: 767px)
+.row-offcanvas {
+    position: relative;
+    transition: all 0.25s ease-out 0s;
+    opacity: 1;
+    padding-right: 0px;
+    padding-left: 0px;
+}
+
+.content-column {
+  padding-top: 20px;
+}
+.content-column-content {
+    padding-left: 0px;
+    padding-right: 0px;
+    padding-bottom: 20px;
+}
+
+.content-column-content p, .content-column-content li {
+    color: black;
+    text-align: justify;
 }

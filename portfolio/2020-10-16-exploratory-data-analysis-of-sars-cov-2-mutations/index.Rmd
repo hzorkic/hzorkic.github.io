@@ -1,0 +1,346 @@
+---
+title: Exploratory Data Analysis of SARS-CoV-2 Mutations
+author: Hayley Zorkic
+description: "I will be combining two datasets that document protein sequence mutations in the spike domain region of SARS-CoV-2 samples obtained from pateints who were hospitalized for COVID-19-one from Houston and two from the COVID-19 Viral Genome Analysis Pipeline (GISAID)."
+date: '2020-10-16'
+slug: []
+categories: []
+tags: []
+draft: no
+image: 'img/portfolio/spikeprotein.png'
+showonlyimage: no
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(warning = FALSE, message = FALSE) 
+```
+
+### 0. Introduction
+
+COVID-19 is an infectionus disease caused by Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). First identified in December of 2019, SARS-CoV-2 resulted in an ongoing pandemic effecting over 39 million people in 189 countries, but the WHO predicts that with asymptomatic cases, the number of infections may be closer to 800 million.
+
+Therapeutics for those suffering from COVID-19 include collecting and transplanting neautralizing antibodies from patients who have recoved from COVID-19. If there were a mutation on the spike protein region of SARS-CoV-2, this therapy may become ineffective as antibody neutralization is a highly specific mechanism. In this report, I will be combining two datasets that document protein sequence mutations in the spike domain region of SARS-CoV-2 samples obtained from pateints who were hospitalized for COVID-19-one from Houston and two from the COVID-19 Viral Genome Analysis Pipeline (GISAID).
+
+It is important to note that the two datasets from the COVID-19 Viral Genome Analysis Pipeline were originally the same dataset. In the original excel spreadsheet, certain mutations were highlighted in yellow as areas of interest, while others remained white, so I separated the two for further filtering of the white cases.
+
+# 1. Tidying
+
+First I will load in the datasets and name them. I have also loaded three crucial packages that will be used throughout this project.
+
+```{r}
+library(tidyverse)
+library(ggpubr)
+library(ggplot2)
+HOU <- read_csv("HOU.csv")
+lanlHighlighted <- read_csv("lanlH.csv")
+lanlNotHighlighted <- read_csv("lanlNH.csv")
+```
+
+#### Tidy task 1: lanl Highlighted data is too wide.
+
+Lanl Highlighted included columns for each mutation, so I pivoted the data long into a new column named "mutations", so that each mutation had its own row, and the original column names into a new column named "delete" that is promptly deleted. Next, I had to separate each mutation from its frequency in the cell, and remove the parenthesis around the frequencies. I named the frequency column with the dataset name for further analysis. From there I removed any row that did not have a meaningful mutation value (N/A, " ", or X which means an unknown Amino Acid). Based on scientific opinion, I was directed to keep only those mutations with a frequency greater than or equal to 3.
+
+```{r}
+head(lanlHighlighted)
+lanlHighlighted <- lanlHighlighted %>% 
+  pivot_longer(5:12, names_to="delete", values_to="mutations") %>%
+  select(-delete) %>% 
+  separate(mutations,into=c("mutations","lanlHfrequency")) %>%
+  mutate(lanlHfrequency=(gsub("[() ]", "", lanlHfrequency))) %>%
+  filter(!is.na(mutations), mutations!="",mutations!="X") %>% 
+  mutate_at(c(2,4,6), as.numeric) %>%
+  filter(lanlHfrequency>=3)
+head(lanlHighlighted)
+nrow(lanlHighlighted)
+```
+
+#### Tidy task2: lanl Not Highlighted data is too wide as well.
+
+Lanl Not Highlighted included columns for each mutation, so I pivoted the data long into a new column named "mutations", so that each mutation had its own row, and the original column names into a new column named "delete" that is promptly deleted. Next, I had to separate each mutation from its frequency in the cell, and remove the parenthesis around the frequencies. I named the frequency column with the dataset name for further analysis. From there I removed any row that did not have a meaningful mutation value (N/A, " ", or X which means an unknown Amino Acid). Based on professional scientific opinion, I was directed to keep only mutations at positions with more than three unique mutations and of those unique mutations, keep only those with a frequency of 5 or more.
+
+```{r}
+head(lanlNotHighlighted)
+lanlNotHighlighted <- lanlNotHighlighted %>%
+  pivot_longer(5:12, names_to="delete", values_to="mutations") %>%
+  select(-delete) %>% 
+  separate(mutations,into=c("mutations","lanlNHfrequency")) %>%
+  mutate(lanlNHfrequency=(gsub("[() ]", "", lanlNHfrequency))) %>%
+  filter(!is.na(mutations), mutations!="", mutations!="X") %>% 
+  mutate_at(c(2,4,6), as.numeric) %>%
+  group_by(Position) %>% 
+  filter(n()>=3) %>%
+  filter(lanlNHfrequency>=5)
+head(lanlNotHighlighted)
+nrow(lanlNotHighlighted)
+```
+
+#### Tidy task 3: Combining lanlNotHighlighted and lanlHighlighted
+
+To simplify the lanl datasets, I combined them with full_join- the number of rows in lanlHightlighted is 119, the number of rows in lanlNotHighlighted is 150, and the number of rows in the joined dataset is the sum of these two numbers- 269- which makes sense because the Highlighted data points were extracted and removed from the orignial dataset separating it into Highlighted and NonHighlighted, so there should not be any overlapping cases.
+
+```{r}
+lanlTOT <- lanlHighlighted %>% full_join(lanlNotHighlighted, by=c("Position", "AA", "Entropy","Region","mutations"))
+head(lanlTOT)
+nrow(lanlTOT)
+```
+
+#### Tidy task 4: Hou data is too wide.
+
+The Hou data was decently clean. After removing a few empty columns, I filtered for rows that did not have a meaningful mutation value (NA, "", or X). Based on professional scientific opinion, I was directed to keep any mutations with frequencies of 5 or more AND/OR mutations with 3 or more unique mutations at a given position. I did this by independently filtering the HOU dataset for frequency greater than or equal to 5, more than three unique mutations, and then preforming a full join of the data to capture all instances of these cases that occur independently OR simmotaneously- preventing duplicate rows.
+
+```{R}
+head(HOU)
+nrow(HOU)
+hou5 <- HOU %>% select(-c(6:8)) %>% filter(!is.na(mutations), mutations!="", mutations!="X") %>% mutate(HOUfrequency=as.numeric(count)) %>% select(-count) %>% filter(HOUfrequency>=5) 
+head(hou5)
+nrow(hou5)
+
+hou3AA <- HOU %>% select(-c(6:8)) %>% filter(!is.na(mutations), mutations!="",mutations!="X") %>% group_by(Position) %>% mutate(HOUfrequency=as.numeric(count)) %>% select(-count) %>% filter(n()>=3) 
+head(hou3AA)
+nrow(hou3AA)
+
+houTOT<- hou5 %>% full_join(hou3AA, by=c("Position", "AA", "HOUfrequency", "Region", "mutations"))
+head(houTOT)
+nrow(houTOT)
+```
+
+#### Tidy task 5: Combining lanlTOT and houTOT
+
+To combine lanlTOT and HOU, I performed a full join between houTOT and lanlTOT. I did a full join because I wanted to create a tabel where each row represented a single unqiue Amino Acid mutation that was in either houTOT, lanlTOT, OR both of them. There were 269 rows lanlTOT and 59 rows in houTOT,but 312 rows in the fully joined dataset. This means 16 of the filtered Amino Acid mutations occured in both lanlTOT and houTOT. In addition to combining these datasets, I made a new column that gives the total frequency of each mutation by summing the frequencies from lanlHighlighted, lanlNotHighlighted, and HOU into a new column names TOTfrequency for further analysis.
+
+```{R}
+lanlhouTOT <- houTOT %>% full_join(lanlTOT, by=c("Position","mutations","AA", "Region"))  %>%  mutate(TOTfrequency = select(.,HOUfrequency, lanlHfrequency, lanlNHfrequency) %>% rowSums(na.rm = TRUE)) %>% arrange(Position)
+head(lanlhouTOT)
+nrow(lanlhouTOT)
+```
+
+# 2. Summary Statistics
+
+I calculated some summary statistics for my data including min,max,mean,and sd for the numeric variables in my dataset- TOTfrequency, Entropy, and Position as a whole and then after grouping by Region. I elected not to group_by Region and any other of my categorical variables because it would not make sense to group by Amino Acid or the Amino Acid the original mutated to. There are only 20 Amino Acids, but what makes each mutation unqiue is its original Amino Acid, its Position, AND its mutation all together. These statistics show that there are 12 distinct regions within the dataset, 312 distinct mutations represented between position 5 and 1263, with an average mutation freequncy of 244.3814 and an average entropy of .01. The maximum values for Entropy and Mutation frequency re strikingly large compared to their means- Entropy 0.5 and Mutation frequency at 58,538- it appears there is a very common mutation in the data.
+
+When grouping by region, we can see that there are regions with significant variation and frequency of mutations-SD2 with an average frequency of 2040, but with a standard deviation of 10,866 and RBM with an average frequency of 231, but a standard deviation of 846. It is also interesting to note that these two regions with significantly higher mean mutation frequency have entropy values that are also higher and more spread- SD2 with an average entropy of 0.06 and sd of .15 and RBM with an average frequency of .03 and sd of .06.
+
+```{r}
+#summary functions used: mean,sd,n_distinct
+statSum <- lanlhouTOT %>% summarise(distinctRegions= n_distinct(Region), distinctMutations=nrow(lanlhouTOT), minMutFreq = min(TOTfrequency), maxMutFreq = max(TOTfrequency), avgMutFreq = mean(TOTfrequency), sdMutFreq=sd(TOTfrequency), minEntropy = min(Entropy, na.rm = TRUE), maxEntropy = max(Entropy, na.rm = TRUE), avgEntropy = mean(Entropy, na.rm = TRUE), sdEntropy=sd(Entropy, na.rm = TRUE), minPosition = min(Position), maxPosition = max(Position), avgPosition = mean(Position), sdPosition=sd(Position))
+statSum
+
+#Explore Region
+statSumByRegion <- lanlhouTOT %>% group_by(Region) %>% summarise(distinctMutations=n_distinct(TOTfrequency), minMutFreq = min(TOTfrequency), maxMutFreq = max(TOTfrequency), avgMutFreq = mean(TOTfrequency), sdMutFreq=sd(TOTfrequency), minEntropy = min(Entropy, na.rm = TRUE), maxEntropy = max(Entropy, na.rm = TRUE), avgEntropy = mean(Entropy, na.rm = TRUE), sdEntropy=sd(Entropy, na.rm = TRUE), minPosition = min(Position), maxPosition = max(Position), avgPosition = mean(Position), sdPosition=sd(Position))
+statSumByRegion
+```
+
+### 3. Visualizing
+
+#### Correlation Heatmap
+
+I calculated a correlation matrix for my numeric variables- only those that had all three numeric variables were considered- I did this by using cor(use="pair") so the correlation or covariance between each pair of variables is computed using all complete pairs of observations on those variables.From the correlation matrix we can see that there is a perfect correlation between the highlighted lanl frequency and the total frequency, a strong correlation beteen all frequencies with the total frequencies, and a medium correlation between entropy and frequency values. These correlations can be better visualized in the heatmap below.
+
+```{r}
+cormat <- lanlhouTOT %>% select_if(is.numeric) %>% cor(use="pair") %>% round(4)
+cormat
+
+cormat %>%
+  as.data.frame%>%
+  rownames_to_column%>%
+  pivot_longer(-1)%>%
+  ggplot(aes(rowname,name,fill=value))+geom_tile()+
+  geom_text(aes(label=round(value,3)))+
+  xlab("")+ylab("")+coord_fixed()+
+  scale_fill_gradient2(low="blue",mid="white",high="blue")+
+  theme(axis.text.x = element_text(angle=45, hjust=1))
+```
+
+#### Mutation Frequency Hisotgram
+
+In this histogram, it is incredibly edivent that there is a mutation around 614 that occurs in high frequency; from its color, we can see that is a substitution to a G Amino Acid. I have separated the x axis into the spike domain regions of caronaviruses mentioned below which roughly correspond to the Region positions derived from the data: NTD 0-350, RBD 318-513, SD1 514-575, SD2 576-662, HR1 894-966, FP 798-809. The high frequency mutation is in SD2 as we predicted with the stats above.
+
+```{r}
+ggplot(data=lanlhouTOT,aes(x=Position)) +
+  geom_col(aes(y=TOTfrequency, colour=mutations, fill=mutations))+
+  scale_x_continuous(breaks=c(0,292,318, 513,575, 662, 894,966, 798,809))+
+  ylab("Frequency of Mutations")+
+  ggtitle("Histogram of LANL and HOU Data Mutations")+guides(col = guide_legend(nrow = 10))+theme_classic()+
+  theme(axis.text.x = element_text(angle=90, hjust=1))
+```
+
+#### Line Graph: Average TOTfrequency vs Entropy
+
+Fromt this bar graph, we can see that there are a few regions of interest where there not only are there large average mutation frequencies, but there is also large values for Entropy. There are, two points that are clearly more entropic and frequent than the rest- both correspond to the two spikes that are visible in the Bar plot above. Aside from these two lines, the rest of the lines remain pretty uniform with regards to their average mutation frequency and entropy- a slight positive linear relationship between the two variables- as average Frequency of mutations goes up, so does entropy!
+
+```{r}
+ggplot(data=lanlhouTOT,aes(x=Entropy, y=TOTfrequency,colour=Region, fill=Region)) +
+  stat_summary(fun.y=mean, geom="line", alpha=.5,size=1)+
+  ylab("Average Frequency of Mutations")+
+  ggtitle("Linear Graph of Average TOTfrequency vs Entropy")+
+  guides(col = guide_legend(nrow = 10))+theme_classic()+
+  theme(axis.text.x = element_text(angle=90, hjust=1))
+```
+
+#### Mutation Frequency Hisotgram by Region
+
+In the prior histogram, it is difficult to see what OTHER mutations are occuring in the spike domain region. In the following visualization, I "zoom-in" to each region so we can observe if there are other regions with alot of mutations or high frequency mutations as well. There are several mutation point in NTD and FP, and there appears to be mutation frequencies above 200 in most of the domains as well. Regions of intrest include the spike in mutations in the RBD which is the Receptor Binding Domain and SD2 the Spike Domain 2, where SARS-CoV-2 binds to the ACE2 receptors on human cells and also a region where neutralizing antibodies bind- this is porblematic because it shows that antibody therapy may be less effective in the "next wave" of COVID-19 viruses.
+
+```{r}
+NTD2 <- ggplot(data=lanlhouTOT, aes(x=Position)) +
+  geom_col(aes(y=TOTfrequency, colour=mutations, fill=mutations))+
+  ylab("Frequency of Mutations")+
+  xlim(c(0,350))+
+  coord_cartesian(ylim=c(0,200))+
+  ggtitle("NTD")+
+  theme_classic()
+
+RBD2 <- ggplot(data=lanlhouTOT, aes(x=Position)) +
+  geom_col(aes(y=TOTfrequency, colour=mutations, fill=mutations))+
+  ylab("Frequency of Mutations")+
+  xlim(c(318,513))+
+  coord_cartesian(ylim=c(0,200))+
+  ggtitle("RBD")+
+  theme_classic()
+
+
+SD12 <- ggplot(data=lanlhouTOT, aes(x=Position)) +
+  geom_col(aes(y=TOTfrequency, colour=mutations, fill=mutations))+
+  ylab("Frequency of Mutations")+
+  xlim(c(514,575))+
+  coord_cartesian(ylim=c(0,200))+
+  ggtitle("SD1")+
+  theme_classic()
+
+
+SD22 <- ggplot(data=lanlhouTOT, aes(x=Position)) +
+  geom_col(aes(y=TOTfrequency, colour=mutations, fill=mutations))+
+  ylab("Frequency of Mutations")+
+  xlim(c(576,662))+
+  coord_cartesian(ylim=c(0,200))+
+  ggtitle("SD2")+
+  theme_classic()
+
+
+HR12 <- ggplot(data=lanlhouTOT, aes(x=Position)) +
+  geom_col(aes(y=TOTfrequency, colour=mutations, fill=mutations))+
+  ylab("Frequency of Mutations")+
+  xlim(c(894,966))+
+  coord_cartesian(ylim=c(0,200))+
+  ggtitle("HR1")+
+  theme_classic()
+
+
+FP2 <- ggplot(data=lanlhouTOT, aes(x=Position)) +
+  geom_col(aes(y=TOTfrequency, colour=mutations, fill=mutations))+
+  ylab("Frequency of Mutations")+
+  xlim(c(798,892))+
+  coord_cartesian(ylim=c(0,200))+
+  ggtitle("FP")+
+  theme_classic()
+
+
+CD2 <- ggplot(data=lanlhouTOT, aes(x=Position)) +
+  geom_col(aes(y=TOTfrequency, colour=mutations, fill=mutations))+
+  ylab("Frequency of Mutations")+
+  xlim(c(1055,1206))+
+  coord_cartesian(ylim=c(0,200))+
+  ggtitle("CH+BH+SD3")+
+  theme_classic()
+
+
+ggarrange(NTD2, RBD2, SD12, SD22, FP2,HR12, CD2,
+                        nrow = 2, ncol = 4,common.legend = TRUE, legend = "bottom")
+```
+
+### 4. k-means/PAM clustering
+
+In the following chuck I will perform a k-means clustering for numeric and categorical variables with my data.
+
+First, I curate a subset of my data with numeric variables and categorical Regions (which i change to factors). I excluded all except for the tot frequency column so that I could omit NAs in the data. This is problematic as I may lose valuable data.I compuete the gower dissimilarities.
+
+```{r}
+#install.packages("GGally")
+library(cluster)
+clust_dat <- lanlhouTOT %>% mutate_if(is.character,as.factor) %>%  select(-c(HOUfrequency, lanlHfrequency, lanlNHfrequency, mutations, AA)) %>% na.omit()
+
+gower1<-daisy(clust_dat,metric="gower")
+
+
+```
+
+Next, I pick the optimal number of cluthers based on silhouette width. From the graph, it appears that 10 is the best number of clusters is 10!
+
+```{R}
+sil_width<-vector()
+for(i in 2:10){  
+  pam_fit <- pam(gower1, diss = TRUE, k = i)  
+  sil_width[i] <- pam_fit$silinfo$avg.width  
+}
+
+ggplot()+geom_line(aes(x=1:10,y=sil_width))+scale_x_continuous(name="k",breaks=1:10)
+```
+
+Next, I use the gower dissimilarities to perform clustering with PAM
+
+```{r}
+pam10 <- pam(gower1, k = 10, diss = T) #tell pam you are using dissimilarities
+pam10
+```
+
+Now I want to find the min and max distances between Positions. It looks like positions 4 and 110 are the least similar and 28 and 29 are the most similar.
+
+```{r}
+gower1%>%as.matrix%>%as.data.frame%>%rownames_to_column%>%
+  pivot_longer(-1,values_to="distance")%>%
+  filter(rowname!=name)%>%filter(distance%in%c(min(distance),max(distance)))%>%
+  distinct(distance,.keep_all = T)
+```
+
+What do the clusters look like? Here I calculate summary statistics for the numeric variables by cluster. Cluster 6 is high average Entrpy and High average TOT frequency of mutations, cluster 3 also has high average entropy and average TOT frequency values. Cluster 10 has the almost three times the MEDIAN TOT frequency of cluster 6. All things considered,
+
+```{r}
+clust_dat%>%mutate(cluster=pam10$clustering)%>%group_by(cluster)%>%
+  rename_all(function(x)str_replace(x,"_",""))%>%
+  summarize_if(is.numeric,.funs = list("mean"=mean,"median"=median,"sd"=sd),na.rm=T)%>%
+  pivot_longer(contains("_"))%>%
+  separate(name,sep="_",into=c("variable","stat"))%>%
+  pivot_wider(names_from = "variable",values_from="value")%>%arrange(stat)
+```
+
+What do the clusters look like? Proportions of Region by cluster. Cluster 1 is 100%NTD, cluster 2 is 100%RBD, cluster 3 is 100%RBM, cluster 4 is 100% SD1, cluster 5 is 100% SD2, cluster 6 is also 100% SD2, cluster 7 is 100% FP, cluster 8 is 100% HR1, cluster 9 is 82% CD and 19% CH, cluster 10 is 67% HR2 and.
+
+```{r}
+clust_dat %>%mutate(cluster=factor(pam10$clustering))%>%select(cluster,Region)%>%
+  group_by(cluster,Region)%>%summarize(n=n())%>%mutate(prop=n/sum(n,na.rm=T))%>%
+  pivot_wider(-n,names_from=Region,values_from=prop)
+```
+
+What do clusters look like? Proportions of cluster assignment by Region. Clusters are assigned relatively evenly to clusters. Cluster 10 has Region HR1 and TM. Cluster six has a very small proportion of SD2 while cluster 5 has a large portino of the SD2 Region. Other than that, each cluster corresponds to one Region.
+
+```{r}
+clust_dat%>%mutate(cluster=factor(pam10$clustering))%>%select_if(negate(is.numeric))%>%
+  group_by(Region,cluster)%>%summarize(n=n())%>%mutate(prop=n/sum(n))%>%
+  pivot_wider(-n,names_from=Region,values_from=prop)
+```
+
+Which Regions are most representitive of their cluster? According to the Silhouette Plot, cluster 1,2,3,4,5,7,8 have a strong structure, clusters 6 and 9 have a reasonable structure, and cluster 10 has a weak structure and could be artificial. Considering the average width is .9, It is safe to say that the fit is strong.
+
+```{R fig.width=10, fig.height=7}
+clust_dat %>% slice(pam10$id.med)
+
+plot(pam10,which=2)
+library(GGally)
+ggpairs(clust_dat, aes(color=as.factor(pam10$clustering)))
+```
+
+### 5. Closing Remarks
+
+```{r}
+lanlhouTOT %>% arrange(desc(TOTfrequency)) %>% head()
+```
+
+From this exploratory data analysis, we have gathered that aside from the the mutations at position 614 and 477, the mutations occuring across the SAR-CoV-2 spike domain region in these data are standardized. The best way to cluster the data is in their domains. According to these data, it would be in scientists best interests to develop custom neutralizing antibody therapies and vaccines that have binding domains at the following positions that reflect the altered structures at the mutated spike domain locations.
+
+### Citations:
+
+#### Scott Wesley Long, Et. al. Molecular Architecture of Early Dissemination and Massive Second Wave of the SARS-CoV-2 Virus in a Major Metropolitan Area. medRxiv 2020.09.22.20199125 (2020); doi: <https://doi.org/10.1101/2020.09.22.20199125>
+
+#### Yuan Yuan, Et. al Cryo-EM structures of MERS-CoV and SARS-CoV spike glycoproteins reveal the dynamic receptor binding domains Nat Commun 8, 15092 (2017) <https://doi.org/10.1038/ncomms15092>
+
+#### the lanl dataset was obtained from the following link: <https://cov.lanl.gov/components/sequence/COV/annt/annt.comp>

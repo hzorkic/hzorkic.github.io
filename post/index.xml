@@ -1,0 +1,31 @@
+<?xml version="1.0" encoding="utf-8" standalone="yes"?>
+<rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom">
+  <channel>
+    <title>Posts on Zora Zorkić</title>
+    <link>https://hzorkic.github.io/post/</link>
+    <description>Recent content in Posts on Zora Zorkić</description>
+    <generator>Hugo -- gohugo.io</generator>
+    <language>en-us</language>
+    <lastBuildDate>Fri, 24 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/post/index.xml" rel="self" type="application/rss+xml" />
+    <item>
+      <title>End-to-end Development of Texas Inventionworks&#39; Kiosk Website</title>
+      <link>https://hzorkic.github.io/post/2023-11-22-texas-inventionworks-digital-infrastructure/</link>
+      <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/post/2023-11-22-texas-inventionworks-digital-infrastructure/</guid>
+      <description>Please Note: Some details of this project have been censored to honor confidentiality!
+  📌 Project Scope  Client: Texas Inventionworks Timeline: Full-time, 3 months My Role: Lead-UX Researcher, Lead-UX Designer, Lead-UX Engineer Team: 2-3 student student staff members Methods: User Personas, User Flows, Wireframes, Rapid Prototyping Tools: Figma, Agile Scrum, AWS, React   🧠 Background During the summer of 2020, I co-led the development of a website to automate and digitize the operational workflow of Texas Inventionworks (TIW) (The University of Texas at Austin&amp;rsquo;s engineering school&amp;rsquo;s Makerspace).</description>
+    </item>
+    
+    <item>
+      <title>A Comprehensive Follow-Up Investigation of Employee Satisfaction Survey Results</title>
+      <link>https://hzorkic.github.io/post/2023-11-24-follow-up-research-study-on-employee-satisfaction-survey-results/</link>
+      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/post/2023-11-24-follow-up-research-study-on-employee-satisfaction-survey-results/</guid>
+      <description>Please Note: Many details of this project have been censored to honor confidentiality!
+ 📌 Project Scope   Client: Company A Timeline: Part-time, 3 months My Role: UX Researcher Team: Senior Staff Member (assisted with group interview sessions) Methods: User Personas, Surveys, Focus Groups, Interviews Tools: Zoom, Google Docs  🧠 Background  Employee engagement and satisfaction is a critical factor influencing productivity and organizational success. It is not without suprise that many companies conduct annual employee engagement surverys to gather longitudinal data about the workplace they are cultivating.</description>
+    </item>
+    
+  </channel>
+</rss>

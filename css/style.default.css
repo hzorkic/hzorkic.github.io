@@ -333,7 +333,7 @@ SIDEBAR + RIGHT COLUMN
 }
 @media screen and (min-width: 992px) {
   .sidebar-content {
-    padding-right: 18px;
+    padding-right: 0px;
     padding-left: 0px;
     
   }
@@ -391,7 +391,7 @@ SIDEBAR + RIGHT COLUMN
   color: black;
 }
 .content-column {
-  padding-top: 40px;
+  padding-top: 30px;
 }
 .content-column.white-background {
   min-height: 100vh;
@@ -1596,8 +1596,8 @@ STYLE SWITCHER FOR DEMO
 /* scaffolding */
 body {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-size: 16px;
-  line-height: 1.55;
+  font-size: 14px ;
+  line-height: 1.55 ;
   color: #000000;
   background-color: #f4f4f4;
 }
@@ -1965,27 +1965,31 @@ h6,
   line-height: 1.2;
   color: #000000;
 }
+
 h1,
 .h1 {
-  font-size: 48px;
+  font-size: 28px;
 }
+
 h2,
 .h2 {
-  font-size: 38px;
+  font-size: 26px;
 }
+
 h3,
 .h3 {
-  font-size: 32px;
-  font-weight: 700;
+  font-size: 24px;
 }
+
 h4,
 .h4 {
-  font-size: 24px;
+  font-size: 22px;
   font-weight: 700;
 }
+
 h5,
 .h5 {
-  font-size: 16px;
+  font-size: 10px;
   font-weight: 700;
 }
 h6,

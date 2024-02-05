@@ -6,159 +6,70 @@
     <description>Recent content on Zora Zorkić</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Wed, 29 Nov 2023 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Sun, 04 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/index.xml" rel="self" type="application/rss+xml" />
     <item>
-      <title>Are you just pixels?</title>
-      <link>https://hzorkic.github.io/creative/2022-12-17-are-you-just-pixels/</link>
-      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://hzorkic.github.io/creative/2022-12-17-are-you-just-pixels/</guid>
-      <description>A concept that&amp;rsquo;s over-extended it&amp;rsquo;s stay in my mind for the past year is wether our digital identities are becoming a more valuable than our physcial identities. My personal research on the subject has manifested as many hours of reading articles, writing some poetry, and in the creation of my very first Instagram filter! I coded the filter in javascript, implemented in Spark AR, then finally published to the Instagram filter store.</description>
-    </item>
-    
-    <item>
-      <title>End-to-end Development of Texas Inventionworks&#39; Kiosk Website</title>
+      <title>End-to-end Development of Texas Inventionworks&#39; Service Application</title>
       <link>https://hzorkic.github.io/portfolio/2023-11-22-texas-inventionworks-digital-infrastructure/</link>
       <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
       
       <guid>https://hzorkic.github.io/portfolio/2023-11-22-texas-inventionworks-digital-infrastructure/</guid>
       <description>Please Note: Some details of this project have been censored to honor confidentiality!
- 📌 Project Scope   Client: Texas Inventionworks Timeline: Full-time, 3 months My Role: Lead-UX Researcher, Lead-UX Designer, Lead-UX Engineer Team: 2-3 student student staff members Methods: User Personas, User Flows, Wireframes, Rapid Prototyping Tools: Figma, Agile Scrum, AWS, React  🧠 Background  During the summer of 2020, I co-led the development of a website to automate and digitize the operational workflow of Texas Inventionworks (TIW) (The University of Texas at Austin&amp;rsquo;s engineering school&amp;rsquo;s Makerspace).</description>
-    </item>
-    
-    <item>
-      <title>The Sun</title>
-      <link>https://hzorkic.github.io/creative/2022-12-17-the-sun/</link>
-      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://hzorkic.github.io/creative/2022-12-17-the-sun/</guid>
-      <description>Don’t look into the sun
-They tell you as a child
-But it’s so hard not to
-When consequences seem mild
-I stare up at through the oak tree
-A fluttering filter to the sky
-Every once in a while a leaf moves
-And then sun burns my eyes
-I do not panic
-I do not look away
-For in less than a second
-a leaf guards my gaze
-What’s left is a pulsing blue dot</description>
+  📌 Project Scope  Client: Texas Inventionworks Timeline: Full-time, 3 months My Role: Lead-UX Researcher, Lead-UX Designer, Lead-UX Engineer Team: 2-3 student student staff members Methods: User Personas, User Flows, Wireframes, Rapid Prototyping Tools: Figma, Agile Scrum, AWS, React   🧠 Background During the summer of 2020, I co-led the development of a website to automate and digitize the operational workflow of Texas Inventionworks (TIW) (The University of Texas at Austin&amp;rsquo;s engineering school&amp;rsquo;s Makerspace).</description>
     </item>
     
     <item>
       <title>How I Used Machine Learning to Meet My Favorite Artist</title>
-      <link>https://hzorkic.github.io/technical/2022-12-17-neural-style-transfer-for-r-f-alvarez/</link>
+      <link>https://hzorkic.github.io/blog/2022-12-17-neural-style-transfer-for-r-f-alvarez/</link>
       <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/technical/2022-12-17-neural-style-transfer-for-r-f-alvarez/</guid>
+      <guid>https://hzorkic.github.io/blog/2022-12-17-neural-style-transfer-for-r-f-alvarez/</guid>
       <description>Using Neural Style Transfer for R.F. Alvarez Paintings.
 Project Summary:  Have you heard of DALLE? Not the artist&amp;hellip; well&amp;hellip; not exactly not an artist, but the AI model from OpenAI?
 For those of you unfamiliar with the artist reference, Salvador Dalí was a mustached man who painted melting clocks and had a knack for turning everyday objects into surreal works of art. For those of you who don&amp;rsquo;t know about the AI model, DALL·E is an AI model that can create any image you may dream based only on the words you give it- sorta like an artist on demand.</description>
     </item>
     
     <item>
-      <title>Blurred Lines</title>
-      <link>https://hzorkic.github.io/creative/2023-11-29-blurred-lines/</link>
-      <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
+      <title>Employee Experience Research for a Rapidly Scaling Organization</title>
+      <link>https://hzorkic.github.io/portfolio/2024-02-04-employee-experience-research-for-a-rapidly-scaling-organization/</link>
+      <pubDate>Sun, 04 Feb 2024 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/creative/2023-11-29-blurred-lines/</guid>
-      <description>Are your virtual experiences
-creating simulated realities?
- Could you tell them apart from actuality?
- Are your virtual realities
-creating simulated experiences?
- And if that is the case,
-when does it become deleterious ?
- Could you explain, to me, the difference?
- I think the line is blurring for me.
-I think the line is blurring me.
--z.z.</description>
-    </item>
-    
-    <item>
-      <title>See Through</title>
-      <link>https://hzorkic.github.io/creative/2023-11-29-see-through/</link>
-      <pubDate>Wed, 29 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hzorkic.github.io/creative/2023-11-29-see-through/</guid>
-      <description>Tell me why you like blue eyes.
-When you stare, who do you see?
-Because when you look into my eyes.
-I know you&amp;rsquo;re not looking at me.
-
- To be fair, I like brown eyes.
-For reasons assumed the same.
-Because when I look into your eyes,
-All I can think of is their name.
--z.z.</description>
-    </item>
-    
-    <item>
-      <title>A Comprehensive Follow-Up Investigation of Employee Satisfaction Survey Results</title>
-      <link>https://hzorkic.github.io/portfolio/2023-11-24-follow-up-research-study-on-employee-satisfaction-survey-results/</link>
-      <pubDate>Fri, 24 Nov 2023 00:00:00 +0000</pubDate>
-      
-      <guid>https://hzorkic.github.io/portfolio/2023-11-24-follow-up-research-study-on-employee-satisfaction-survey-results/</guid>
-      <description>Please Note: Many details of this project have been censored to honor confidentiality!
- 📌 Project Scope   Client: Company A Timeline: Part-time, 3 months My Role: UX Researcher Team: Senior Staff Member (assisted with group interview sessions) Methods: User Personas, Surveys, Focus Groups, Interviews Tools: Zoom, Google Docs  🧠 Background  Employee engagement and satisfaction is a critical factor influencing productivity and organizational success. It is not without suprise that many companies conduct annual employee engagement surverys to gather longitudinal data about the workplace they are cultivating.</description>
+      <guid>https://hzorkic.github.io/portfolio/2024-02-04-employee-experience-research-for-a-rapidly-scaling-organization/</guid>
+      <description>Background In the ever-evolving landscape of innovation, Texas Inventionworks (TIW) stands as the epitome of a pioneering force in engineering and education at The University of Texas at Austin. As a dynamic &amp;ldquo;skunk works&amp;rdquo; initiative, TIW redefines the conventional engineering education paradigm. From its modest roots in a 1,700-square-foot lab, TIW has burgeoned into a multifaceted program. The expansion into the EER marked a pivotal moment, propelling TIW into exponential growth across technology, community outreach, and an expanding workforce.</description>
     </item>
     
     <item>
       <title>My Tiny Record Player</title>
-      <link>https://hzorkic.github.io/creative/2023-09-11-my-tiny-record-player/</link>
+      <link>https://hzorkic.github.io/blog/2023-09-11-my-tiny-record-player/</link>
       <pubDate>Mon, 11 Sep 2023 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/creative/2023-09-11-my-tiny-record-player/</guid>
+      <guid>https://hzorkic.github.io/blog/2023-09-11-my-tiny-record-player/</guid>
       <description>Background All my friends have record players- their homes are full of warm analog music and dusty wooden crates full of vinyl records. I love the ritual of sifting through the fraying sleeves, gently sliding the record out of its casing, placing it onto the record player, the hum of the motor beginning to turn, and hearing the warp as the needle hits drops. Dinner parties and hangouts have a certain jenosaiqua when envoloped in the warm static of physical music.</description>
     </item>
     
     <item>
-      <title>How I Used Machine Learning to Meet My Favorite Artist</title>
-      <link>https://hzorkic.github.io/portfolio/untitled/</link>
+      <title>Are you just pixels?</title>
+      <link>https://hzorkic.github.io/blog/2022-12-17-are-you-just-pixels/</link>
       <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/portfolio/untitled/</guid>
-      <description>Using Neural Style Transfer for R.F. Alvarez Paintings.
-Project Summary:  Have you heard of DALLE? Not the artist&amp;hellip; well&amp;hellip; not exactly not an artist, but the AI model from OpenAI?
-For those of you unfamiliar with the artist reference, Salvador Dalí was a mustached man who painted melting clocks and had a knack for turning everyday objects into surreal works of art. For those of you who don&amp;rsquo;t know about the AI model, DALL·E is an AI model that can create any image you may dream based only on the words you give it- sorta like an artist on demand.</description>
-    </item>
-    
-    <item>
-      <title>Soda Pop Lover</title>
-      <link>https://hzorkic.github.io/creative/2022-12-17-soda-pop-lover/</link>
-      <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
-      
-      <guid>https://hzorkic.github.io/creative/2022-12-17-soda-pop-lover/</guid>
-      <description>Soda pop lover,
-My sweet little treat
-I love the days we spend lazing in your sheets
-Savoring small sips of each other
-It’s hard not to cave in for just one more
-&amp;hellip; and another
-I drown in your sparkling Carmel eyes
-Your bubbly voice whispering in my ears
-Your kiss tingles my insides with a delightful fizz
-You fill my body and brain with happiness
-Nothing could be better than this</description>
+      <guid>https://hzorkic.github.io/blog/2022-12-17-are-you-just-pixels/</guid>
+      <description>A concept that&amp;rsquo;s over-extended it&amp;rsquo;s stay in my mind for the past year is whether our digital identities are becoming a more valuable than our physcial identities. My personal research on the subject has manifested as many hours of reading articles, writing some poetry, and in the creation of my very first Instagram filter! I coded the filter in javascript, implemented in Spark AR, then finally published to the Instagram filter store.</description>
     </item>
     
     <item>
       <title>Sentiment Analysis for Post-Approval Birth Control Review Pharmacovigilance</title>
-      <link>https://hzorkic.github.io/technical/2022-05-19-sentiment-analysis-for-pharmacovigilance/</link>
+      <link>https://hzorkic.github.io/blog/2022-05-19-sentiment-analysis-for-pharmacovigilance/</link>
       <pubDate>Thu, 19 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/technical/2022-05-19-sentiment-analysis-for-pharmacovigilance/</guid>
+      <guid>https://hzorkic.github.io/blog/2022-05-19-sentiment-analysis-for-pharmacovigilance/</guid>
       <description>1. Introduction While pharmaceutical birth control continues to be the most popular method of contraceptive in the United States, the proliferation of different formulations of these methods can make decisions regarding which to use difficult for individual persons (Kavanaugh &amp;amp; Jerman, 2018). Additionally, research has shown that there may be a tendency for providers to diminish or avoid disclosing adverse side effects of contraceptives, further hindering a comprehensive understanding of its efficacy (Stevens, 2018).</description>
     </item>
     
     <item>
       <title>Computer-Aided Yoga</title>
-      <link>https://hzorkic.github.io/technical/2022-05-13-copmuter-aided-yoga/</link>
+      <link>https://hzorkic.github.io/blog/2022-05-13-copmuter-aided-yoga/</link>
       <pubDate>Fri, 13 May 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/technical/2022-05-13-copmuter-aided-yoga/</guid>
+      <guid>https://hzorkic.github.io/blog/2022-05-13-copmuter-aided-yoga/</guid>
       <description>Introduction In my final semester of college, I had already completed all my course requirements, so I had the opportunity to enroll in some fun classes. I enrolled in Startitical Learning, Natural Language Processing, Advanced Regression Analysis, and Introduction to Yoga. Can you choose the item that doesn&amp;rsquo;t belong in this list? If you chose Yoga, you&amp;rsquo;re technically correct, however, I decided to merge my knowledge of Machine Learning and love for Yoga for my final project to creatively represent what Yoga means to me.</description>
     </item>
     
@@ -173,30 +84,30 @@ Nothing could be better than this</description>
     
     <item>
       <title>ANOVA Walkthrough</title>
-      <link>https://hzorkic.github.io/technical/2022-01-27-anova/</link>
+      <link>https://hzorkic.github.io/blog/2022-01-27-anova/</link>
       <pubDate>Thu, 27 Jan 2022 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/technical/2022-01-27-anova/</guid>
+      <guid>https://hzorkic.github.io/blog/2022-01-27-anova/</guid>
       <description>What is ANOVA? ANOVA (Analysis of Variance) falls under a category of techniques called inferential statistics which allow you to test hypotheses or assess if Analysis of Variance your sample is generalizablbe to a broader population. A one-way ANOVA is a technique that extends the independent two-sample t-test to multiple groups, enabling users to determine if there is a statistically significant difference between group population means.
  Why ANOVA? Say, for example, we want to find out which pre-workout snack lead to different mean mile times.</description>
     </item>
     
     <item>
       <title>My first publication!</title>
-      <link>https://hzorkic.github.io/technical/2022-01-24-javanmardi-2021/</link>
+      <link>https://hzorkic.github.io/blog/2022-01-24-javanmardi-2021/</link>
       <pubDate>Thu, 16 Dec 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/technical/2022-01-24-javanmardi-2021/</guid>
+      <guid>https://hzorkic.github.io/blog/2022-01-24-javanmardi-2021/</guid>
       <description>Here&amp;rsquo;s a link to the paper!
 Feel free to email me if you can&amp;rsquo;t access it and I will send you the pdf.</description>
     </item>
     
     <item>
       <title>Naive Bayes Classification</title>
-      <link>https://hzorkic.github.io/technical/2021-11-10-naive-bayes-classification/</link>
+      <link>https://hzorkic.github.io/blog/2021-11-10-naive-bayes-classification/</link>
       <pubDate>Wed, 10 Nov 2021 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/technical/2021-11-10-naive-bayes-classification/</guid>
+      <guid>https://hzorkic.github.io/blog/2021-11-10-naive-bayes-classification/</guid>
       <description>For this week&amp;rsquo;s homework we are going explore one new classification technique:
  Naive Bayes  In this post we are going to use a dataset of Melboburne housing to predict the housing type as one of three possible categories:
  &amp;lsquo;h&amp;rsquo; house &amp;lsquo;u&amp;rsquo; duplex &amp;rsquo;t&amp;rsquo; townhouse  In addition to building our own Naive Bayes classifier, we are going to compare the performace of our classifier to the Gaussian Naive Bayes Classifier available in the scikit-learn library.</description>
@@ -204,22 +115,31 @@ Feel free to email me if you can&amp;rsquo;t access it and I will send you the p
     
     <item>
       <title>RNASeq Analysis of Arabadopsis thaliana</title>
-      <link>https://hzorkic.github.io/technical/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</link>
+      <link>https://hzorkic.github.io/blog/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</link>
       <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/technical/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</guid>
+      <guid>https://hzorkic.github.io/blog/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</guid>
       <description>Analysis of RNASeq Data from Wild Type and Mutated Arabidopsis thaliana 0. Background In this report, we are primarily interested in understanding how the differences in gene expression between the light and dark conditions vary by gene in the primary gene ontology id GO:0006090. To this end, we will use DESeq to look for genes with significant interaction terms between genotype and timepoint.
 In interpreting the RNA-seq data set, you should note the following descriptions of the different sample genotypes:</description>
     </item>
     
     <item>
       <title>Exploratory Data Analysis of SARS-CoV-2 Mutations</title>
-      <link>https://hzorkic.github.io/technical/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</link>
+      <link>https://hzorkic.github.io/blog/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</link>
       <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
       
-      <guid>https://hzorkic.github.io/technical/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</guid>
+      <guid>https://hzorkic.github.io/blog/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</guid>
       <description>0. Introduction COVID-19 is an infectionus disease caused by Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). First identified in December of 2019, SARS-CoV-2 resulted in an ongoing pandemic effecting over 39 million people in 189 countries, but the WHO predicts that with asymptomatic cases, the number of infections may be closer to 800 million.
 Therapeutics for those suffering from COVID-19 include collecting and transplanting neautralizing antibodies from patients who have recoved from COVID-19.</description>
+    </item>
+    
+    <item>
+      <title>Machine Learning for Colon Cancer Gene Sequence Signature Discovery </title>
+      <link>https://hzorkic.github.io/blog/2020-02-04-machine-learning-for-colon-cancer-gene-sequence-signature-discovery/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/blog/2020-02-04-machine-learning-for-colon-cancer-gene-sequence-signature-discovery/</guid>
+      <description></description>
     </item>
     
   </channel>
