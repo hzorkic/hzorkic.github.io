@@ -495,3 +495,8 @@ p.social.social--outline a {
     color: black;
     text-align: justify;
 }
+
+
+.box-masonry .col-xl {
+  width: 100%;
+}
