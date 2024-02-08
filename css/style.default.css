@@ -391,11 +391,13 @@ SIDEBAR + RIGHT COLUMN
   color: black;
 }
 .content-column {
-  padding-top: 30px;
+  padding-top: 10%;
 }
 .content-column.white-background {
   min-height: 100vh;
+  padding-right: 4%;
 }
+
 .grid {
   padding-top: 5px;
   overflow-y: hidden;
@@ -870,7 +872,7 @@ a:active {
 }
 .box-masonry .box-masonry-text p {
   color: #999999;
-  font-size: 14px;
+  font-size: 20px; 
 }
 .box-masonry .box-masonry-hover-text-header {
   position: absolute;
@@ -885,7 +887,7 @@ a:active {
   color: black;
 }
 .box-masonry .box-masonry-hover-text-header p {
-  font-size: 14px;
+  font-size: 26px;
 }
 .box-masonry .box-masonry-hover-text-header h4 a {
   color: black;
@@ -1961,40 +1963,40 @@ h6,
 .h5,
 .h6 {
   font-family: "Roboto", Helvetica, Arial, sans-serif;
-  font-weight: 700;
+  font-weight:700;
   line-height: 1.2;
   color: #000000;
 }
 
 h1,
 .h1 {
-  font-size: 28px;
+  font-size: 30px;
 }
 
 h2,
 .h2 {
-  font-size: 26px;
+  font-size: 28px;
 }
 
 h3,
 .h3 {
-  font-size: 24px;
+  font-size: 26px;
 }
 
 h4,
 .h4 {
-  font-size: 22px;
+  font-size: 24px;
   font-weight: 700;
 }
 
 h5,
 .h5 {
-  font-size: 10px;
+  font-size: 22px;
   font-weight: 700;
 }
 h6,
 .h6 {
-  font-size: 14px;
+  font-size: 20px;
   font-weight: 700;
 }
 h1,
@@ -2015,7 +2017,7 @@ p {
 }
 @media (min-width: 768px) {
   .lead {
-    font-size: 24px;
+    font-size: 26px;
   }
 }
 .text-small {

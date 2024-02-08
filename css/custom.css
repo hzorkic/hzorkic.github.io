@@ -9,7 +9,8 @@
 body {  
   background-color: var(--bg-color);
   color: white; 
-  font-family: 'Courier New', monospace ;
+  font-size: 16px;
+  font-family: 'Inconsolata', monospace ;
 }
 
 
@@ -64,13 +65,13 @@ h4,
 
 h5,
 .h5 {
-  font-size: 10px;
+  font-size: 20px;
   font-weight: 700;
 }
 
 h6,
 .h6 {
-  font-size: 14px;
+  font-size: 16px;
   font-weight: 700;
 }
 
@@ -90,7 +91,7 @@ p {
 
 .lead {
   margin-bottom: 24px;
-  font-size: 18px;
+  font-size: 28px;
 }
 
 hr {
@@ -281,11 +282,12 @@ fieldset[disabled] .btn-ghost-black.active {
 }
 .box-masonry .box-masonry-text p {
   color: black;
-  font-size: 14px;
+  font-size: 16px;
 }
 
 .box-masonry a {
   text-decoration: none;
+  font-size: 16px;
 }
 
 .box-masonry .box-masonry-hover-text-header {
@@ -301,7 +303,7 @@ fieldset[disabled] .btn-ghost-black.active {
   color: black;
 }
 .box-masonry .box-masonry-hover-text-header p {
-  font-size: 14px;
+  font-size: 20px;
 }
 .box-masonry .box-masonry-hover-text-header h4 a {
   color: black;
@@ -483,8 +485,15 @@ p.social.social--outline a {
 }
 
 .content-column {
-  padding-top: 20px;
+  padding-top: 10%;
 }
+
+.content-column.white-background {
+  padding-top: 4%;
+  padding-left: 4%;
+  padding-right: 4%;
+}
+
 .content-column-content {
     padding-left: 0px;
     padding-right: 0px;
