@@ -1,7 +1,7 @@
 ---
 title: Exploratory Data Analysis of SARS-CoV-2 Mutations
 author: Hayley Zorkic
-description: "I will be combining two datasets that document protein sequence mutations in the spike domain region of SARS-CoV-2 samples obtained from pateints who were hospitalized for COVID-19-one from Houston and two from the COVID-19 Viral Genome Analysis Pipeline (GISAID)."
+description: "... showcasing advanced data wrangling skills!"
 date: '2020-10-16'
 slug: []
 categories: []

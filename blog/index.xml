@@ -8,6 +8,16 @@
     <language>en-us</language>
     <lastBuildDate>Sun, 04 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
+      <title>End-to-end Development of Texas Inventionworks&#39; Service Application</title>
+      <link>https://hzorkic.github.io/blog/2023-11-22-texas-inventionworks-digital-infrastructure/</link>
+      <pubDate>Sun, 23 Aug 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/blog/2023-11-22-texas-inventionworks-digital-infrastructure/</guid>
+      <description>Please Note: Some details of this project have been censored to honor confidentiality!
+  📌 Project Scope  Client: Texas Inventionworks Timeline: Full-time, 3 months My Role: Lead-UX Researcher &amp;amp; Lead-UX Engineer Team: 2-3 student student staff members Methods: User Personas, User Flows, Wireframes, Rapid Prototyping Tools: Figma, Agile Scrum, AWS, React   🧠 Background During the summer of 2020, I co-led the development of a website to automate and digitize the operational workflow of Texas Inventionworks (TIW) - The University of Texas at Austin&amp;rsquo;s Makerspace.</description>
+    </item>
+    
+    <item>
       <title>How I Used Machine Learning to Meet My Favorite Artist</title>
       <link>https://hzorkic.github.io/blog/2022-12-17-neural-style-transfer-for-r-f-alvarez/</link>
       <pubDate>Sat, 17 Dec 2022 00:00:00 +0000</pubDate>
@@ -104,9 +114,18 @@ Feel free to email me if you can&amp;rsquo;t access it and I will send you the p
     </item>
     
     <item>
+      <title>Machine Learning for Colon Cancer Gene Sequence Signature Discovery </title>
+      <link>https://hzorkic.github.io/blog/2020-02-04-machine-learning-for-colon-cancer-gene-sequence-signature-discovery/</link>
+      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/blog/2020-02-04-machine-learning-for-colon-cancer-gene-sequence-signature-discovery/</guid>
+      <description></description>
+    </item>
+    
+    <item>
       <title>RNASeq Analysis of Arabadopsis thaliana</title>
       <link>https://hzorkic.github.io/blog/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</link>
-      <pubDate>Tue, 24 Nov 2020 00:00:00 +0000</pubDate>
+      <pubDate>Sun, 24 Nov 2019 00:00:00 +0000</pubDate>
       
       <guid>https://hzorkic.github.io/blog/2020-11-24-rnaseq-analysis-of-arabadopsis-thaliana/</guid>
       <description>Analysis of RNASeq Data from Wild Type and Mutated Arabidopsis thaliana 0. Background In this report, we are primarily interested in understanding how the differences in gene expression between the light and dark conditions vary by gene in the primary gene ontology id GO:0006090. To this end, we will use DESeq to look for genes with significant interaction terms between genotype and timepoint.
@@ -116,20 +135,11 @@ In interpreting the RNA-seq data set, you should note the following descriptions
     <item>
       <title>Exploratory Data Analysis of SARS-CoV-2 Mutations</title>
       <link>https://hzorkic.github.io/blog/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</link>
-      <pubDate>Fri, 16 Oct 2020 00:00:00 +0000</pubDate>
+      <pubDate>Wed, 16 Oct 2019 00:00:00 +0000</pubDate>
       
       <guid>https://hzorkic.github.io/blog/2020-10-16-exploratory-data-analysis-of-sars-cov-2-mutations/</guid>
       <description>0. Introduction COVID-19 is an infectionus disease caused by Severe Acute Respiratory Syndrome Coronavirus 2 (SARS-CoV-2). First identified in December of 2019, SARS-CoV-2 resulted in an ongoing pandemic effecting over 39 million people in 189 countries, but the WHO predicts that with asymptomatic cases, the number of infections may be closer to 800 million.
 Therapeutics for those suffering from COVID-19 include collecting and transplanting neautralizing antibodies from patients who have recoved from COVID-19.</description>
-    </item>
-    
-    <item>
-      <title>Machine Learning for Colon Cancer Gene Sequence Signature Discovery </title>
-      <link>https://hzorkic.github.io/blog/2020-02-04-machine-learning-for-colon-cancer-gene-sequence-signature-discovery/</link>
-      <pubDate>Tue, 04 Feb 2020 00:00:00 +0000</pubDate>
-      
-      <guid>https://hzorkic.github.io/blog/2020-02-04-machine-learning-for-colon-cancer-gene-sequence-signature-discovery/</guid>
-      <description></description>
     </item>
     
   </channel>
