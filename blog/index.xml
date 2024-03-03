@@ -6,7 +6,7 @@
     <description>Recent content in Blogs on Zora Zorkić</description>
     <generator>Hugo -- gohugo.io</generator>
     <language>en-us</language>
-    <lastBuildDate>Sun, 04 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
+    <lastBuildDate>Tue, 06 Feb 2024 00:00:00 +0000</lastBuildDate><atom:link href="https://hzorkic.github.io/blog/index.xml" rel="self" type="application/rss+xml" />
     <item>
       <title>End-to-end Development of Texas Inventionworks&#39; Service Application</title>
       <link>https://hzorkic.github.io/blog/2023-11-22-texas-inventionworks-digital-infrastructure/</link>
@@ -26,6 +26,15 @@
       <description>Using Neural Style Transfer for R.F. Alvarez Paintings.
 Project Summary:  Have you heard of DALLE? Not the artist&amp;hellip; well&amp;hellip; not exactly not an artist, but the AI model from OpenAI?
 For those of you unfamiliar with the artist reference, Salvador Dalí was a mustached man who painted melting clocks and had a knack for turning everyday objects into surreal works of art. For those of you who don&amp;rsquo;t know about the AI model, DALL·E is an AI model that can create any image you may dream based only on the words you give it- sorta like an artist on demand.</description>
+    </item>
+    
+    <item>
+      <title>Analyzing MySQL Database Performance</title>
+      <link>https://hzorkic.github.io/img/SQL.pdf</link>
+      <pubDate>Tue, 06 Feb 2024 00:00:00 +0000</pubDate>
+      
+      <guid>https://hzorkic.github.io/img/SQL.pdf</guid>
+      <description></description>
     </item>
     
     <item>
